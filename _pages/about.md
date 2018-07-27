@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "academicpages is a ready-to-fork GitHub Pages template for academic personal websites"
+title: "About"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
@@ -8,7 +8,14 @@ redirect_from:
   - /about.html
 ---
 
-This is the front page of a website that is powered by the [academicpages template](https://github.com/academicpages/academicpages.github.io) and hosted on GitHub pages. [GitHub pages](https://pages.github.com) is a free service in which websites are built and hosted from code and data stored in a GitHub repository, automatically updating when a new commit is made to the respository. This template was forked from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/) created by Michael Rose, and then extended to support the kinds of content that academics have: publications, talks, teaching, a portfolio, blog posts, and a dynamically-generated CV. You can fork [this repository](https://github.com/academicpages/academicpages.github.io) right now, modify the configuration and markdown files, add your own PDFs and other content, and have your own site for free, with no ads! An older version of this template powers my own personal website at [stuartgeiger.com](http://stuartgeiger.com), which uses [this Github repository](https://github.com/staeiou/staeiou.github.io).
+Hi! I am Guru - a Graduate Student in Computer Science at Colorado State University. I work in the [Computer Vision Lab]() under [Dr. Bruce Draper](https://www.cs.colostate.edu/~draper/index.php) and [Dr. Ross Beveridge](https://www.cs.colostate.edu/~ross/index.php).
+I am involved in one of the coolest projects [Communicating with Computers](https://www.cs.colostate.edu/~draper/home_research.php) in computer vision.
+My current research work for my thesis focuses on exploring and developing Convolutional Neural Networks, specifically the Pose Machines, to predict the person's joint locations given only an RGB image of the person.
+
+Previously, I was an undergraduate research student in the [Robotics Lab](http://robocon.in/) of MIT Pune, India, where I worked with a team of some awesome students to build some awesome Robots like [these](http://robocon.in/photos/2013-2/) and [these from our Youtube channel](https://www.youtube.com/user/MITRobocon)!
+
+I love hiking, biking, everything about the space exploration, and almost all types of music genres.
+
 
 A data-driven personal website
 ======
