@@ -1,22 +1,26 @@
 # main links links
 main:
-  - title: "CV"
-    url: /cv/
 
   - title: "Talks"
     url: /talks/    
 
-  - title: "Teaching"
+  - title: "Other"
     url: /teaching/    
-    
-  - title: "Portfolio"
-    url: /portfolio/
+
+#  - title: "Portfolio"
+#    url: /portfolio/
+
+  - title: "ML"
+    url: /ml/
 
   - title: "Vision"
-    url: /portfolio/
+    url: /vision/
 
   - title: "Robotics"
-    url: /portfolio/
+    url: /robotics/
+
+  - title: "Electronics"
+    url: /electronics/
 
   - title: "Blog Posts"
     url: /year-archive/
@@ -24,9 +28,11 @@ main:
   - title: "Publications"
     url: /publications/
 
+  - title: "Gallery"
+    url: /gallery/
 
-#  - title: "CV"
-#    url: /cv/
+  - title: "CV"
+    url: /cv/
     
-  - title: "Guide"
-    url: /markdown/
+#  - title: "Guide"
+#    url: /markdown/

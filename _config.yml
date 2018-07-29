@@ -80,13 +80,14 @@ analytics:
 author:
   name             : "Guru Mulay"
   avatar           : "profile2.png"
-  bio              : "Masters (Computer Science) Interested in Machine Learning, Computer Vision, Robotics, Electronics, and many more."
+  bio              : ">> M.S. in Computer Science.   >> Interested in Machine Learning, Computer Vision, Robotics, Embedded Electronics, and many more...    >> guru5[-aT-]colostate.edu"
+#  bio              : "guru5[-aT-]colostate.edu"
   location         : "Colorado, USA"
 #  email_           : "guru5@colostate.edu"
   employer         :
   googlescholar    : "https://scholar.google.com/citations?user=O3IPYzIAAAAJ&hl=en"
   email            : # "guru5@colostate.edu"
-  uri              :
+  uri              : # "guru5[-aT-]colostate.edu"
   bitbucket        :
   codepen          :
   dribbble         :

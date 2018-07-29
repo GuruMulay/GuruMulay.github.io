@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-Hi! I am Guru - a Graduate Student in Computer Science at Colorado State University. I work in the [Computer Vision Lab]() under [Dr. Bruce Draper](https://www.cs.colostate.edu/~draper/index.php) and [Dr. Ross Beveridge](https://www.cs.colostate.edu/~ross/index.php).
+Hi! I am Guru - a Graduate Student in Computer Science at Colorado State University. I work in the [Computer Vision Lab](https://www.cs.colostate.edu/~vision/) under [Dr. Bruce Draper](https://www.cs.colostate.edu/~draper/index.php) and [Dr. Ross Beveridge](https://www.cs.colostate.edu/~ross/index.php).
 I am involved in one of the coolest projects [Communicating with Computers](https://www.cs.colostate.edu/~draper/home_research.php) in computer vision.
 My current research work for my thesis focuses on exploring and developing Convolutional Neural Networks, specifically the Pose Machines, to predict the person's joint locations given only an RGB image of the person.
 
