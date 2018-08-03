@@ -240,6 +240,60 @@ defaults:
       layout: talk
       author_profile: true
       share: true
+  # _ml
+  - scope:
+      path: ""
+      type: ml
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _vision
+  - scope:
+      path: ""
+      type: vision
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _robotics
+  - scope:
+      path: ""
+      type: robotics
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _electronics
+  - scope:
+      path: ""
+      type: electronics
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _academic
+  - scope:
+      path: ""
+      type: academic
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _gallery
+  - scope:
+      path: ""
+      type: gallery
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
 
 # Sass/SCSS
 sass:
