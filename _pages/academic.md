@@ -1,31 +1,38 @@
 ---
 layout: archive
-title: "Academics: Courses and Teaching Assistantship"
+title: "Academics: Publications, Courses, and Teaching Assistantship"
 permalink: /academic/
 author_profile: true
 ---
 
 *****************
 
-|**University Courses:**|
+|**Publications:** Please visit my [Google Scholar](https://scholar.google.com/citations?user=O3IPYzIAAAAJ&hl=en) profile.|
 
+
+*****************
+
+*****************
+
+|**University Courses:**|
 
 | Computer Engineering | Electronics Engineering  | Mathematics |
 | --------- | ------------- | ----- |
-| CS510: Image Computation   | ECE555: Robot Motion Planning | MATH520: Optimization of Controls and Communications |
-| CS410: Computer Graphics    | ECE455:      |    |
-| CS545: Machine Learning | ECE       |     |
-| `git diff`  | `1` | `1` |
+| CS510: Image Computation &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   | ECE481A2: Intro to Robot Programming/Simulation       | MATH520: Optimization Methods: Control & Communication |
+| CS545: Machine Learning                                       | ECE555: Robot Motion Planning                         |                       |
+| CS410: Computer Graphics                                      | ECE569: Micro-Electro-Mechanical Devices              |                       |
+| CS435: Intro to Big Data                                      |                                                       |                       |
+| CS530: Fault-Tolerant Computing                               | `1`                                                   | `1`                   |
+| CS533: Database Management Systems                            |                                                       |                       |
+| CS581A3: Software Maintenance & Evolution                     |                       |                                       |
 
+*************************
 
 |**Online Courses:**|
 
 | Coursera | edX  | Udacity |
-| --------- | ------------- | ----- |
-| CS510: Image Computation   | ECE555: Robot Motion Planning | MATH520: Optimization of Controls and Communications |
-| CS410: Computer Graphics    | ECE455:      |    |
-| CS545: Machine Learning | ECE       |     |
-
+| --------- | ------------- | -------- |
+| Machine Learning (Stanford University)  |  |  |
 
 
 *****************
@@ -35,10 +42,10 @@ author_profile: true
 
 |**Graduate Teaching Assitantship:**|
 
-| Course | Year | Link |
-| --------- | ------------- | ----- |
-| CS410: Computer Graphics    | Fall 2017 and Fall 2018      |    |
-| CS464: Human Computer Interactions | Spring 2017 and Spring 2018        |     |
+| Course | Year and Links |
+| ------------- | ------------- |
+| CS410: Computer Graphics  | [`Fall 2017`](https://www.cs.colostate.edu/~cs410/yr2017fa/) <br> [`Fall 2018`](https://www.cs.colostate.edu/~cs410/yr2018fa/)      |
+| CS464: Human Computer Interactions | [`Spring 2017`](https://www.cs.colostate.edu/~cs464/yr2017sp/) <br> [`Spring 2018`](https://www.cs.colostate.edu/~cs464/yr2018sp/)        |
 
 
 *****************
@@ -48,7 +55,11 @@ author_profile: true
 
 |**Extracurricular:**|
 
-- Robotics Team
+
+| Activity | Year |
+| ------------ | ------------- |
+| Robotics: [MIT Tech Team](robocon.in) | August 2011 - March 2014 |
+
 
 
 {% include base_path %}
