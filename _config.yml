@@ -80,8 +80,8 @@ analytics:
 author:
   name             : "Guru Mulay"
   avatar           : "profile2.png"
-  bio              : ">> M.S. in Computer Science.   >> Interested in Machine Learning, Computer Vision, Robotics, Embedded Electronics, and many more...    >> guru5[-aT-]colostate.edu"
-#  bio              : "guru5[-aT-]colostate.edu"
+  bio              : ">> M.S. in Computer Science at <a style='color: black;' href='https://www.cs.colostate.edu/cstop/'>CSU</a> <a style='color: black;' href='https://www.cs.colostate.edu/~vision/'>Computer Vision Lab</a> <br/> >> Interested in Machine Learning, Computer Vision, Robotics, Embedded Electronics, and many more... <br/> >> guru5[-aT-]colostate.edu"
+#  bio2              : "guru5[-aT-]colostate.edu"
   location         : "Colorado, USA"
 #  email_           : "guru5@colostate.edu"
   employer         :
@@ -183,7 +183,9 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
-
+  ml:
+    output: true
+    permalink: /:collection/:path/
 
 # Defaults
 defaults:

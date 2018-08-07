@@ -7,6 +7,8 @@ redirect_from:
   - /markdown.html
 ---
 
+<a style='color: blue;' href='https://www.cs.colostate.edu/~vision/'>Computer Vision Lab</a>
+
 ## Locations of key files/directories
 
 * Basic config options: _config.yml
@@ -64,7 +66,7 @@ Single line blockquote:
 
 | Header1 | Header2 | Header3 |
 |:--------|:-------:|--------:|
-| cell1   | cell2   | cell3   |
+| <a style='color: blue;' href='https://www.cs.colostate.edu/~vision/'>Computer Vision Lab</a>   | cell2   | cell3   |
 | cell4   | cell5   | cell6   |
 |-----------------------------|
 | cell1   | cell2   | cell3   |

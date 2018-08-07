@@ -3,11 +3,16 @@ layout: archive
 title: "?"
 permalink: /me/
 author_profile: true
-redirect_from:
-  - /resume
+
 ---
 
 {% include base_path %}
+
+{% for post in site.me %}
+  {% include archive-single-me.html %}
+{% endfor %}
+
+
 
 Education
 ======

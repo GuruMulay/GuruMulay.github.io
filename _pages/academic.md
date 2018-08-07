@@ -1,9 +1,12 @@
 ---
-layout: archive
 title: "Academics: Publications, Courses, and Teaching Assistantship"
 permalink: /academic/
 author_profile: true
+redirect_from:
+  - /academic
 ---
+
+{% include base_path %}
 
 *****************
 
@@ -13,6 +16,20 @@ author_profile: true
 *****************
 
 *****************
+
+
+|**Graduate Teaching Assitantship:**|
+
+| Course | Year and Links |
+| ------------- | ------------- |
+| CS410: Computer Graphics  | [`Fall 2017`](https://www.cs.colostate.edu/~cs410/yr2017fa/) <br> [`Fall 2018`](https://www.cs.colostate.edu/~cs410/yr2018fa/)      |
+| CS464: Human Computer Interactions | [`Spring 2017`](https://www.cs.colostate.edu/~cs464/yr2017sp/) <br> [`Spring 2018`](https://www.cs.colostate.edu/~cs464/yr2018sp/)        |
+
+
+*****************
+
+*****************
+
 
 |**University Courses:**|
 
@@ -40,32 +57,11 @@ author_profile: true
 *****************
 
 
-|**Graduate Teaching Assitantship:**|
-
-| Course | Year and Links |
-| ------------- | ------------- |
-| CS410: Computer Graphics  | [`Fall 2017`](https://www.cs.colostate.edu/~cs410/yr2017fa/) <br> [`Fall 2018`](https://www.cs.colostate.edu/~cs410/yr2018fa/)      |
-| CS464: Human Computer Interactions | [`Spring 2017`](https://www.cs.colostate.edu/~cs464/yr2017sp/) <br> [`Spring 2018`](https://www.cs.colostate.edu/~cs464/yr2018sp/)        |
-
-
-*****************
-
-*****************
-
-
 |**Extracurricular:**|
-
 
 | Activity | Year |
 | ------------ | ------------- |
 | Robotics: [MIT Tech Team](robocon.in) | August 2011 - March 2014 |
 
 
-
-{% include base_path %}
-
-
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
-{% endfor %}
 
