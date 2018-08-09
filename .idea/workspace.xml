@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7eebd872-fde7-458a-a683-1a3c4bd02234" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_academic/portfolio-1.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_academic/portfolio-2.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/navigation.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/navigation.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_me/me-1.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_me/me-2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ml/portfolio-1.md" beforeDir="false" afterPath="$PROJECT_DIR$/_ml/ml-1.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ml/portfolio-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/_ml/ml-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/about.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_pages/academic.md" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/academic.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/m_e_.md" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/me.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/markdown.md" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/markdown.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/me.html" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/m_e_.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_pages/gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/gallery.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,23 +14,30 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.46877012">
+    <splitter split-orientation="horizontal" split-proportion="0.6356831">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="academic.md" pinned="false" current-in-tab="true">
+          <file leaf-file-name="academic.md" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/_pages/academic.md">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="671">
-                  <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+                <state relative-caret-position="414">
+                  <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="portfolio.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/_pages/portfolio.html">
+          <file leaf-file-name="gallery.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/_pages/gallery.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="108">
-                  <caret line="6" selection-start-line="6" selection-end-line="6" />
+                <state relative-caret-position="396">
+                  <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+                  <folding>
+                    <element signature="n#style#0;n#img#0;n#a#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#img#0;n#a#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#img#0;n#a#2;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#img#0;n#a#3;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -86,11 +82,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="_config.yml" pinned="false" current-in-tab="false">
+          <file leaf-file-name="_config.yml" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/_config.yml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1440">
-                  <caret line="82" column="129" selection-start-line="82" selection-start-column="129" selection-end-line="82" selection-end-column="222" />
+                <state relative-caret-position="190">
+                  <caret line="83" column="79" selection-start-line="83" selection-start-column="79" selection-end-line="83" selection-end-column="79" />
                 </state>
               </provider>
             </entry>
@@ -109,11 +105,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="markdown.md" pinned="false" current-in-tab="true">
+          <file leaf-file-name="markdown.md" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/_pages/markdown.md">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="126">
-                  <caret line="10" selection-start-line="9" selection-end-line="10" />
+                <state relative-caret-position="198">
+                  <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
                 </state>
               </provider>
             </entry>
@@ -139,9 +135,15 @@
       <find>pages</find>
       <find>publications</find>
       <find>portfol</find>
+      <find>30%</find>
+      <find />
+      <find>25%</find>
     </findStrings>
     <replaceStrings>
       <replace>me</replace>
+      <replace>25%</replace>
+      <replace>&quot;&quot;</replace>
+      <replace>23%</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -163,7 +165,6 @@
         <option value="$PROJECT_DIR$/_pages/robotics.html" />
         <option value="$PROJECT_DIR$/_pages/vision.html" />
         <option value="$PROJECT_DIR$/_pages/electronics.html" />
-        <option value="$PROJECT_DIR$/_pages/gallery.html" />
         <option value="$PROJECT_DIR$/_pages/academic.html" />
         <option value="$PROJECT_DIR$/_pages/publications.html" />
         <option value="$PROJECT_DIR$/_pages/terms.md" />
@@ -184,9 +185,10 @@
         <option value="$PROJECT_DIR$/_ml/ml-2.html" />
         <option value="$PROJECT_DIR$/_ml/ml-1.md" />
         <option value="$PROJECT_DIR$/_ml/ml-3.md" />
-        <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/_pages/markdown.md" />
+        <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/_pages/academic.md" />
+        <option value="$PROJECT_DIR$/_pages/gallery.html" />
       </list>
     </option>
   </component>
@@ -231,6 +233,11 @@
             <path>
               <item name="GuruMulay.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="GuruMulay.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="_gallery" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GuruMulay.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GuruMulay.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="_pages" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -258,6 +265,18 @@
               <item name="GuruMulay.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="_site" type="462c0819:PsiDirectoryNode" />
               <item name="cv" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GuruMulay.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GuruMulay.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="_site" type="462c0819:PsiDirectoryNode" />
+              <item name="gallery" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GuruMulay.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GuruMulay.github.io" type="462c0819:PsiDirectoryNode" />
+              <item name="_site" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GuruMulay.github.io" type="b2602c69:ProjectViewProjectNode" />
@@ -349,9 +368,10 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16639829" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13955985" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="5" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32991803" />
       <window_info anchor="right" id="SciView" order="4" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -362,7 +382,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32991803" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -373,13 +392,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/_pages/publications.html" />
-    <entry file="file://$PROJECT_DIR$/_pages/gallery.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_academic/portfolio-1.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -638,6 +650,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_pages/markdown.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="83" column="79" selection-start-line="83" selection-start-column="79" selection-end-line="83" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_pages/portfolio.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -645,24 +671,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1440">
-          <caret line="82" column="129" selection-start-line="82" selection-start-column="129" selection-end-line="82" selection-end-column="222" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_pages/markdown.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" selection-start-line="9" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_pages/academic.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="671">
-          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="414">
+          <caret line="23" column="33" selection-start-line="23" selection-start-column="33" selection-end-line="23" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_pages/gallery.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="2" selection-start-line="22" selection-start-column="2" selection-end-line="22" selection-end-column="2" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
