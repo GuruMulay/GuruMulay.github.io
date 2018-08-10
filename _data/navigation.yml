@@ -34,7 +34,7 @@ main:
   - title: "Gallery"
     url: /gallery/
 
-  - title: "About Me"
+  - title: "Me"
     url: /me/
 
   - title: "CV"
