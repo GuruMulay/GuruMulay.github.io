@@ -3,12 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="7eebd872-fde7-458a-a683-1a3c4bd02234" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/navigation.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/navigation.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_me/2009-10-01-paper-title-number-1.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_me/2009-10-01-paper-title-number-4.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/gallery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/m_e_.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/me.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_electronics/portfolio-1.md" beforeDir="false" afterPath="$PROJECT_DIR$/_vision/vision-1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_electronics/portfolio-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/_vision/vision-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ml/ml-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/_ml/ml-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_pages/electronics.html" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/electronics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_pages/me.html" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/me.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_pages/ml.html" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/ml.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_pages/robotics.html" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/robotics.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_pages/vision.html" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/vision.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_robotics/portfolio-1.md" beforeDir="false" afterPath="$PROJECT_DIR$/_robotics/robotics-1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_robotics/portfolio-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/_robotics/robotics-2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_vision/portfolio-1.md" beforeDir="false" afterPath="$PROJECT_DIR$/_electronics/electronics-1.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_vision/portfolio-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/_electronics/electronics-2.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,10 +25,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.1">
+    <splitter split-orientation="horizontal" split-proportion="0.16812964">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="academic.md" pinned="false" current-in-tab="false">
+          <file leaf-file-name="academic.md" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/_pages/academic.md">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="602">
@@ -30,20 +37,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="ml.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/_pages/ml.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="252">
-                  <caret line="14" selection-start-line="14" selection-end-line="14" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="gallery.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="gallery.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/_pages/gallery.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="540">
-                  <caret line="30" selection-start-line="30" selection-end-line="30" />
+                <state relative-caret-position="468">
+                  <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
                   <folding>
                     <element signature="n#style#0;n#img#0;n#a#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#img#0;n#a#1;n#!!top" expanded="true" />
@@ -64,15 +62,6 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="authors.yml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/_data/authors.yml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="306">
-                  <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-                </state>
-              </provider>
-            </entry>
-          </file>
         </leaf>
       </split-first>
       <split-second>
@@ -80,8 +69,17 @@
           <file leaf-file-name="_config.yml" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/_config.yml">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="840">
-                  <caret line="312" selection-start-line="312" selection-end-line="312" />
+                <state relative-caret-position="880">
+                  <caret line="198" selection-start-line="198" selection-end-line="198" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="portfolio.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/_pages/portfolio.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="108">
+                  <caret line="6" selection-start-line="6" selection-end-line="6" />
                 </state>
               </provider>
             </entry>
@@ -98,8 +96,8 @@
           <file leaf-file-name="me.html" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/_pages/me.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="688">
-                  <caret line="54" selection-start-line="54" selection-end-line="54" />
+                <state relative-caret-position="706">
+                  <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
                   <folding>
                     <element signature="n#style#0;n#img#0;n#a#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#p#1;n#!!top" expanded="true" />
@@ -115,6 +113,12 @@
                     <element signature="n#style#0;n#p#6;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#img#0;n#a#6;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#p#7;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#img#0;n#a#7;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#8;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#img#0;n#a#8;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#9;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#img#0;n#a#9;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#10;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -146,24 +150,28 @@
     <findStrings>
       <find>p</find>
       <find>Your</find>
-      <find>portfolio</find>
       <find>pages</find>
       <find>publications</find>
       <find>30%</find>
-      <find>width=&quot;500&quot; height=&quot;100&quot;</find>
+      <find />
       <find>25%</find>
-      <find>class=&quot;alignnone  wp-image-577&quot;</find>
+      <find />
       <find>portfol</find>
       <find>me</find>
-      <find>me</find>
+      <find>1%</find>
+      <find />
       <find>gallery</find>
+      <find>portfolio</find>
     </findStrings>
     <replaceStrings>
       <replace>25%</replace>
       <replace>&quot;&quot;</replace>
       <replace>23%</replace>
-      <replace>me</replace>
       <replace>30</replace>
+      <replace>70%</replace>
+      <replace>me</replace>
+      <replace>robotics</replace>
+      <replace>electronics</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -181,10 +189,6 @@
         <option value="$PROJECT_DIR$/_posts/2016-10-10-blog-post-13.md" />
         <option value="$PROJECT_DIR$/_posts/2016-10-10-blog-post-2.md" />
         <option value="$PROJECT_DIR$/_posts/2016-10-10-blog-post-3.md" />
-        <option value="$PROJECT_DIR$/_pages/ml.html" />
-        <option value="$PROJECT_DIR$/_pages/robotics.html" />
-        <option value="$PROJECT_DIR$/_pages/vision.html" />
-        <option value="$PROJECT_DIR$/_pages/electronics.html" />
         <option value="$PROJECT_DIR$/_pages/academic.html" />
         <option value="$PROJECT_DIR$/_pages/publications.html" />
         <option value="$PROJECT_DIR$/_pages/terms.md" />
@@ -200,7 +204,6 @@
         <option value="$PROJECT_DIR$/_includes/archive-single-me.html" />
         <option value="$PROJECT_DIR$/_publications/2009-10-01-paper-title-number-4.md" />
         <option value="$PROJECT_DIR$/_portfolio/portfolio-3.md" />
-        <option value="$PROJECT_DIR$/_ml/ml-2.html" />
         <option value="$PROJECT_DIR$/_ml/ml-1.md" />
         <option value="$PROJECT_DIR$/_ml/ml-3.md" />
         <option value="$PROJECT_DIR$/_pages/markdown.md" />
@@ -208,6 +211,20 @@
         <option value="$PROJECT_DIR$/_pages/gallery.html" />
         <option value="$PROJECT_DIR$/_data/navigation.yml" />
         <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/_pages/ml.html" />
+        <option value="$PROJECT_DIR$/_ml/ml-2.html" />
+        <option value="$PROJECT_DIR$/_ml/ml-4.md" />
+        <option value="$PROJECT_DIR$/_pages/vision.html" />
+        <option value="$PROJECT_DIR$/_vision/portfolio-1.md" />
+        <option value="$PROJECT_DIR$/_vision/portfolio-2.html" />
+        <option value="$PROJECT_DIR$/_robotics/robotics-1.md" />
+        <option value="$PROJECT_DIR$/_robotics/robotics-2.html" />
+        <option value="$PROJECT_DIR$/_robotics/robotics-3.md" />
+        <option value="$PROJECT_DIR$/_robotics/robotics-4.md" />
+        <option value="$PROJECT_DIR$/_pages/robotics.html" />
+        <option value="$PROJECT_DIR$/_pages/electronics.html" />
+        <option value="$PROJECT_DIR$/_electronics/electronics-1.md" />
+        <option value="$PROJECT_DIR$/_electronics/electronics-2.html" />
         <option value="$PROJECT_DIR$/_pages/me.html" />
       </list>
     </option>
@@ -225,7 +242,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="57" />
-    <option name="y" value="1076" />
+    <option name="y" value="-4" />
     <option name="width" value="1863" />
     <option name="height" value="1084" />
   </component>
@@ -278,24 +295,7 @@
             <path>
               <item name="GuruMulay.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="GuruMulay.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="_robotics" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GuruMulay.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GuruMulay.github.io" type="462c0819:PsiDirectoryNode" />
               <item name="_site" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GuruMulay.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GuruMulay.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="_site" type="462c0819:PsiDirectoryNode" />
-              <item name="cv" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GuruMulay.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GuruMulay.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="_site" type="462c0819:PsiDirectoryNode" />
-              <item name="gallery" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GuruMulay.github.io" type="b2602c69:ProjectViewProjectNode" />
@@ -306,26 +306,7 @@
             <path>
               <item name="GuruMulay.github.io" type="b2602c69:ProjectViewProjectNode" />
               <item name="GuruMulay.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="_site" type="462c0819:PsiDirectoryNode" />
-              <item name="ml" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GuruMulay.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GuruMulay.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="_site" type="462c0819:PsiDirectoryNode" />
-              <item name="portfolio" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GuruMulay.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GuruMulay.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="_site" type="462c0819:PsiDirectoryNode" />
-              <item name="publication" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GuruMulay.github.io" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GuruMulay.github.io" type="462c0819:PsiDirectoryNode" />
-              <item name="_site" type="462c0819:PsiDirectoryNode" />
-              <item name="publications" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -343,11 +324,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/_pages" />
+      <recent name="$PROJECT_DIR$/_robotics" />
+      <recent name="$PROJECT_DIR$/_vision" />
       <recent name="$PROJECT_DIR$/_ml" />
+      <recent name="$PROJECT_DIR$/_pages" />
       <recent name="$PROJECT_DIR$/_portfolio" />
-      <recent name="$PROJECT_DIR$/_includes" />
-      <recent name="$PROJECT_DIR$/_publications" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -376,7 +357,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="57" y="1076" width="1863" height="1084" extended-state="6" />
+    <frame x="57" y="-4" width="1863" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -387,7 +368,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.040257648" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20504563" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991803" />
@@ -410,80 +391,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_academic/portfolio-1.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_academic/portfolio-2.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2016-10-10-blog-post-3.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_pages/404.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="11" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_data/ui-text.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_pages/teaching.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_pages/terms.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/base_path">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="11" lean-forward="true" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_includes/archive-single-cv.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/me/me-1/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_site/me/me-2/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_includes/footer.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -592,20 +499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_ml/ml-2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="1" column="10" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_ml/ml-1.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_me/2009-10-01-paper-title-number-1.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -620,26 +513,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_pages/portfolio.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_portfolio/portfolio-1.md">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/_includes/gallery">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-37" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_pages/ml.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_pages/v1_m_e.md">
@@ -649,31 +528,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_pages/academic.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="38" column="75" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_site/me/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="43" column="2" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_data/navigation.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="642">
-          <caret line="36" selection-start-line="36" selection-end-line="37" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="312" selection-start-line="312" selection-end-line="312" />
         </state>
       </provider>
     </entry>
@@ -700,8 +558,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_pages/gallery.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="468">
+          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#1;n#!!top" expanded="true" />
@@ -712,10 +570,146 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_ml/ml-1.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_ml/ml-2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="83" selection-start-line="2" selection-start-column="83" selection-end-line="2" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_ml/ml-4.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_data/navigation.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="642">
+          <caret line="36" selection-start-line="36" selection-end-line="37" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="880">
+          <caret line="198" selection-start-line="198" selection-end-line="198" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_pages/vision.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="26" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_vision/vision-1.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_vision/vision-2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_robotics/robotics-2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_pages/robotics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_robotics/robotics-1.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_robotics/robotics-4.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_robotics/robotics-3.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_vision/vision-3.md">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_pages/electronics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="31" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_pages/ml.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_electronics/electronics-1.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_electronics/electronics-2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_pages/academic.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="38" column="75" selection-start-line="38" selection-start-column="75" selection-end-line="38" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_pages/portfolio.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_pages/me.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="688">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="706">
+          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#1;n#!!top" expanded="true" />
@@ -731,6 +725,12 @@
             <element signature="n#style#0;n#p#6;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#a#6;n#!!top" expanded="true" />
             <element signature="n#style#0;n#p#7;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#7;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#8;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#8;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#9;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#9;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#10;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

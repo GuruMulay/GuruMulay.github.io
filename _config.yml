@@ -186,6 +186,16 @@ collections:
   ml:
     output: true
     permalink: /:collection/:path/
+  vision:
+    output: true
+    permalink: /:collection/:path/
+  robotics:
+    output: true
+    permalink: /:collection/:path/
+  electronics:
+    output: true
+    permalink: /:collection/:path/
+
 
 # Defaults
 defaults:
