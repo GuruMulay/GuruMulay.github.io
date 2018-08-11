@@ -195,6 +195,9 @@ collections:
   electronics:
     output: true
     permalink: /:collection/:path/
+  me:
+    output: true
+    permalink: /:collection/:path/
 
 
 # Defaults

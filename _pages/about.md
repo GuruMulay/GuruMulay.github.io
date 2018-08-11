@@ -15,7 +15,7 @@ My current research work for my thesis focuses on exploring and developing Convo
 
 Previously, I was an undergraduate research student in the [Robotics Lab](http://robocon.in/) of MIT Pune, India, where I worked with a team of some awesome students to build some awesome Robots like [these](http://robocon.in/photos/2013-2/) and [these from our Youtube channel](https://www.youtube.com/user/MITRobocon)!
 
-I love hiking, biking, everything about the space exploration, and almost all types of music genres.
+I love to go on hikes, to bike on trails, and to learn interesting things about the space exploration.
 
 
 A data-driven personal website
