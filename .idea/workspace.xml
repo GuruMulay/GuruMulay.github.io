@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7eebd872-fde7-458a-a683-1a3c4bd02234" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/about.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_pages/me.html" beforeDir="false" afterPath="$PROJECT_DIR$/_pages/me.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_me/2016-03-05-me-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/_me/2016-03-05-me-2.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,23 +12,35 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.888539">
       <split-first>
         <leaf>
-          <file leaf-file-name="_config.yml" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/_config.yml">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-1808">
-                  <caret line="42" column="8" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="8" />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="academic.md" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/_pages/academic.md">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="144">
                   <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="23" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="2016-03-05-me-2.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/_me/2016-03-05-me-2.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="270">
+                  <caret line="24" column="500" selection-start-line="24" selection-start-column="500" selection-end-line="24" selection-end-column="500" />
+                  <folding>
+                    <element signature="n#style#0;n#p#1;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#2;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#3;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#4;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#5;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#6;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#7;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#8;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#9;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#p#10;n#!!top" expanded="true" />
+                  </folding>
                 </state>
               </provider>
             </entry>
@@ -44,11 +54,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="about.md" pinned="false" current-in-tab="true">
+          <file leaf-file-name="about.md" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/_pages/about.md">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="288">
-                  <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+                <state relative-caret-position="522">
+                  <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
                 </state>
               </provider>
             </entry>
@@ -86,14 +96,14 @@
       <find>pages</find>
       <find>publications</find>
       <find>30%</find>
-      <find>width=&quot;500&quot; height=&quot;100&quot;</find>
+      <find />
       <find>25%</find>
-      <find>class=&quot;alignnone  wp-image-577&quot;</find>
+      <find />
       <find>portfol</find>
       <find>me</find>
       <find>portfolio</find>
       <find>1%</find>
-      <find>me</find>
+      <find />
       <find>layout</find>
       <find>gallery</find>
       <find>stri</find>
@@ -164,9 +174,9 @@
         <option value="$PROJECT_DIR$/_pages/me.html" />
         <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/_me/me-3.md" />
-        <option value="$PROJECT_DIR$/_me/2016-03-05-me-2.html" />
         <option value="$PROJECT_DIR$/_me/2016-10-15-me-1.md" />
         <option value="$PROJECT_DIR$/_pages/about.md" />
+        <option value="$PROJECT_DIR$/_me/2016-03-05-me-2.html" />
       </list>
     </option>
   </component>
@@ -182,7 +192,7 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1863" />
+    <option name="x" value="57" />
     <option name="y" value="-4" />
     <option name="width" value="1863" />
     <option name="height" value="1084" />
@@ -313,7 +323,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1863" y="-4" width="1863" height="1084" extended-state="6" />
+    <frame x="57" y="-4" width="1863" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -611,44 +621,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_pages/markdown.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="157" column="30" selection-start-line="157" selection-start-column="22" selection-end-line="157" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_me/2016-10-15-me-1.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_me/2016-03-05-me-2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="74" selection-start-line="24" selection-start-column="74" selection-end-line="24" selection-end-column="74" />
-          <folding>
-            <element signature="e#1744#1805#0" expanded="true" />
-            <element signature="e#2193#2267#0" expanded="true" />
-            <element signature="n#style#0;n#p#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#3;n#!!top" expanded="true" />
-            <element signature="e#3228#3302#0" expanded="true" />
-            <element signature="n#style#0;n#p#4;n#!!top" expanded="true" />
-            <element signature="e#3776#3850#0" expanded="true" />
-            <element signature="n#style#0;n#p#5;n#!!top" expanded="true" />
-            <element signature="e#4397#4471#0" expanded="true" />
-            <element signature="n#style#0;n#p#6;n#!!top" expanded="true" />
-            <element signature="e#4973#5047#0" expanded="true" />
-            <element signature="n#style#0;n#p#7;n#!!top" expanded="true" />
-            <element signature="e#5581#5655#0" expanded="true" />
-            <element signature="n#style#0;n#p#8;n#!!top" expanded="true" />
-            <element signature="e#5985#6059#0" expanded="true" />
-            <element signature="n#style#0;n#p#9;n#!!top" expanded="true" />
-            <element signature="e#6378#6452#0" expanded="true" />
-            <element signature="n#style#0;n#p#10;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -666,13 +642,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_pages/academic.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_data/navigation.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -687,17 +656,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_pages/about.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="30" column="29" selection-start-line="30" selection-start-column="29" selection-end-line="30" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_pages/markdown.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="157" column="30" selection-start-line="157" selection-start-column="22" selection-end-line="157" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1808">
+        <state relative-caret-position="18">
           <caret line="42" column="8" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_pages/about.md">
+    <entry file="file://$PROJECT_DIR$/_pages/academic.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state relative-caret-position="144">
+          <caret line="8" selection-start-line="8" selection-end-line="8" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_me/2016-03-05-me-2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="24" column="500" selection-start-line="24" selection-start-column="500" selection-end-line="24" selection-end-column="500" />
+          <folding>
+            <element signature="n#style#0;n#p#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#3;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#4;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#5;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#6;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#7;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#8;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#9;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#10;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
