@@ -198,6 +198,9 @@ collections:
   me:
     output: true
     permalink: /:collection/:path/
+  gallery:
+    output: true
+    permalink: /:collection/:path/
 
 
 # Defaults

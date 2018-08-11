@@ -1,5 +1,6 @@
 ---
-title: "Photo Gallery"
+layout: archive
+title: "Media Gallery"
 permalink: /gallery/
 author_profile: true
 ---
@@ -9,22 +10,21 @@ author_profile: true
 
 <!--<img class="alignnone wp-image-577" alt="drsg" src="http://stuartgeiger.com/images/2008/07/drsg.png" width="810" height="265">-->
 
-
-<a href="/images/500x300.png"><img  alt="" src="/images/500x300.png" style="float: left; width: 23%; margin-right: 1%; margin-bottom: 0.5em;"  ></a><a href="/images/500x300.png"><img  alt="" src="/images/500x300.png" style="float: left; width: 23%; margin-right: 1%; margin-bottom: 0.5em;"  ></a><a href="/images/500x300.png"><img  alt="" src="/images/500x300.png" style="float: left; width: 23%; margin-right: 1%; margin-bottom: 0.5em;"  ></a><a href="/images/500x300.png"><img  alt="" src="/images/500x300.png" style="float: left; width: 23%; margin-right: 1%; margin-bottom: 0.5em;"  ></a>
-
-
-
-<!-- always end image block with -->
-<p style="clear: both;">
+<!--ppm to png conversion:-->
+<!--$ for file in *.ppm; do convert "$file" "${file%.*}.png" ; done;-->
 
 
+{% include base_path %}
 
 
+{% for post in site.gallery %}
+  {% include archive-single.html %}
+{% endfor %}
 
-<!--{% include base_path %}-->
 
+<!--<a href="/images/500x300.png"><img  alt="" src="/images/500x300.png" style="float: left; width: 23%; margin-right: 1%; margin-bottom: 0.5em;"  ></a><a href="/images/500x300.png"><img  alt="" src="/images/500x300.png" style="float: left; width: 23%; margin-right: 1%; margin-bottom: 0.5em;"  ></a><a href="/images/500x300.png"><img  alt="" src="/images/500x300.png" style="float: left; width: 23%; margin-right: 1%; margin-bottom: 0.5em;"  ></a><a href="/images/500x300.png"><img  alt="" src="/images/500x300.png" style="float: left; width: 23%; margin-right: 1%; margin-bottom: 0.5em;"  ></a>-->
 
-<!--{% for post in site.portfolio %}-->
-  <!--{% include archive-single.html %}-->
-<!--{% endfor %}-->
+<!--&lt;!&ndash; always end image block with &ndash;&gt;-->
+<!--<p style="clear: both;">-->
+
 
