@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7eebd872-fde7-458a-a683-1a3c4bd02234" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_gallery/gallery-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/_gallery/gallery-1.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_gallery/gallery-2.html" beforeDir="false" afterPath="$PROJECT_DIR$/_gallery/gallery-2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/2015-08-14-blog-post-4.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2015-08-14-blog-post-4.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/2013-08-14-blog-post-2.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/2013-08-14-blog-post-2.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,7 +13,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7838542">
+    <splitter split-orientation="horizontal" split-proportion="0.8839286">
       <split-first>
         <leaf>
           <file leaf-file-name="gallery.html" pinned="false" current-in-tab="false">
@@ -27,39 +25,48 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="gallery-2.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="gallery-2.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/_gallery/gallery-2.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="792">
-                  <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
+                <state relative-caret-position="676">
+                  <caret line="100" selection-start-line="100" selection-end-line="104" />
                   <folding>
                     <element signature="e#181#223#0" expanded="true" />
                     <element signature="e#586#658#0" expanded="true" />
                     <element signature="e#1882#1954#0" expanded="true" />
+                    <element signature="e#2234#2306#0" expanded="true" />
                     <element signature="e#2230#2302#0" expanded="true" />
-                    <element signature="e#2500#2572#0" expanded="true" />
-                    <element signature="e#1553#1625#0" expanded="true" />
-                    <element signature="e#1750#1822#0" expanded="true" />
-                    <element signature="e#1947#2019#0" expanded="true" />
-                    <element signature="e#2144#2216#0" expanded="true" />
+                    <element signature="e#2747#2819#0" expanded="true" />
+                    <element signature="e#3023#3044#0" expanded="true" />
+                    <element signature="e#3052#3094#0" expanded="true" />
+                    <element signature="e#3338#3410#0" expanded="true" />
+                    <element signature="e#2865#2886#0" expanded="true" />
+                    <element signature="e#2894#2936#0" expanded="true" />
+                    <element signature="e#1354#1426#0" expanded="true" />
+                    <element signature="e#3267#3288#0" expanded="true" />
+                    <element signature="e#3296#3338#0" expanded="true" />
+                    <element signature="e#3326#3398#0" expanded="true" />
                     <element signature="e#2230#2251#0" expanded="true" />
                     <element signature="e#2259#2301#0" expanded="true" />
                     <element signature="e#2360#2381#0" expanded="true" />
-                    <element signature="e#2501#2573#0" expanded="true" />
-                    <element signature="e#2695#2767#0" expanded="true" />
-                    <element signature="e#2892#2964#0" expanded="true" />
-                    <element signature="e#3089#3161#0" expanded="true" />
-                    <element signature="e#3290#3362#0" expanded="true" />
-                    <element signature="e#3490#3562#0" expanded="true" />
-                    <element signature="e#3691#3763#0" expanded="true" />
-                    <element signature="e#3890#3962#0" expanded="true" />
-                    <element signature="e#3975#4017#0" expanded="true" />
-                    <element signature="e#4047#4068#0" expanded="true" />
-                    <element signature="e#4183#4255#0" expanded="true" />
-                    <element signature="e#4372#4444#0" expanded="true" />
-                    <element signature="e#4561#4633#0" expanded="true" />
-                    <element signature="e#4750#4822#0" expanded="true" />
+                    <element signature="e#5363#5435#0" expanded="true" />
+                    <element signature="e#6236#6308#0" expanded="true" />
+                    <element signature="e#6521#6593#0" expanded="true" />
+                    <element signature="e#6232#6304#0" expanded="true" />
+                    <element signature="e#6517#6589#0" expanded="true" />
+                    <element signature="e#6840#6912#0" expanded="true" />
+                    <element signature="e#7125#7197#0" expanded="true" />
+                    <element signature="e#4871#4891#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="2013-08-14-blog-post-2.md" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/_posts/2013-08-14-blog-post-2.md">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="306">
+                  <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
                 </state>
               </provider>
             </entry>
@@ -182,14 +189,14 @@
       <find>pages</find>
       <find>publications</find>
       <find>30%</find>
-      <find>width=&quot;500&quot; height=&quot;100&quot;</find>
+      <find />
       <find>25%</find>
-      <find>class=&quot;alignnone  wp-image-577&quot;</find>
+      <find />
       <find>portfol</find>
       <find>me</find>
       <find>portfolio</find>
       <find>1%</find>
-      <find>me</find>
+      <find />
       <find>layout</find>
       <find>gallery</find>
       <find>date</find>
@@ -217,7 +224,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/_posts/2016-10-10-blog-post-1.md" />
         <option value="$PROJECT_DIR$/_posts/2016-10-10-blog-post-13.md" />
         <option value="$PROJECT_DIR$/_posts/2016-10-10-blog-post-2.md" />
         <option value="$PROJECT_DIR$/_posts/2016-10-10-blog-post-3.md" />
@@ -268,6 +274,7 @@
         <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/_gallery/gallery-1.html" />
         <option value="$PROJECT_DIR$/_gallery/gallery-2.html" />
+        <option value="$PROJECT_DIR$/_posts/2013-08-14-blog-post-2.md" />
       </list>
     </option>
   </component>
@@ -425,7 +432,7 @@
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17552336" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13043478" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32991803" />
@@ -451,13 +458,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_site/publications/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_publications/2010-10-01-paper-title-number-2.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -751,13 +751,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2015-08-14-blog-post-4.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_pages/publications.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -814,38 +807,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2015-08-14-blog-post-4.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/_gallery/gallery-2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="44" column="4" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="4" />
+        <state relative-caret-position="676">
+          <caret line="100" selection-start-line="100" selection-end-line="104" />
           <folding>
             <element signature="e#181#223#0" expanded="true" />
             <element signature="e#586#658#0" expanded="true" />
             <element signature="e#1882#1954#0" expanded="true" />
+            <element signature="e#2234#2306#0" expanded="true" />
             <element signature="e#2230#2302#0" expanded="true" />
-            <element signature="e#2500#2572#0" expanded="true" />
-            <element signature="e#1553#1625#0" expanded="true" />
-            <element signature="e#1750#1822#0" expanded="true" />
-            <element signature="e#1947#2019#0" expanded="true" />
-            <element signature="e#2144#2216#0" expanded="true" />
+            <element signature="e#2747#2819#0" expanded="true" />
+            <element signature="e#3023#3044#0" expanded="true" />
+            <element signature="e#3052#3094#0" expanded="true" />
+            <element signature="e#3338#3410#0" expanded="true" />
+            <element signature="e#2865#2886#0" expanded="true" />
+            <element signature="e#2894#2936#0" expanded="true" />
+            <element signature="e#1354#1426#0" expanded="true" />
+            <element signature="e#3267#3288#0" expanded="true" />
+            <element signature="e#3296#3338#0" expanded="true" />
+            <element signature="e#3326#3398#0" expanded="true" />
             <element signature="e#2230#2251#0" expanded="true" />
             <element signature="e#2259#2301#0" expanded="true" />
             <element signature="e#2360#2381#0" expanded="true" />
-            <element signature="e#2501#2573#0" expanded="true" />
-            <element signature="e#2695#2767#0" expanded="true" />
-            <element signature="e#2892#2964#0" expanded="true" />
-            <element signature="e#3089#3161#0" expanded="true" />
-            <element signature="e#3290#3362#0" expanded="true" />
-            <element signature="e#3490#3562#0" expanded="true" />
-            <element signature="e#3691#3763#0" expanded="true" />
-            <element signature="e#3890#3962#0" expanded="true" />
-            <element signature="e#3975#4017#0" expanded="true" />
-            <element signature="e#4047#4068#0" expanded="true" />
-            <element signature="e#4183#4255#0" expanded="true" />
-            <element signature="e#4372#4444#0" expanded="true" />
-            <element signature="e#4561#4633#0" expanded="true" />
-            <element signature="e#4750#4822#0" expanded="true" />
+            <element signature="e#5363#5435#0" expanded="true" />
+            <element signature="e#6236#6308#0" expanded="true" />
+            <element signature="e#6521#6593#0" expanded="true" />
+            <element signature="e#6232#6304#0" expanded="true" />
+            <element signature="e#6517#6589#0" expanded="true" />
+            <element signature="e#6840#6912#0" expanded="true" />
+            <element signature="e#7125#7197#0" expanded="true" />
+            <element signature="e#4871#4891#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-08-14-blog-post-2.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
