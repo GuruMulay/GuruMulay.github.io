@@ -31,17 +31,28 @@ redirect_from:
 *****************
 
 
-|**University Courses:**|
+|**University Courses:** (Courses without numbers are from undergrad curriculum)|
 
-| Computer Engineering | Electronics Engineering  | Mathematics |
+| Computer Science | Electronics Engineering  | Mathematics |
 | --------- | ------------- | ----- |
 | CS510: Image Computation &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   | ECE481A2: Intro to Robot Programming/Simulation       | MATH520: Optimization Methods: Control & Communication |
-| CS545: Machine Learning                                       | ECE555: Robot Motion Planning                         |                       |
-| CS410: Computer Graphics                                      | ECE569: Micro-Electro-Mechanical Devices              |                       |
-| CS435: Intro to Big Data                                      |                                                       |                       |
-| CS530: Fault-Tolerant Computing                               | `1`                                                   | `1`                   |
-| CS533: Database Management Systems                            |                                                       |                       |
-| CS581A3: Software Maintenance & Evolution                     |                       |                                       |
+| CS545: Machine Learning                                       | ECE555: Robot Motion Planning                         | Engineering Math III (LDEs, Transforms, Vector Calculus)                      |
+| CS410: Computer Graphics                                      | ECE569: Micro-Electro-Mechanical Devices              | Engineering Math II (Fourier, Integral Calculus, Solid Geometry)                      |
+| CS435: Intro to Big Data                                      | Digital Signal Processing                             | Engineering Math I (PDEs, Differential Calculus, Jacobian)                      |
+| CS530: Fault-Tolerant Computing                               | Control Systems                                       | Operations Research            |
+| CS533: Database Management Systems                            | Signals & Systems                                     ||
+| CS581A3: Software Maintenance & Evolution                     | Electronics Product Design                            ||
+| Digital Image Processing                                      | Electro-magnetics                                     ||
+| Soft Computing                                                | Digital Logic Design                                  ||
+| Computer Networks                                             | Digital Communication                                 ||
+| Computer Organization & Architecture                          | Integrated Circuits & Applications                    ||
+| System Programming & Operating Systems                        | Solid State Devices & Circuits                        ||
+| Data Structures                                               | Power Devices & Machines                              ||
+|                                                               | Joint Time Frequency Analysis                         ||
+|                                                               | VLSI Design & Technology                              ||
+|                                                               | Micro-controllers & Applications                      ||
+|                                                               | Industrial Management                                 ||
+
 
 *************************
 
