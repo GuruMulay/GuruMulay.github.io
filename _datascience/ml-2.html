@@ -1,0 +1,122 @@
+---
+title: "A Study of Evolution of Code Snippets on StackOverflow"
+excerpt: "<br/><img src='/images/csu/proj/sotorrent/logo_sotorrent3.png'> <br/> <small> <small> <small>Image via http://empirical-software.engineering/blog/sotorrent </small> </small> </small> "
+collection: datascience
+tags:
+  - stack-overflow
+  - sotorrent
+  - mining-software-repository
+  - GCP-BigQuery
+---
+
+<!--<p>-->
+    <!---->
+<!--</p>-->
+
+<p>
+    Stack Overflow [1] is one of the most visited question-and-answer forum for software developers. This is evident
+    from the fact that as of April 2018, it has over 39.6 million posts and over 8.5 million registered users [2].
+    Apart from questions and answers text, it also contains code snippets. The text and code snippets evolve over time
+    when the users edit them. However, there is no provision in the official Stack Overflow (SO) data dump to study this
+    evolution. <a href="http://empirical-software.engineering/blog/sotorrent">SOTorrent</a>, derived from the official
+    SO data dump, is one such open-source dataset that provides the version history
+    of SO texts and code snippets/blocks. SOTorrent was released by Baltes et. al. [3] specifically to address
+    the need for studying evolution of SO posts at a fine-grain level of snippets. It is hosted on
+    <a href="https://bigquery.cloud.google.com/dataset/sotorrent-org:2018_02_16" >Google Cloud Platform</a>
+    with an excellent, informative introduction by the authors on the
+    <a href="http://empirical-software.engineering/blog/sotorrent">dataset's website</a>.
+    It is a superset of the SO dump and you can find its short schema
+    <a href="http://empirical-software.engineering/assets/images/sotorrent_model_msr.png">here</a>. As a short introduction, here
+    are some statistics about the SOTorrent dataset:
+
+    <div style="text-align: center">
+        <img src="/images/csu/proj/sotorrent/so_stats.png" alt="SOTorrent statistics" align="middle" width="500">
+        <br/>
+        <br/>
+        <figcaption>Fig. 1: SOTorrent stats</figcaption>
+    </div>
+    <br/>
+
+<!--<figure>-->
+<!--</figure>-->
+
+    We mine the SOTorrent dataset to explore the evolution of code snippets on Stack Overflow. As a part of CS581
+    (Software Maintenance & Evolution), we (I and Abhimanyu Chawala) formulated some research questions and answered
+    by analysing SOTorrent. We used Google Cloud Platform's BigQuery for the analysis. <strong> Note </strong>that SOTorrent
+    has 17 tables
+    sizing up to 289.4 GB. Under the scope of the project with given time constraints, we decided to work with a subset
+    of the entire SOTorrent dataset. For this subset, cropped <em> Posts table </em> by date and selected the
+    records from 1st January 2016 to 11th March 2018 and cropped all the other tables accordingly. This reduced the
+    dataset size and query completion times significantly giving us results comparatively quickly.
+
+</p>
+
+
+
+<!--##############-->
+<p>
+    <b>Research Questions:</b>
+</p>
+
+<ol type="1">
+    <li>What programming languages receive the most <em>edits</em> on Stack Overflow?</li>
+
+    <li>What geographical locations contribute with the most <em>edits</em> on Stack Overflow?</li>
+
+    <li>What websites are most referred-to in the posts and which GitHub
+projects refer to Stack Overflow the most?</li>
+
+    <li>How many times the text blocks and the code blocks are getting edited in their lifetime?</li>
+    <!--<li></li>-->
+    <!--<li></li>-->
+</ol>
+
+
+
+<!--##############-->
+<p>
+    <b>BigQuery:</b>
+    <br/>
+    <br/>
+    Web API of BigQuery is very simple to use. As seen in the Figure 2, the API has a
+query window at the top to query any dataset that are available within your project or
+that are public (e.g., SOTorrent dataset released by the authors).
+Right below the query area, you will see results of the query when query is
+completed. It also shows the schema of the database or the table that you select from the
+left panel. The left panel shows all the datasets, their tables, and your query history.
+
+    <div style="text-align: center">
+        <img src="/images/csu/proj/sotorrent/bq1.png" alt="GCP BigQuery API" align="middle" width="500">
+        <br/>
+        <br/>
+        <figcaption>Fig. 2: BigQuery Interface</figcaption>
+    </div>
+    <br/>
+
+</p>
+
+
+
+
+<!--##############-->
+<p>
+    <b>Conclusion:</b>
+</p>
+
+
+<ul>
+    <li>Analysis of SOTorrent answered all our research questions involving evolution of
+        post blocks revealing expected patterns like such as imgur being the most referenced website and unexpected
+        patterns such as developers in Seattle (Headquarters of Windows) have tagged Windows fewer times than other OS
+        like Linux or MacOS.
+
+    <li><a href="https://github.com/cdnjs/cdnjs"><strong>cdnjs</strong></a> repo is forked 3651 times on GitHub which
+      causes many issues during the creation of SOTorrent dataset. The repo has several thousands of .js files and within
+      them there are several links to SO posts. The tables likePostReferenceGH have 'kind of' replicated data because
+      of the large number of forks.</li>
+
+    <li>Repositories forked multiple times should be detected and correctly accommodated in PostReferenceGH table in
+      order to have normalized and balanced database.</li>
+
+
+</ul>

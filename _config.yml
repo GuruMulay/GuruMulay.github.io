@@ -183,7 +183,7 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
-  ml:
+  datascience:
     output: true
     permalink: /:collection/:path/
   vision:
@@ -258,10 +258,10 @@ defaults:
       layout: talk
       author_profile: true
       share: true
-  # _ml
+  # _datascience
   - scope:
       path: ""
-      type: ml
+      type: datascience
     values:
       layout: single
       author_profile: true

@@ -10,8 +10,8 @@ main:
   - title: "Portfolio"
     url: /portfolio/
 
-  - title: "ML"
-    url: /ml/
+  - title: "Data Science"
+    url: /datascience/
 
   - title: "Vision"
     url: /vision/
