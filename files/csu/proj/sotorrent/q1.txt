@@ -1,0 +1,87 @@
+
+##1
+to create a Posts table with only those records dating after 2015
+saved as Posts0 (0 means it contains only minimal columns to save data usage on query)
+
+#standardSQL
+SELECT PS.Id, PS.CreationDate
+FROM `sotorrent-org.2018_03_28.Posts` AS PS
+WHERE PS.CreationDate >= '2015-01-01'
+
+#standardSQL
+SELECT PS.*
+FROM `sotorrent-org.2018_03_28.Posts` AS PS
+WHERE PS.CreationDate >= '2015-01-01'
+
+
+##2
+For the records after 2015 (from table above), create a smaller table out of PostHistory (original table)
+saved as PostHistory0
+
+#standardSQL
+SELECT PSH.Id, PSH.PostId
+FROM `sotorrent-org.2018_03_28.PostHistory` AS PSH
+INNER JOIN trunc1.Posts0
+ON Posts0.Id = PSH.PostId;
+
+#standardSQL
+SELECT PSH.*
+FROM `sotorrent-org.2018_03_28.PostHistory` AS PSH
+INNER JOIN trunc1.Posts0
+ON Posts0.Id = PSH.PostId;
+
+
+##3
+For the records after 2015 (from table above), create a smaller table out of PostVersion (original table)
+saved as PostVersion0
+
+#standardSQL
+SELECT PSV.Id, PSV.PostId, PSV.PostHistoryId
+FROM `sotorrent-org.2018_03_28.PostVersion` AS PSV
+INNER JOIN trunc1.Posts0
+ON Posts0.Id = PSV.PostId;
+
+
+#standardSQL
+SELECT PSV.*
+FROM `sotorrent-org.2018_03_28.PostVersion` AS PSV
+INNER JOIN trunc1.Posts
+ON Posts.Id = PSV.PostId;
+
+
+###5
+#standardSQL
+SELECT PBD.*
+FROM `sotorrent-org.2018_03_28.PostBlockDiff` AS PBD
+INNER JOIN trunc1.Posts
+ON Posts.Id = PBD.PostId;
+
+
+
+###7
+#standardSQL
+SELECT PVU.*
+FROM `sotorrent-org.2018_03_28.PostVersionUrl` AS PVU
+INNER JOIN trunc1.Posts
+ON Posts.Id = PVU.PostId;
+
+
+
+###8
+#standardSQL
+SELECT PRGH.*
+FROM `sotorrent-org.2018_03_28.PostReferenceGH` AS PRGH
+INNER JOIN trunc1.Posts
+ON Posts.Id = PRGH.PostId;
+
+
+
+###9
+#standardSQL
+SELECT CM.*
+FROM `sotorrent-org.2018_03_28.Comments` AS CM
+INNER JOIN trunc1.Posts
+ON Posts.Id = CM.PostId;
+
+
+

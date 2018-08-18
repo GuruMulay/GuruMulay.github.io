@@ -14,7 +14,7 @@ tags:
 <!--</p>-->
 
 <p>
-    Stack Overflow [1] is one of the most visited question-and-answer forum for software developers. This is evident
+    Stack Overflow [1] is one of the most visited question-and-answer forums for software developers. This is evident
     from the fact that as of April 2018, it has over 39.6 million posts and over 8.5 million registered users [2].
     Apart from questions and answers text, it also contains code snippets. The text and code snippets evolve over time
     when the users edit them. However, there is no provision in the official Stack Overflow (SO) data dump to study this
@@ -26,8 +26,8 @@ tags:
     with an excellent, informative introduction by the authors on the
     <a href="http://empirical-software.engineering/blog/sotorrent">dataset's website</a>.
     It is a superset of the SO dump and you can find its short schema
-    <a href="http://empirical-software.engineering/assets/images/sotorrent_model_msr.png">here</a>. As a short introduction, here
-    are some statistics about the SOTorrent dataset:
+    <a href="http://empirical-software.engineering/assets/images/sotorrent_model_msr.png">here</a>.
+    As a short introduction, here are some statistics about the SOTorrent dataset:
 
     <div style="text-align: center">
         <img src="/images/csu/proj/sotorrent/so_stats.png" alt="SOTorrent statistics" align="middle" width="500">
@@ -43,19 +43,19 @@ tags:
     We mine the SOTorrent dataset to explore the evolution of code snippets on Stack Overflow. As a part of CS581
     (Software Maintenance & Evolution), we (I and Abhimanyu Chawala) formulated some research questions and answered
     by analysing SOTorrent. We used Google Cloud Platform's BigQuery for the analysis. <strong> Note </strong>that SOTorrent
-    has 17 tables
-    sizing up to 289.4 GB. Under the scope of the project with given time constraints, we decided to work with a subset
-    of the entire SOTorrent dataset. For this subset, cropped <em> Posts table </em> by date and selected the
-    records from 1st January 2016 to 11th March 2018 and cropped all the other tables accordingly. This reduced the
-    dataset size and query completion times significantly giving us results comparatively quickly.
+    has 17 tables sizing up to 289.4 GB. Under the scope of the project with given time constraints, we decided to work with a subset
+    of the entire SOTorrent dataset. For this subset, we cropped <em> Posts table </em> by date and selected the
+    records from 1st January 2016 to 11th March 2018 and cropped all the other tables accordingly. This significantly
+    reduced the dataset size and query completion times. Consequently, it gave us results comparatively quickly.
 
 </p>
 
 
 
 <!--##############-->
+<hr>
 <p>
-    <b>Research Questions:</b>
+    <b>Research Questions (RQ):</b>
 </p>
 
 <ol type="1">
@@ -72,8 +72,8 @@ projects refer to Stack Overflow the most?</li>
 </ol>
 
 
-
 <!--##############-->
+<hr>
 <p>
     <b>BigQuery:</b>
     <br/>
@@ -83,24 +83,255 @@ query window at the top to query any dataset that are available within your proj
 that are public (e.g., SOTorrent dataset released by the authors).
 Right below the query area, you will see results of the query when query is
 completed. It also shows the schema of the database or the table that you select from the
-left panel. The left panel shows all the datasets, their tables, and your query history.
+left panel. The left panel shows all the datasets, their tables, and your query history. The best thing, in my opinion,
+about BigQuery is that it will alert you when your query is completed. This becomes really handy when your queries take
+hours to run.
 
-    <div style="text-align: center">
-        <img src="/images/csu/proj/sotorrent/bq1.png" alt="GCP BigQuery API" align="middle" width="500">
-        <br/>
-        <br/>
-        <figcaption>Fig. 2: BigQuery Interface</figcaption>
-    </div>
+<div style="text-align: center">
+    <img src="/images/csu/proj/sotorrent/bq1.png" alt="GCP BigQuery API" align="middle" width="500">
     <br/>
+    <br/>
+    <figcaption>Fig. 2: BigQuery Interface</figcaption>
+</div>
+<br/>
+
+A standard query might look something like this:
+
+<code> <small><br/> <br/>
+#standardSQL <br/>
+SELECT PS.* <br/>
+FROM `sotorrent-org.2018_03_28.Posts` AS PS <br/>
+WHERE PS.CreationDate >= '2015-01-01' <br/>
+</small>
+</code>
+<!--<hr>-->
 
 </p>
 
+<!--##############-->
+<hr>
+<p>
+    <!--<b>Methodology:</b>-->
+    To answer the research question we created some additional tables.
+    The queries that we used to build the additional tables and to answer the research questions listed above can be found here:
+    <a href="/files/csu/proj/sotorrent/q1.txt"> q1.txt</a> and <a href="/files/csu/proj/sotorrent/q2.txt"> q2.txt</a>.
+    Most of them are self explanatory so I will directly jump to the results/answers
+    to those question in the section below.
+</p>
+
+
+<!--##############-->
+<hr>
+<p>
+    <b>Results:</b>
+</p>
+
+
+<!---->
+<strong>Answering RQ1:</strong>
+
+We wanted to explore which languages are most frequently edited in the code snippets
+on SO. For this we used our CodeBlocksWithTags table and counted the languages with
+the most number of code blocks. Figure 3 shows the distribution of four most popular
+technologies – Android, C#, Python and Java. We see that Java is not only the most
+popular programming language on SO, but it is also the most frequently edited language
+in the code blocks in the posts. It tops the charts with over 3.6 million code blocks.
+Python follows next, and then Android and C#. However, all these three are almost at the
+same level. Interestingly, the combined contribution of all these three is almost as same
+as that of Java alone.
+
+Going a step further in discussion, we know that Android development is mostly in Java,
+so we can safely conclude that Java is pretty much the most used technology at present.
+
+
+<div style="text-align: center">
+    <img src="/images/csu/proj/sotorrent/rq1.png" alt="Most frequently edited languages on Stack Overflow" align="middle" width="500">
+    <br/>
+    <br/>
+    <figcaption>Fig. 3: Most frequently edited languages on Stack Overflow</figcaption>
+</div>
+<br/>
+
+
+<!---->
+<strong>Answering RQ2:</strong>
+
+We see that the users from the city of Bangalore have contributed towards most of the
+edits. It is followed by New York and London, and then Bay Area in California. Seattle
+users have contributed the least towards the edits among all these five locations.
+
+
+<div style="text-align: center">
+    <img src="/images/csu/proj/sotorrent/rq2_1.png" alt="Edits from most popular geographical locations" align="middle" width="500">
+    <br/>
+    <br/>
+    <figcaption>Fig. 4: Edits from most popular geographical locations</figcaption>
+</div>
+<br/>
+
+
+Moving further in the analysis, we tried to explore which languages are most popular
+among the users in these cities. So we filtered the code snippets on language and location
+and plotted them together. Figure 5 shows our results. Not surprisingly, Java is the most
+frequently edited language in the code snippets, in all the cities. However, there is a slight
+variation of the remaining languages in the five cities and we see some interesting results
+here. For instance, Android is the second most popular technology among Bangalore
+users, with two to three times as much edits to Android-related tags as the other four
+areas. So, we can say that there is a lot of Android development going on in Bangalore.
+London has the highest proportion of C# edit, suggesting a high percentage of developers
+are using the Microsoft stack. However, Bay-Area, very few users seem to use C#, as it
+is the least frequently edited language in this area. New York leads in Python among all
+cities. The ratio of Python and Java is larger than Android and C#. This could probably
+be due to a combination of finance, academic research, and data science at tech
+companies.
+
+
+<div style="text-align: center">
+    <img src="/images/csu/proj/sotorrent/rq2_2.png" alt="Most edited language in various places." align="middle" width="500">
+    <br/>
+    <br/>
+    <figcaption>Fig. 5: Most edited language in various places.</figcaption>
+</div>
+<br/>
+
+
+<div style="text-align: center">
+    <img src="/images/csu/proj/sotorrent/rq2_3.png" alt="Popularity of various Operating Systems" align="middle" width="500">
+    <br/>
+    <br/>
+    <figcaption>Fig. 6: Popularity of various Operating Systems</figcaption>
+</div>
+<br/>
+
+
+
+
+We filtered out post blocks with tags for the common operating systems – Linux, Mac
+OS, and Microsoft Windows, and plotted them for each of the five geographical regions
+to see which OS is the most popular. As shown in Figure 6, we found that for London,
+New York and Seattle, there is not much difference in the number of post blocks for the
+three OSs. However, Bangalore users post a lot of posts for Linux and very few for Mac
+OS. And in Bay Area, Windows is surprisingly the least popular OS out of the three.
+Finally, in Bay Area and London, Mac OS is the most popular OS.
+For the final part of this RQ, we created a table Users_TopEdits_ByLocation_1000Edits
+that contains all the users and their locations only if the user has contributed more than
+1000 times to the post block edits. We see from Figure 7 that the USA has 824 users who
+contributed to post block edits in past 3 years of SO Torrent data. After the USA, we
+have India where most of the software development jobs are outsourced. This might be
+the reason why developers are contributing more given their background in software
+development. We observed that there is some inconsistency in the way users report their
+locations on Stackoverflow website. There is a large number of users who did not report
+their location, or they just wrote the name of city without country name, or they wrote
+some weird locations such as the Earth, Universe, etc. This inconsistency affected our
+results.
+
+
+<div style="text-align: center">
+    <img src="/images/csu/proj/sotorrent/rq2_4.png" alt="Edits by countries" align="middle" width="500">
+    <br/>
+    <br/>
+    <figcaption>Fig. 7: Edits by countries</figcaption>
+</div>
+<br/>
+
+
+
+<!---->
+<strong>Answering RQ3:</strong>
+
+We analysed the PostVersionUrl table to extract the domain names in a standard format
+(for example www.domainname.com) and then sorted the domain names in the order of
+frequency of their use. The results in the Figure 8 show that the I.stack.imgur.com and
+stackoverflow.com are being referenced more that 1 million times in the posts blocks
+and code blocks. This seems consistent with the general observation on SO website
+where we see that users tend to post images of codes that are hosted by the popular image
+hosting website imgur.com and users tend to refer to other posts from the stackoverflow
+website in the answers. We also see links to links to popular websites in developers such
+as github.com, python.org, oracle.com, and also the wikipedia.com.
+Analysis of PostReferenceGH show that GitHub repositories such as cdnjs, tensorflow,
+etc have more links to SO posts. This analysis was trickier because the SOTorrent dataset
+does not take into consideration the fact that GitHub users usually fork the original
+repositories frequently. Therefore, the links to SO is added in the table for every single
+fork of the original repository. For example, we observed that cdnjs/cdnjs project was
+forked by over 100 GitHub users. So, the 1837 links in the original repo were added in
+the table for every single fork.
+
+<div style="text-align: center">
+    <img src="/images/csu/proj/sotorrent/rq3_1.png" alt="External URLs found in SO posts" align="middle" width="500">
+    <br/>
+    <br/>
+    <figcaption>Fig. 8: External URLs found in SO posts</figcaption>
+</div>
+<br/>
+
+
+Therefore, we had to manually analyse the table which sorts the repos by the frequency
+of the SO links. The results in the Figure 9 show that the repo cdnjs has the most links
+to the SO website. We can also observe that the repos like TensorFlow that were
+introduced in the period has many links to SO posts owing to the fact that it is still under
+the development.
+
+<div style="text-align: center">
+    <img src="/images/csu/proj/sotorrent/rq3_2.png" alt="Links to SO from GitHub projects" align="middle" width="500">
+    <br/>
+    <br/>
+    <figcaption>Fig. 9: Links to SO from GitHub projects</figcaption>
+</div>
+<br/>
+
+
+Finally, we also analysed what are the languages used in the repos that frequently refer
+to the SO posts. For the 3 years of data, we observed that .js, .swift, .py files have more
+references to SO posts, which suggests that languages like javascript, swift, python were
+popular, and developers wrote many snippets in these languages. We have presented the
+results in Figure 10 and 11. For the entire 10 years of data, we observed that developers
+had many snippets in javascript. However, languages like swift and go were not popular
+when all the data is considered together.
+
+
+<div style="text-align: center">
+    <img src="/images/csu/proj/sotorrent/rq3_3yrs.png" alt="Distribution of filetypes in GitHub where links to SO were found" align="middle" width="500">
+    <br/>
+    <br/>
+    <figcaption>Fig. 10: Distribution of filetypes in GitHub where links to SO were found</figcaption>
+</div>
+<br/>
+
+
+<div style="text-align: center">
+    <img src="/images/csu/proj/sotorrent/rq3_10yrs.png" alt="Distribution of filetypes in GitHub where links to SO were found" align="middle" width="500">
+    <br/>
+    <br/>
+    <figcaption>Fig. 11: Distribution of filetypes in GitHub where links to SO were found</figcaption>
+</div>
+<br/>
+
+
+
+<!---->
+<strong>Answering RQ4:</strong>
+
+We used PostBlockVersion table to count the number code and text blocks with 1 edits,
+2 edits, and so on. We observed that 60.32% of the code blocks were only edited once
+while 61.94% text blocks were edited only once.
+From Figure 12, we see that most of the blocks are edited at most 4 times. We observed
+that some of the blocks were edited over 50 times in their lifetime. This analysis suggests
+that a text or code block would most probably be edited between 1 to 4 times.
+
+
+<div style="text-align: center">
+    <img src="/images/csu/proj/sotorrent/rq4.png" alt="Number of edits vs number of posts blocks" align="middle" width="500">
+    <br/>
+    <br/>
+    <figcaption>Fig. 12: Number of edits vs number of posts blocks</figcaption>
+</div>
+<br/>
 
 
 
 <!--##############-->
 <p>
-    <b>Conclusion:</b>
+    <b>Conclusions:</b>
 </p>
 
 

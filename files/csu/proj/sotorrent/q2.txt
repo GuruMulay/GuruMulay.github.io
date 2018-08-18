@@ -1,0 +1,270 @@
+#standardSQL
+SELECT PBV.*, PH*
+FROM `trunc1.PostBlockVersion` AS PBV
+INNER JOIN trunc1.PostHistory AS PH
+ON PH.PostHistory.Id = PBV.PostHistoryId;
+
+
+
+#standardSQL
+SELECT PBV.*, PostHistory.Id as PHId, PostHistory.PostHistoryTypeId, PostHistory.PostId as PHPostId, PostHistory.RevisionGUID, PostHistory.CreationDate, PostHistory.UserId, PostHistory.UserDisplayName, PostHistory.Comment, PostHistory.Text
+FROM `trunc1.PostBlockVersion` AS PBV
+INNER JOIN trunc1.PostHistory 
+ON PostHistory.Id = PBV.PostHistoryId;
+
+
+RQ2
+#standardSQL
+select * from trunc1.Users where id = 13302;
+
+
+Inner Join
+Users and  PostVersionBlock_IJ_PostHistory_UserIdFreq (sorted by edit contribution)
+
+
+#standardSQL
+SELECT U.*
+FROM `trunc1.Users` AS U
+INNER JOIN trunc0.PostVersionBlock_IJ_PostHistory_UserIdFreq
+ON PostVersionBlock_IJ_PostHistory_UserIdFreq.UserId = U.Id;
+
+
+
+#standardSQL
+SELECT Users.*
+FROM `trunc1.PostVersionBlock_IJ_PostHistory_UserIdFreq` AS F
+INNER JOIN trunc1.Users
+ON F.UserId = Users.Id;
+
+
+
+correct one =>
+
+
+#standardSQL
+SELECT F.f0_ as EditFreq, Users.*
+FROM `trunc1.PostVersionBlock_IJ_PostHistory_UserIdFreq` AS F
+INNER JOIN trunc1.Users
+ON F.UserId = Users.Id
+order by 1 DESC;
+
+
+output = Users_TopEdits
+
+
+Club locations together
+#standardSQL
+select Location, count(*) from trunc1.Users_TopEdits group by Location order by 2 DESC;
+The query above is gives incorrect answers because even 1 edit freq user will get thier location, so limit EditFreq to at least 1000
+
+So =>
+
+#standardSQL
+select Location, count(*) from trunc1.Users_TopEdits where EditFreq >= 1000 group by Location order by 2 DESC
+
+
+
+
+# country csvs
+#standardSQL
+select * from trunc1.Users_TopEdits_ByLocation_1000Edits where LOWER(Location) like '%uk%' OR LOWER(Location) like '%united kingdom%' AND LOWER(Location) not like '%ukraine%';
+
+
+#standardSQL
+select * from trunc1.Users_TopEdits_ByLocation_1000Edits where Location like '%US%' OR Location like '%United States%' 
+OR Location LIKE '%AL%'
+OR Location LIKE '%AK%'
+OR Location LIKE '%AZ%'
+OR Location LIKE '%AR%'
+OR Location LIKE '%CA%'
+OR Location LIKE '%CO%'
+OR Location LIKE '%CT%'
+OR Location LIKE '%DC%'
+OR Location LIKE '%DE%'
+OR Location LIKE '%FL%'
+OR Location LIKE '%GA%'
+OR Location LIKE '%HI%'
+OR Location LIKE '%ID%'
+OR Location LIKE '%IL%'
+OR Location LIKE '%IN%'
+OR Location LIKE '%IA%'
+OR Location LIKE '%KS%'
+OR Location LIKE '%KY%'
+OR Location LIKE '%LA%'
+OR Location LIKE '%ME%'
+OR Location LIKE '%MD%'
+OR Location LIKE '%MA%'
+OR Location LIKE '%MI%'
+OR Location LIKE '%MN%'
+OR Location LIKE '%MS%'
+OR Location LIKE '%MO%'
+OR Location LIKE '%MT%'
+OR Location LIKE '%NE%'
+OR Location LIKE '%NV%'
+OR Location LIKE '%NH%'
+OR Location LIKE '%NJ%'
+OR Location LIKE '%NM%'
+OR Location LIKE '%NY%'
+OR Location LIKE '%NC%'
+OR Location LIKE '%ND%'
+OR Location LIKE '%OH%'
+OR Location LIKE '%OK%'
+OR Location LIKE '%OR%'
+OR Location LIKE '%PA%'
+OR Location LIKE '%RI%'
+OR Location LIKE '%SC%'
+OR Location LIKE '%SD%'
+OR Location LIKE '%TN%'
+OR Location LIKE '%TX%'
+OR Location LIKE '%UT%'
+OR Location LIKE '%VT%'
+OR Location LIKE '%VA%'
+OR Location LIKE '%WA%'
+OR Location LIKE '%WV%'
+OR Location LIKE '%WI%'
+OR Location LIKE '%WY%';
+
+
+#######################
+Many empty locations *******
+Earth
+
+
+# to get post with type 1 = Question becasue only question have tags
+
+#standardSQL
+select * from trunc1.Posts where PostTypeId = 1;
+
+Inner Join PostsQuestionsOnly with Users to get the locations for languages
+
+#standardSQL
+select * from trunc1.PostsQuestionsOnly AS PQ 
+where Lower(PQ.Tags) like '%java%';
+
+saved as PostQuestionsOnly_Java
+
+
+to add location to the java table
+#standardSQL
+SELECT U.Location, PQJ.*
+FROM `trunc1.Users` AS U
+INNER JOIN trunc1.PostsQuestionsOnly AS PQJ
+ON U.Id = OwnerUserId;
+
+
+#######
+#standardSQL
+select * from trunc1.PostsQuestionsOnly_WithLocations AS PQL
+where Lower(PQL.Tags) like '%java%';
+
+saved as PostsQuestionsOnly_WithLocations_Java
+
+
+
+##1
+San Francisco
+#standardSQL
+select * from trunc1.PostsQuestionsOnly_WithLocations_Java where Location like '%San Francisco%' or Location like '%Bay Area%' or Location like '%Silicon Valley%' or Location like '%Palo Alto%' or Location like '%Mountain View%' or Location like '%Sunnyvale%' or Location like '%San Mateo%' or Location like '%San Jose%' or Location like '%Santa Clara%'; 
+
+
+Bangalore
+#standardSQL
+select * from trunc1.PostsQuestionsOnly_WithLocations_Java where Location like '%Bangalore%' or Location like '%Bangaluru%';
+
+
+NY
+#standardSQL
+select * from trunc1.PostsQuestionsOnly_WithLocations_Java where Location like '%New York%' or Location like '%NY%' or Location like '%New Jersey%';
+
+
+Seattle
+#standardSQL
+select * from trunc1.PostsQuestionsOnly_WithLocations_Java where Location like '%Seattle%';
+
+
+London
+#standardSQL
+select * from trunc1.PostsQuestionsOnly_WithLocations_Java where Location like '%London%';
+
+
+
+
+
+###python
+#standardSQL
+select * from trunc1.PostsQuestionsOnly_WithLocations_Python where Location like '%San Francisco%' or Location like '%Bay Area%' or Location like '%Silicon Valley%' or Location like '%Palo Alto%' or Location like '%Mountain View%' or Location like '%Sunnyvale%' or Location like '%San Mateo%' or Location like '%San Jose%' or Location like '%Santa Clara%'; 
+
+
+#standardSQL
+select * from trunc1.PostsQuestionsOnly_WithLocations_Python where Location like '%Bangalore%' or Location like '%Bangaluru%';
+
+
+#standardSQL
+select * from trunc1.PostsQuestionsOnly_WithLocations_Python where Location like '%New York%' or Location like '%NY%' or Location like '%New Jersey%';
+
+
+#standardSQL
+select * from trunc1.PostsQuestionsOnly_WithLocations_Python where Location like '%Seattle%';
+
+
+#standardSQL
+select * from trunc1.PostsQuestionsOnly_WithLocations_Python where Location like '%London%';
+
+
+
+
+
+#####################
+Code blocks table only from PostBlockVersion
+
+#standardSQL
+select * from trunc1.PostBlockVersion where PostBlockTypeId = 2;
+saved as PostBlockVersionCodeBlocks
+
+
+#standardSQL
+select * from trunc1.PostBlockVersion where PostBlockTypeId = 1;
+saved as PostBlockVersionTextBlocks
+
+# to find out the number of edits per root block
+#standardSQL
+select RootPostBlockId, count(*) from trunc1.PostBlockVersionCodeBlocks group by RootPostBlockId;
+
+saved as PostBlockVersionCodeBlocks_RootCount
+
+# to find out how many 1 edits, 2 edits and so on
+#standardSQL
+select f0_ as NumberOfEdits, count(*) as Freq from trunc1.PostBlockVersionCodeBlocks_RootCount group by f0_ order by 2 DESC;
+
+saved as PostBlockVersionCodeBlocks_RootCount_Freq
+
+#standardSQL
+select f0_ as NumberOfEdits, count(*) as Freq from trunc1.PostBlockVersionTextBlocks_RootCount group by f0_ order by 2 DESC;
+
+saved as PostBlockVersionTextBlocks_RootCount_Freq
+
+###
+63373707 Total PostBLockVersion records
+25630954 Code Blocks
+37742753 Text Blocks
+
+number 065253
+
+
+
+
+##########
+Windows Mac Linux
+
+#standardSQL
+select * from trunc1.PostsQuestionsOnly_WithLocations AS PQL
+where Lower(PQL.Tags) like '%windows%';
+saved as PostsQuestionsOnly_WithLocations_Windows
+
+#standardSQL
+select * from trunc1.PostsQuestionsOnly_WithLocations AS PQL
+where Lower(PQL.Tags) like '%macos%';
+
+#standardSQL
+select * from trunc1.PostsQuestionsOnly_WithLocations AS PQL
+where Lower(PQL.Tags) like '%linux%';
