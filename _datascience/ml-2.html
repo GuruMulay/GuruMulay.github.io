@@ -14,13 +14,13 @@ tags:
 <!--</p>-->
 
 <p>
-    Stack Overflow [1] is one of the most visited question-and-answer forums for software developers. This is evident
-    from the fact that as of April 2018, it has over 39.6 million posts and over 8.5 million registered users [2].
+    Stack Overflow is one of the most visited question-and-answer forums for software developers. This is evident
+    from the fact that as of April 2018, it has over 39.6 million posts and over 8.5 million registered users [1].
     Apart from questions and answers text, it also contains code snippets. The text and code snippets evolve over time
     when the users edit them. However, there is no provision in the official Stack Overflow (SO) data dump to study this
     evolution. <a href="http://empirical-software.engineering/blog/sotorrent">SOTorrent</a>, derived from the official
     SO data dump, is one such open-source dataset that provides the version history
-    of SO texts and code snippets/blocks. SOTorrent was released by Baltes et. al. [3] specifically to address
+    of SO texts and code snippets/blocks. SOTorrent was released by Baltes et. al. [2] specifically to address
     the need for studying evolution of SO posts at a fine-grain level of snippets. It is hosted on
     <a href="https://bigquery.cloud.google.com/dataset/sotorrent-org:2018_02_16" >Google Cloud Platform</a>
     with an excellent, informative introduction by the authors on the
@@ -30,7 +30,9 @@ tags:
     As a short introduction, here are some statistics about the SOTorrent dataset:
 
     <div style="text-align: center">
-        <img src="/images/csu/proj/sotorrent/so_stats.png" alt="SOTorrent statistics" align="middle" width="500">
+        <a href="/images/csu/proj/sotorrent/so_stats.png">
+            <img src="/images/csu/proj/sotorrent/so_stats.png" alt="SOTorrent statistics" align="middle" width="500">
+        </a>
         <br/>
         <br/>
         <figcaption>Fig. 1: SOTorrent stats</figcaption>
@@ -88,7 +90,9 @@ about BigQuery is that it will alert you when your query is completed. This beco
 hours to run.
 
 <div style="text-align: center">
-    <img src="/images/csu/proj/sotorrent/bq1.png" alt="GCP BigQuery API" align="middle" width="500">
+    <a href="/images/csu/proj/sotorrent/bq1.png">
+        <img src="/images/csu/proj/sotorrent/bq1.png" alt="GCP BigQuery API" align="middle" width="500">
+    </a>
     <br/>
     <br/>
     <figcaption>Fig. 2: BigQuery Interface</figcaption>
@@ -145,7 +149,9 @@ so we can safely conclude that Java is pretty much the most used technology at p
 
 
 <div style="text-align: center">
-    <img src="/images/csu/proj/sotorrent/rq1.png" alt="Most frequently edited languages on Stack Overflow" align="middle" width="500">
+    <a href="/images/csu/proj/sotorrent/rq1.png">
+        <img src="/images/csu/proj/sotorrent/rq1.png" alt="Most frequently edited languages on Stack Overflow" align="middle" width="500">
+    </a>
     <br/>
     <br/>
     <figcaption>Fig. 3: Most frequently edited languages on Stack Overflow</figcaption>
@@ -162,7 +168,9 @@ users have contributed the least towards the edits among all these five location
 
 
 <div style="text-align: center">
-    <img src="/images/csu/proj/sotorrent/rq2_1.png" alt="Edits from most popular geographical locations" align="middle" width="500">
+    <a href="/images/csu/proj/sotorrent/rq2_1.png">
+        <img src="/images/csu/proj/sotorrent/rq2_1.png" alt="Edits from most popular geographical locations" align="middle" width="700">
+    </a>
     <br/>
     <br/>
     <figcaption>Fig. 4: Edits from most popular geographical locations</figcaption>
@@ -187,7 +195,9 @@ companies.
 
 
 <div style="text-align: center">
-    <img src="/images/csu/proj/sotorrent/rq2_2.png" alt="Most edited language in various places." align="middle" width="500">
+    <a href="/images/csu/proj/sotorrent/rq2_2.png">
+        <img src="/images/csu/proj/sotorrent/rq2_2.png" alt="Most edited language in various places." align="middle" width="800">
+    </a>
     <br/>
     <br/>
     <figcaption>Fig. 5: Most edited language in various places.</figcaption>
@@ -196,7 +206,9 @@ companies.
 
 
 <div style="text-align: center">
-    <img src="/images/csu/proj/sotorrent/rq2_3.png" alt="Popularity of various Operating Systems" align="middle" width="500">
+    <a href="/images/csu/proj/sotorrent/rq2_3.png">
+        <img src="/images/csu/proj/sotorrent/rq2_3.png" alt="Popularity of various Operating Systems" align="middle" width="800">
+    </a>
     <br/>
     <br/>
     <figcaption>Fig. 6: Popularity of various Operating Systems</figcaption>
@@ -227,7 +239,9 @@ results.
 
 
 <div style="text-align: center">
-    <img src="/images/csu/proj/sotorrent/rq2_4.png" alt="Edits by countries" align="middle" width="500">
+    <a href="/images/csu/proj/sotorrent/rq2_4.png">
+        <img src="/images/csu/proj/sotorrent/rq2_4.png" alt="Edits by countries" align="middle" width="800">
+    </a>
     <br/>
     <br/>
     <figcaption>Fig. 7: Edits by countries</figcaption>
@@ -257,7 +271,9 @@ forked by over 100 GitHub users. So, the 1837 links in the original repo were ad
 the table for every single fork.
 
 <div style="text-align: center">
-    <img src="/images/csu/proj/sotorrent/rq3_1.png" alt="External URLs found in SO posts" align="middle" width="500">
+    <a href="/images/csu/proj/sotorrent/rq3_1.png">
+        <img src="/images/csu/proj/sotorrent/rq3_1.png" alt="External URLs found in SO posts" align="middle" width="800">
+    </a>
     <br/>
     <br/>
     <figcaption>Fig. 8: External URLs found in SO posts</figcaption>
@@ -272,7 +288,9 @@ introduced in the period has many links to SO posts owing to the fact that it is
 the development.
 
 <div style="text-align: center">
-    <img src="/images/csu/proj/sotorrent/rq3_2.png" alt="Links to SO from GitHub projects" align="middle" width="500">
+    <a href="/images/csu/proj/sotorrent/rq3_2.png">
+        <img src="/images/csu/proj/sotorrent/rq3_2.png" alt="Links to SO from GitHub projects" align="middle" width="800">
+    </a>
     <br/>
     <br/>
     <figcaption>Fig. 9: Links to SO from GitHub projects</figcaption>
@@ -290,7 +308,9 @@ when all the data is considered together.
 
 
 <div style="text-align: center">
-    <img src="/images/csu/proj/sotorrent/rq3_3yrs.png" alt="Distribution of filetypes in GitHub where links to SO were found" align="middle" width="500">
+    <a href="/images/csu/proj/sotorrent/rq3_3yrspng">
+        <img src="/images/csu/proj/sotorrent/rq3_3yrs.png" alt="Distribution of filetypes in GitHub where links to SO were found" align="middle" width="800">
+    </a>
     <br/>
     <br/>
     <figcaption>Fig. 10: Distribution of filetypes in GitHub where links to SO were found</figcaption>
@@ -299,7 +319,9 @@ when all the data is considered together.
 
 
 <div style="text-align: center">
-    <img src="/images/csu/proj/sotorrent/rq3_10yrs.png" alt="Distribution of filetypes in GitHub where links to SO were found" align="middle" width="500">
+    <a href="/images/csu/proj/sotorrent/rq3_10yrs.png">
+        <img src="/images/csu/proj/sotorrent/rq3_10yrs.png" alt="Distribution of filetypes in GitHub where links to SO were found" align="middle" width="800">
+    </a>
     <br/>
     <br/>
     <figcaption>Fig. 11: Distribution of filetypes in GitHub where links to SO were found</figcaption>
@@ -320,7 +342,9 @@ that a text or code block would most probably be edited between 1 to 4 times.
 
 
 <div style="text-align: center">
-    <img src="/images/csu/proj/sotorrent/rq4.png" alt="Number of edits vs number of posts blocks" align="middle" width="500">
+    <a href="/images/csu/proj/sotorrent/rq4.png">
+        <img src="/images/csu/proj/sotorrent/rq4.png" alt="Number of edits vs number of posts blocks" align="middle" width="800">
+    </a>
     <br/>
     <br/>
     <figcaption>Fig. 12: Number of edits vs number of posts blocks</figcaption>
@@ -351,3 +375,19 @@ that a text or code block would most probably be edited between 1 to 4 times.
 
 
 </ul>
+
+
+<!--##############-->
+<p>
+    <b>References:</b>
+
+<ol type="1">
+    <li>Stack Exchange Inc., Stack exchange data dump, 2018, https://archive.org/details/stackexchange.</li>
+
+    <li>Baltes, S., et al., SOTorrent: Reconstructing and Analyzing the Evolution of Stack Overflow Posts,
+        arXiv preprint arXiv:1803.07311, 2018.</li>
+
+</ol>
+
+
+</p>
