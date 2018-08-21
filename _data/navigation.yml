@@ -7,8 +7,8 @@ main:
 #  - title: "teaching"
 #    url: /teaching/
 
-  - title: "Portfolio"
-    url: /portfolio/
+#  - title: "Portfolio"
+#    url: /portfolio/
 
   - title: "Data Science"
     url: /datascience/
@@ -28,8 +28,8 @@ main:
   - title: "Academic"
     url: /academic/
 
-  - title: "Publications"
-    url: /publications/
+#  - title: "Publications"
+#    url: /publications/
 
   - title: "Gallery"
     url: /gallery/

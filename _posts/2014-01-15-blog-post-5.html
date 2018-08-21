@@ -1,0 +1,101 @@
+---
+title: 'Once I dissected a MAXON motor'
+date: 2014-01-15
+permalink: /posts/2014/01/blog-post-2/
+tags:
+  - MAXON-motor
+  - MAXON-encoder
+  - robotics
+---
+
+<p><strong>Premise:</strong> Robotics team that I am a part of uses lots of different types of DC, BLDC, servo, and stepper motors.
+  For example, we use
+  wiper motors for high torque applications, DC <a href="https://www.maxonmotorusa.com/maxon/view/content/index">Maxon motors</a>
+  for fault tolerant applications that need both high speeds (high RPM) and high torques. We also use low-end, economic
+  motors (I do not know their names but they look like
+  <a href="https://i.pinimg.com/236x/6b/3f/11/6b3f11f34ef5a45c2e62250ed0d0df83--gears-time-clock.jpg">this</a>) for
+  prototyping purpose and places on Robots where efficiency and accuracy is not critical, for instance, for a extendable arm.
+  Sometimes, we use BLDC for the applications where speed is critical such as propelling a robot. Stepper motors are used to
+  get finer control over the motion derived from the motor's rotation. Servos are must where extreme torques are required.
+  For example, a robotic jaw that grabs on to objects for significantly longer amounts of time. Servo motors gives a great
+  control over precise angular motions.
+</p>
+
+<p>
+The primary reason for using Maxon motors is that they have an encoder attached at the back of the motor to track the
+  speed and direction of the motor. These encoders allow us to run the motor in a closed loop fashion. Meaning our motherboard
+  tells motor-driver circuit to run the motor at a certain desired speed. Motor-dirver tries to run motor at the desired
+  speed but due to on-load conditions such as surface friction, internal energy losses, the motor never runs at the desired
+  speed. One way to achieve desired speed is to use the motor's encoder. Encoder of the motor gives real-time information about
+  the actual speed of the motor to the motherboard. Motherboard calculates the difference between required speed and
+  actual speed. This difference is converted into a correction signal that is send to the motor-dirver and in turn to the
+  motor to correctify the motor speed.
+  <br/>
+  <br/>
+  In short, encoder is absolutely necessary to create a closed loop feedback circuit.
+</p>
+
+
+
+<!--<hr style="color:#97CE95" />-->
+
+<a href="https://farm2.staticflickr.com/1843/30304277498_f2307ff108_k.jpg">
+  <img  alt="Maxon Motor Encoder Circuit (Opened)" src="https://farm2.staticflickr.com/1843/30304277498_f2307ff108_k.jpg" style="float: left; width: 97%; margin-right: 1%; margin-bottom: 3em; margin-top: 2em;"  >
+</a>
+
+
+<p>
+One of the problems with the Maxon encoder that we encounter is that the FRC connector that connects to encoder of Maxon
+  motor gets loose over time. This partially could be because the way we use Maxon rigorously and continuously under
+  extreme conditions of vibrations, temperatures, and pull-forces on connectors. On the other hand, this could also be
+  because of the FRC connectors of Maxon encoder are of poor quality as compared to the price of the actual Maxon motor.
+  The loose connections to encoder, which could many times become a disconnection, causes several issues in the
+  feedback loop of controlling the motor. And the loose connection issue is fairly frequent.
+
+  As a result, we as a team
+  have to take some extreme decisions to fix the loose connections in-house (actually in-lab) instead of sending the
+  whole motor to Maxon's repair office every time there is a loose connection. Not to mention that Maxon will charge you
+  for shipping the motor and fixing this minor issue which can be solved by simply soldering the loose wires of the FRC
+  connector. I said the decision is extreme because Maxon motors ain't cheap! A Maxon single motor with encoder typically
+  costs us <strong> 80K-90K INR (USD 1200) </strong>. And we typically have about 15 of these motors bought from different
+  Maxon motor product series. So to avoid the hassle we decided to solder the loose FRCs of Maxon encoder manually in
+  our lab. This task requires extreme patience, calmness, and skillfulness in soldering. One small mistake and you could
+  completely make the encoder useless. And replacing that encoder would take additional 100s of dollars to fix.
+
+</p>
+
+
+<p>
+  Anyway, my team (especially I) have had several of these "opportunities" to fix the encoders loose connection issues.
+  First of all removing the back panel of Maxon under which encoder lies, is itself a big task. Secondly, as shown in
+  the image above the encoder circuit is really delicate. The soldering pads for FRC's wires are really small.
+  At higher temperatures these pads tend to come off of the underlying PCB which makes the encoder totally useless!
+
+</p>
+
+
+<a href="https://farm2.staticflickr.com/1893/30304274298_2e6d88925e_k.jpg">
+  <img  alt="Maxon Motor Encoder Circuit (Opened)" src="https://farm2.staticflickr.com/1893/30304274298_2e6d88925e_k.jpg" style="float: left; width: 97%; margin-right: 1%; margin-bottom: 3em; margin-top: 2em"  >
+</a>
+
+
+
+<p>
+Here are some suggestions and cautions from my experience of working with Maxon's encoder:
+<ul>
+  <li>Remove the back panel of Maxon motor delicately so that you do not break the plastic panel or damage the FRC
+    by peeling or shorting adjacent wires.</li>
+  <li>Solder the FRC carefully without shorting the adjacent wire pads. Make sure the PCB is cleaned after soldering.</li>
+  <li>Do not touch the circuitry like SMD capacitors and resistors because they might fall off right away.</li>
+  <li>Do not overheat the wire pads, otherwise they will come off of the PCB.</li>
+  <li>After soldering, snap the panel back lightly so that it does not pinch the FRC coming out of the circuit.</li>
+
+</ul>
+
+</p>
+
+<p>
+  I have to admit that once I accidentally damaged the wire pad to the point that I had to scape off the isolating film
+  next to the wire pad to solder the FRC's wire on the track beneath the isolating film to ensure a solid connection.
+
+</p>
