@@ -7,6 +7,9 @@
   {% include /analytics-providers/google-universal.html %}
 {% when "custom" %}
   {% include /analytics-providers/custom.html %}
+{% when "google" %}
+  {% include /analytics-providers/google-firebase.html %}
+
 {% endcase %}
 
 {% endif %}
