@@ -22,7 +22,7 @@ redirect_from:
 
 | Course | Year and Links |
 | ------------- | ------------- |
-| CS410: Computer Graphics  | [`Fall 2017`](https://www.cs.colostate.edu/~cs410/yr2017fa/) - [Students' Art Gallery](https://gurumulay.github.io/images/500x300.png) <br> [`Fall 2018`](https://www.cs.colostate.edu/~cs410/yr2018fa/) - [Students' Art Gallery](https://gurumulay.github.io/images/500x300.png)      |
+| CS410: Computer Graphics  | [`Fall 2017`](https://www.cs.colostate.edu/~cs410/yr2017fa/) - [Students' Art Gallery](https://gurumulay.github.io/images/cg/IMG_9389.jpg) <br> [`Fall 2018`](https://www.cs.colostate.edu/~cs410/yr2018fa/) - [Students' Art Gallery](https://gurumulay.github.io/images/500x300.png)      |
 | CS464: Human Computer Interactions | [`Spring 2017`](https://www.cs.colostate.edu/~cs464/yr2017sp/) <br> [`Spring 2018`](https://www.cs.colostate.edu/~cs464/yr2018sp/)        |
 
 
