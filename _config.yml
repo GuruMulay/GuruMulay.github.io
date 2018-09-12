@@ -200,6 +200,9 @@ collections:
   electronics:
     output: true
     permalink: /:collection/:path/
+  misc:
+    output: true
+    permalink: /:collection/:path/
   me:
     output: true
     permalink: /:collection/:path/
@@ -294,6 +297,15 @@ defaults:
   - scope:
       path: ""
       type: electronics
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+  # _misc
+  - scope:
+      path: ""
+      type: misc
     values:
       layout: single
       author_profile: true
