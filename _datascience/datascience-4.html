@@ -1,24 +1,28 @@
 ---
-title: "Hadoop MapReduce: Word Count & Creating N-gram Profile for the English Literature (Gutenberg) Corpus"
+title: "Hadoop MapReduce: Content Based Authorship Detection using TF/IDF Scores and
+Cosine Similarity"
 excerpt: "<br/><img src='/images/csu/proj/big-data-1/ngram1.png'> <br/> <small> </small> "
 collection: datascience
 tags:
   - Hadoop
   - map-reduce
   - word-count
-  - n-gram-analysis
+  - authorship-detection
   - BigData
-  - gutenberg-corpus
+  - tf-idf-scores
 ---
 
 <hr style="border-color: silver;">
 <a href="#" ><button type="button" class="btn btn--info"><i class="fa fa-github"></i> GitHub Source</button></a>
-<!--<large>Source:</large> -->
+<!--<i class="fa fa-file-code-o"></i>-->
+<!--<a href="#" class="btn btn&#45;&#45;inverse">Inverse Button</a>-->
+<!--<a href="#" class="btn btn&#45;&#45;info">Info Button</a>-->
 <!--<iframe src="https://ghbtns.com/github-btn.html?user=gurumulay&repo=big-data-class/tree/master/n-gram-analysis-of-gutenberg&type=star&count=false&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>-->
 <hr style="border-color: silver;">
 
 
 <!--##############-->
+<!--<hr>-->
 <p>
     <big>
     <b>Introduction:</b>
@@ -27,45 +31,84 @@ tags:
 
 
 <p>
-    An N-gram is a contiguous sequence of N items from a given sequence of text or speech [1]. Probabilistic modeling of
-    N-grams is useful for predicting the next item in a sequence in Markov models.
-    For sequences of words, n-grams comprising of 1 word are called as unigram (1-gram). For set of 2 words, it's called as
-    bigram (2-gram), for set of 3 words it's called as trigram (3-gram) and so on.
+    The goal is to build an authorship detection system that provides a ranked list of
+    possible authors for a document whose authorship is unknown. The system uses N-gram analysis from
+    <a href="/datascience/datascience-3/">this project</a>. In particular, I used the word uni-grams from that project.
 
-    For example, consider following sentence:
+    Finding the attributes of literature content written by an author is important to detect unique
+    writing style for that author. I built an attribute vector for each of the authors with the help of
+    <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">Term Frequency and Inverse Document Frequency (TF-IDF)</a>
+    analysis. Authorship is determined based on the similarity between the attribute vectors of the unseen document and
+    the pre-computed attribute vectors of authors. TF-IDF is used to calculate the weights of each of the entities in
+    the attribute vector.
+
+
 </p>
 
-<!--<p style="font-family:Lucida Console;">This is a paragraph.</p>-->
 
-<p>
-<code style="font-size: 105%;">Let's study Big Data</code>
-</p>
+<!--<p>-->
+<!--<code style="font-size: 105%;">Let's study Big Data</code>-->
+<!--</p>-->
 
 <!--<br style="margin-bottom:25px;"/>-->
 
+<!--<p>-->
+    <!--The 1-grams for this sentence are <code>["Let's", "study", "Big", "Data"]</code>. The 2-grams are-->
+    <!--<code>["__, Let's", "Let's, study", "study, Big", "Big, Data", "Data, __"]</code>.-->
+    <!--Here, "__" represents the empty space before and after the sentence which helps to distinguish whether the word was-->
+    <!--used in the beginning or the end of the sentence or whether word was paired with other words.-->
+<!--</p>-->
+
+
+<!--##############-->
+<hr>
 <p>
-    The 1-grams for this sentence are <code>["Let's", "study", "Big", "Data"]</code>. The 2-grams are
-    <code>["__, Let's", "Let's, study", "study, Big", "Big, Data", "Data, __"]</code>.
-    Here, "__" represents the empty space before and after the sentence which helps to distinguish whether the word was
-    used in the beginning or the end of the sentence or whether word was paired with other words.
+    <big>
+    <b>Definitions:</b>
+    </big>
 </p>
 
 
 <p>
-    N-gram analysis finds applications in many areas such as sequence prediction, sequence completion (such as the one
-    in Gmail's August 2018 updated version), plagiarism detection, searching for similar documents, sentiment analysis
-    automatic authorship detection, and linguistic cultural trend analysis.
+    <b>Term Frequency:</b>
+</p>
 
-    Not to mention that Google has already spent several thousands of hours doing research in this field given that it
-    helps them in many products such as Google search engine, Gmail, Google Docs, Google Assistant, Google Voice
-    transcription, and many more. They have created a great tool called <a href="https://books.google.com/ngrams/">
-    Google Ngram Viewer</a> which allows you to analyse words from English (as well as several more languages) for their
-    frequency of use over time, occurrences in specific corpus, etc. You could get more information about this tool
-    <a href="https://books.google.com/ngrams/info"> here on info their page.</a>
+<p>
+    Let's assume that we have a collection of documents written by M authors. This collection of documents may
+    contain multiple books written by an author. Let’s define a set of documents written by same author as
+    a sub-collection j. We define f ij to be the frequency (Number of occurrences) of term (word) i in sub-
+    collection j.
+
+    <br/>
+    <code>
+    TF ij =0.5+0.5(f ij /max k f kj )
+    </code>
+    <br/>
+    
+    We use the augmented TF to prevent a bias towards longer documents. E.g. raw
+    frequency divided by the maximum raw frequency of any term k in the sub-collection j. Stop words were not eliminated
+    from the corpus. The most frequent term in the sub-collection will have a augmented TF value of 1.
 
 </p>
 
 
+<p>
+    <b>Inverse Document Frequency:</b>
+</p>
+
+
+<p>
+    <b>TF.IDF value:</b>
+</p>
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Introduction:</b>
+    </big>
+</p>
 
 <p>
     For this project, the goal was to create an N-gram profile of a corpus of modern English literature formed by
@@ -244,6 +287,7 @@ And the <a href="">source</a> as well.
     <li>https://en.wikipedia.org/wiki/N-gram</li>
     <li>https://www.gutenberg.org</li>
 </ol>
+
 
 
 <!--##############-->
