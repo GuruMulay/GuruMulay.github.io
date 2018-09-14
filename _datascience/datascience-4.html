@@ -68,10 +68,19 @@ tags:
     </big>
 </p>
 
-<p>
-  When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are
-  $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$
-</p>
+<!--MathJax examples-->
+
+<!--<p>-->
+  <!--When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are-->
+  <!--$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$-->
+<!--</p>-->
+
+    <!--In equation \eqref{eq:sample}-->
+    <!---->
+    <!--\begin{equation}-->
+    <!--\int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}-->
+    <!--\label{eq:sample}-->
+    <!--\end{equation}-->
 
 
 <p>
@@ -81,18 +90,20 @@ tags:
 <p>
     Let's assume that we have a collection of documents written by M authors. This collection of documents may
     contain multiple books written by an author. Let’s define a set of documents written by same author as
-    a sub-collection j. We define f ij to be the frequency (Number of occurrences) of term (word) i in sub-
-    collection j.
+    a sub-collection $j$. We define $f_{ij}$ to be the frequency (Number of occurrences) of term (word) $i$ in
+    sub-collection $j$.
 
     <br/>
-    <code>
-    TF ij =0.5+0.5(f ij /max k f kj )
-    </code>
+    \begin{equation}
+    TF_{ij} = 0.5 +  {f_{ij} \over max_k f_{kj}}
+    \label{eq:tf1}
+    \end{equation}
     <br/>
 
-    We use the augmented TF to prevent a bias towards longer documents. E.g. raw
-    frequency divided by the maximum raw frequency of any term k in the sub-collection j. Stop words were not eliminated
-    from the corpus. The most frequent term in the sub-collection will have a augmented TF value of 1.
+    We use the augmented $TF$ (represented by 0.5 added initially in term 1 and then multiplied in terms 2 of
+    \eqref{eq:tf1}) to prevent a bias towards longer documents. Term 2 is the raw frequency divided by the
+    maximum raw frequency of any term $k$ in the sub-collection $j$. Stop words (e.g., a, an, the, etc) were
+    not eliminated from the corpus. The most frequent term in the sub-collection will have a augmented $TF$ value of 1.
 
 </p>
 
@@ -104,38 +115,38 @@ tags:
 
 
 <p>
-    <b>TF.IDF value:</b>
+    Suppose that term $i$ appears in $n_i$ sub-collections within the corpus. For this assignment, we define the
+    $IDF_i$, as:
+
+    \begin{equation}
+    IDF_i = log_{10} ({N \over n_i})
+    \label{eq:idf1}
+    \end{equation}
+
+    where, $N$ is the total number of sub-collections (same as the number of authors).
 </p>
+
+
+<p>
+    <b>TF-IDF value:</b>
+</p>
+
+<p>
+    The TF-IDF score is the product - $TF_{ij}$ $\times$ $IDF_i$. The terms with the highest TF-IDF score are
+    considered the best words that characterize the sub-collection (document). They are the most important
+    attributes in the sub-collection's attribute vector.
+</p>
+
 
 
 <!--##############-->
 <hr>
 <p>
     <big>
-    <b>Introduction:</b>
+    <b>Cosine Distance between Attribute Vectors:</b>
     </big>
 </p>
 
-<p>
-    For this project, the goal was to create an N-gram profile of a corpus of modern English literature formed by
-    subsetting around 1GB of dataset that included more than 2500 books from Gutenberg project [2]. Major steps
-    involved: (1) Extracting all the unigrams and bigrams, (2) Computing the frequency of each unigram and bigram, and (3) Ranking
-    the unigrams and bigrams based on those frequencies. I used
-    <a href="https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html">Hadoop's</a>
-    <a href="https://en.wikipedia.org/wiki/MapReduce">MapReduce</a>
-    <a href=""></a> framework to generate the ngram profiles.
-
-    <!--<div style="text-align: center">-->
-        <!--<a href="/images/csu/proj/sotorrent/so_stats.png">-->
-            <!--<img src="/images/csu/proj/sotorrent/so_stats.png" alt="SOTorrent statistics" align="middle" width="500">-->
-        <!--</a>-->
-        <!--<br/>-->
-        <!--<br/>-->
-        <!--<figcaption>Fig. 1: SOTorrent stats</figcaption>-->
-    <!--</div>-->
-    <!--<br/>-->
-
-</p>
 
 <!--##############-->
 <hr>
