@@ -13,7 +13,7 @@ tags:
 ---
 
 <hr style="border-color: silver;">
-<a href="#" ><button type="button" class="btn btn--info"><i class="fa fa-github"></i> GitHub Source</button></a>
+<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score" ><button type="button" class="btn btn--info"><i class="fa fa-github"></i> GitHub Source</button></a>
 <!--<i class="fa fa-file-code-o"></i>-->
 <!--<a href="#" class="btn btn&#45;&#45;inverse">Inverse Button</a>-->
 <!--<a href="#" class="btn btn&#45;&#45;info">Info Button</a>-->
@@ -46,20 +46,6 @@ tags:
 </p>
 
 
-<!--<p>-->
-<!--<code style="font-size: 105%;">Let's study Big Data</code>-->
-<!--</p>-->
-
-<!--<br style="margin-bottom:25px;"/>-->
-
-<!--<p>-->
-    <!--The 1-grams for this sentence are <code>["Let's", "study", "Big", "Data"]</code>. The 2-grams are-->
-    <!--<code>["__, Let's", "Let's, study", "study, Big", "Big, Data", "Data, __"]</code>.-->
-    <!--Here, "__" represents the empty space before and after the sentence which helps to distinguish whether the word was-->
-    <!--used in the beginning or the end of the sentence or whether word was paired with other words.-->
-<!--</p>-->
-
-
 <!--##############-->
 <hr>
 <p>
@@ -67,6 +53,7 @@ tags:
     <b>Definitions:</b>
     </big>
 </p>
+
 
 <!--MathJax examples-->
 
@@ -147,6 +134,33 @@ tags:
     </big>
 </p>
 
+<p>
+    After calculating the TF, IDF, and TF-IDF scores for set of books written by the same author (sub-collection)
+    in the corpus, we generate an <b> Author Attribute Vector (AAV) </b> as follows:
+
+    Every author will have their own AAV representing their unique writing style with the help of TF-IDF score of words
+    in the entire corpus. In order to find authorship of a unseen document, we compare the AAV of that document with
+    AAVs of all the possible authors. Note that to compare an arbitrary AAV (from the document with unknown authorship)
+    and existing AAVs, all of the AAVs must have the same dimension. For this comparison we calculate the <b>Cosine
+    Distance</b> between two AAVs that gives a measure of similarity between the authors’ writing styles.
+
+    Suppose that we have two authors with vectors, $AAV_1 = [x_1 , x_2 , ..., x_m]$ and $AAV_2 = [y_1 , y_2 , ..., y_m]$.
+    The Cosine Similarity between them is defined as,
+
+</p>
+
+<p style="text-align: center;">
+    <!--<figure>-->
+    <a href="/images/datascience/tfidf/cosine.jpg"><img src="/images/datascience/tfidf/cosine.jpg"></a>
+    <figcaption class="figure-caption text-center"><a href="https://en.wikipedia.org/wiki/Cosine_similarity" title="">Cosine similarity [Source: Wikipedia]</a></figcaption>
+    <!--</figure>-->
+</p>
+
+<p>
+    Where $AAV_1$ is represented by $A$ and $AAV_2$ by $B$. Using this formula, we will be able to create a ranked list
+    of potential authors for a given document with unknown authorship. Logically, the author with highest cosine
+    similarity with given document will be the most probable author of the document.
+</p>
 
 <!--##############-->
 <hr>
@@ -157,25 +171,7 @@ tags:
 </p>
 
 <p>
-    Dataset - which was provided to us during the class - was compiled from the set of EBook files available as a part
-    of Project Gutenberg. It was a small subset of size ~1gb consisting of lines from several books from the
-    Project Gutenberg. Each line looked as follows:
-
-    <br style="margin-bottom:15px;"/>
-    <code>AUTHOR<===>DATE<===>A SINGLE LINE FROM THE DATASET FILE</code>
-    <br style="margin-bottom:15px;"/>
-
-
-    A specific example would be:
-
-    <br style="margin-bottom:15px;"/>
-    <code>Arthur Conan Doyle<===>June 19, 2008<===>"Well, by his insufferable rudeness and impossible behavior."</code>
-    <br style="margin-bottom:15px;"/>
-
-    For this project we were instructed to work with author's last name from <code>AUTHOR</code> field (last author in
-    case of multiple authors) and only the year part of <code>DATE</code> field. We converted the words into lowercase
-    to make them case insensitive. All the gender and tense identifier are treated as a separate word. Meaning "he" and
-    "she" were treated separately. Words "have" and "has" were treated as two separate words.
+    Read <a href="/datascience/datascience-3/">the dataset description</a> from a previous post.
 </p>
 
 
@@ -190,23 +186,26 @@ tags:
 
 
 <p>
-THe ngram profile analysis generates following:
 
-<ol type="1">
+<ul>
 
-    <li><strong>Profile 1-A:</strong> A list of unigrams sorted by unigrams in an alphabetical ascending order. Within the same unigram, the list
-    should be sorted by year in an ascending order.</li>
+    <li><strong>Part 1:</strong> Calculate the TF, IDF, and TF-IDF values for all terms for all of the sub-collections
+        in the corpus.</li>
 
-    <li><strong>Profile 1-B:</strong> A list of unigrams sorted by unigrams in an alphabetical ascending order. Within the same unigram, the list
-    should be sorted by author’s last name in an ascending order.</li>
+    <li><strong>Part 2:</strong> Create the AAVs (author attribute vectors) for every author.</li>
 
-    <li><strong>Profile 2-A:</strong> A list of bigrams sorted by bigrams in an alphabetical ascending order. Within the same bigram, the list
-    should be sorted by year in an ascending order.</li>
+    <li><strong>Part 3:</strong> Find cosine similarity between AAV of given document with unknown author and all the
+        authors in the corpus.</li>
 
-    <li><strong>Profile 2-B:</strong> A list of bigrams sorted by bigrams in an alphabetical ascending order. Within the same bigram, the list
-    should be sorted by author's last name in an ascending order.</li>
+</ul>
 
-</ol>
+
+We use multiple Mappers and Reducers chained together (called job chaining) that produce intermediate results and
+then final results based on those intermediate results. Final output is a top-10 list of potential authors for the given
+document with unknown authorship. Part 1 and Part 2 is implemented
+<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/authorAttrVect">here</a>
+and Part 3 is implemented
+<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/cosineSimilarity">here</a>.
 
 </p>
 
@@ -245,18 +244,6 @@ And the <a href="">source</a> as well.
 
 
 
-<!--<a href="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten1A.png"><img  alt="gutenberg ngram analysis using hadoop map-reduce" src="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten1A.png" style="float: left; width: 40%; margin-right: 1%; margin-bottom: 0.5em;"  ></a>-->
-<!--<a href="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten1B.png"><img  alt="gutenberg ngram analysis using hadoop map-reduce" src="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten1B.png" style="float: left; width: 40%; margin-right: 1%; margin-bottom: 0.5em;"  ></a>-->
-
-
-<!--<a href="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten2A.png"><img  alt="gutenberg ngram analysis using hadoop map-reduce" src="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten2A.png" style="float: left; width: 48%; margin-right: 1%; margin-bottom: 0.5em;"  ></a>-->
-<!--<a href="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten2B.png"><img  alt="gutenberg ngram analysis using hadoop map-reduce" src="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten2B.png" style="float: left; width: 48%; margin-right: 1%; margin-bottom: 0.5em;"  ></a>-->
-
-<!--<figcaption>Fig. 2: BigQuery Interface</figcaption>-->
-
-
-
-
 <div style="text-align: center">
     <a href="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten1A.png">
         <img src="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten1A.png" alt="gutenberg ngram analysis using hadoop map-reduce" align="middle" hspace="50" height="350">
@@ -289,21 +276,19 @@ And the <a href="">source</a> as well.
 
 
 
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>References:</b>-->
+    <!--</big>-->
+<!--</p>-->
 
 
-<!--##############-->
-<hr>
-<p>
-    <big>
-    <b>References:</b>
-    </big>
-</p>
-
-
-<ol type="1">
-    <li>https://en.wikipedia.org/wiki/N-gram</li>
-    <li>https://www.gutenberg.org</li>
-</ol>
+<!--<ol type="1">-->
+    <!--<li>https://en.wikipedia.org/wiki/N-gram</li>-->
+    <!--<li>https://www.gutenberg.org</li>-->
+<!--</ol>-->
 
 
 
