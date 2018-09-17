@@ -1,7 +1,288 @@
 ---
-title: "Vision item number 2"
-excerpt: "Short description of portfolio item number 2 <br/><img src='/images/500x300.png'>"
+title: "Using RGB-based Human Skeleton Recognition for Communicating with Computers (CwC) Project"
+excerpt: "<br/><img src='/images/vision/rgb_demo/thumbs_up5.png'>"
 collection: vision
+tags:
+  - rgb-based-skeleton-recognition
+  - pose-estimation
+  - openpose
+  - kinect-v2
+  - communicating-with-computers
+  - python-server-client
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+
+<hr style="border-color: silver;">
+<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score" ><button type="button" class="btn btn--info"><i class="fa fa-github"></i> GitHub Source</button></a>
+<!--<i class="fa fa-file-code-o"></i>-->
+<!--<a href="#" class="btn btn&#45;&#45;inverse">Inverse Button</a>-->
+<!--<a href="#" class="btn btn&#45;&#45;info">Info Button</a>-->
+<!--<iframe src="https://ghbtns.com/github-btn.html?user=gurumulay&repo=big-data-class/tree/master/n-gram-analysis-of-gutenberg&type=star&count=false&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>-->
+<hr style="border-color: silver;">
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--&lt;!&ndash;<hr>&ndash;&gt;-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>Introduction:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+
+<!--<p>-->
+    <!--The goal is to build an authorship detection system that provides a ranked list of-->
+    <!--possible authors for a document whose authorship is unknown. The system uses N-gram analysis from-->
+    <!--<a href="/datascience/datascience-3/">this project</a>. In particular, I used the word uni-grams from that project.-->
+
+    <!--Finding the attributes of literature content written by an author is important to detect unique-->
+    <!--writing style for that author. I built an attribute vector for each of the authors with the help of-->
+    <!--<a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">Term Frequency and Inverse Document Frequency (TF-IDF)</a>-->
+    <!--analysis. Authorship is determined based on the similarity between the attribute vectors of the unseen document and-->
+    <!--the pre-computed attribute vectors of authors. TF-IDF is used to calculate the weights of each of the entities in-->
+    <!--the attribute vector.-->
+
+
+<!--</p>-->
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>Definitions:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+
+<!--&lt;!&ndash;MathJax examples&ndash;&gt;-->
+
+<!--&lt;!&ndash;<p>&ndash;&gt;-->
+  <!--&lt;!&ndash;When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are&ndash;&gt;-->
+  <!--&lt;!&ndash;$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$&ndash;&gt;-->
+<!--&lt;!&ndash;</p>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;In equation \eqref{eq:sample}&ndash;&gt;-->
+    <!--&lt;!&ndash;&ndash;&gt;-->
+    <!--&lt;!&ndash;\begin{equation}&ndash;&gt;-->
+    <!--&lt;!&ndash;\int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}&ndash;&gt;-->
+    <!--&lt;!&ndash;\label{eq:sample}&ndash;&gt;-->
+    <!--&lt;!&ndash;\end{equation}&ndash;&gt;-->
+
+
+<!--<p>-->
+    <!--<b>Term Frequency:</b>-->
+<!--</p>-->
+
+<!--<p>-->
+    <!--Let's assume that we have a collection of documents written by M authors. This collection of documents may-->
+    <!--contain multiple books written by an author. Let’s define a set of documents written by same author as-->
+    <!--a sub-collection $j$. We define $f_{ij}$ to be the frequency (Number of occurrences) of term (word) $i$ in-->
+    <!--sub-collection $j$.-->
+
+    <!--<br/>-->
+    <!--\begin{equation}-->
+    <!--TF_{ij} = 0.5 +  {f_{ij} \over max_k f_{kj}}-->
+    <!--\label{eq:tf1}-->
+    <!--\end{equation}-->
+    <!--<br/>-->
+
+    <!--We use the augmented $TF$ (represented by 0.5 added initially in term 1 and then multiplied in terms 2 of-->
+    <!--\eqref{eq:tf1}) to prevent a bias towards longer documents. Term 2 is the raw frequency divided by the-->
+    <!--maximum raw frequency of any term $k$ in the sub-collection $j$. Stop words (e.g., a, an, the, etc) were-->
+    <!--not eliminated from the corpus. The most frequent term in the sub-collection will have a augmented $TF$ value of 1.-->
+
+<!--</p>-->
+
+
+
+<!--<p>-->
+    <!--<b>Inverse Document Frequency:</b>-->
+<!--</p>-->
+
+
+<!--<p>-->
+    <!--Suppose that term $i$ appears in $n_i$ sub-collections within the corpus. For this assignment, we define the-->
+    <!--$IDF_i$, as:-->
+
+    <!--\begin{equation}-->
+    <!--IDF_i = log_{10} ({N \over n_i})-->
+    <!--\label{eq:idf1}-->
+    <!--\end{equation}-->
+
+    <!--where, $N$ is the total number of sub-collections (same as the number of authors).-->
+<!--</p>-->
+
+
+<!--<p>-->
+    <!--<b>TF-IDF value:</b>-->
+<!--</p>-->
+
+<!--<p>-->
+    <!--The TF-IDF score is the product - $TF_{ij}$ $\times$ $IDF_i$. The terms with the highest TF-IDF score are-->
+    <!--considered the best words that characterize the sub-collection (document). They are the most important-->
+    <!--attributes in the sub-collection's attribute vector.-->
+<!--</p>-->
+
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>Cosine Distance between Attribute Vectors:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+<!--<p>-->
+    <!--After calculating the TF, IDF, and TF-IDF scores for set of books written by the same author (sub-collection)-->
+    <!--in the corpus, we generate an <b> Author Attribute Vector (AAV) </b> as follows:-->
+
+    <!--Every author will have their own AAV representing their unique writing style with the help of TF-IDF score of words-->
+    <!--in the entire corpus. In order to find authorship of a unseen document, we compare the AAV of that document with-->
+    <!--AAVs of all the possible authors. Note that to compare an arbitrary AAV (from the document with unknown authorship)-->
+    <!--and existing AAVs, all of the AAVs must have the same dimension. For this comparison we calculate the <b>Cosine-->
+    <!--Distance</b> between two AAVs that gives a measure of similarity between the authors’ writing styles.-->
+
+    <!--Suppose that we have two authors with vectors, $AAV_1 = [x_1 , x_2 , ..., x_m]$ and $AAV_2 = [y_1 , y_2 , ..., y_m]$.-->
+    <!--The Cosine Similarity between them is defined as,-->
+
+<!--</p>-->
+
+<!--<p style="text-align: center;">-->
+    <!--&lt;!&ndash;<figure>&ndash;&gt;-->
+    <!--<a href="/images/datascience/tfidf/cosine.jpg"><img src="/images/datascience/tfidf/cosine.jpg"></a>-->
+    <!--<figcaption class="figure-caption text-center"><a href="https://en.wikipedia.org/wiki/Cosine_similarity" title="">Cosine similarity [Source: Wikipedia]</a></figcaption>-->
+    <!--&lt;!&ndash;</figure>&ndash;&gt;-->
+<!--</p>-->
+
+<!--<p>-->
+    <!--Where $AAV_1$ is represented by $A$ and $AAV_2$ by $B$. Using this formula, we will be able to create a ranked list-->
+    <!--of potential authors for a given document with unknown authorship. Logically, the author with highest cosine-->
+    <!--similarity with given document will be the most probable author of the document.-->
+<!--</p>-->
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>Dataset:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+<!--<p>-->
+    <!--Read <a href="/datascience/datascience-3/">the dataset description</a> from a previous post.-->
+<!--</p>-->
+
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>Methodology:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+
+<!--<p>-->
+
+<!--<ul>-->
+
+    <!--<li><strong>Part 1:</strong> Calculate the TF, IDF, and TF-IDF values for all terms for all of the sub-collections-->
+        <!--in the corpus.</li>-->
+
+    <!--<li><strong>Part 2:</strong> Create the AAVs (author attribute vectors) for every author.</li>-->
+
+    <!--<li><strong>Part 3:</strong> Find cosine similarity between AAV of given document with unknown author and all the-->
+        <!--authors in the corpus.</li>-->
+
+<!--</ul>-->
+
+
+<!--We use multiple Mappers and Reducers chained together (called job chaining) that produce intermediate results and-->
+<!--then final results based on those intermediate results. Final output is a top-10 list of potential authors for the given-->
+<!--document with unknown authorship. Part 1 and Part 2 is implemented-->
+<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/authorAttrVect">here</a>-->
+<!--and Part 3 is implemented-->
+<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/cosineSimilarity">here</a>.-->
+
+<!--</p>-->
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>Outputs:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+<!--Originally, we used the complete dataset as described above in the dataset section to found AAVs for all the authors in-->
+<!--that dataset and then calculated their cosine similarity metric with AAV of the given document with unknown author.-->
+
+<!--But for the purpose of illustration I will use a very small toy dataset containing 12 lines that can be found-->
+<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/blob/master/authorAttrVect_toy_dataset_illustration/testData12.txt">here</a>.-->
+
+<!--<br/>-->
+<!--The-->
+<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/blob/master/authorAttrVect_toy_dataset_illustration/">-->
+    <!--<b>authorAttrVect_toy_dataset_illustration</b></a> direcory contains a very small toy dataset fed as input to the-->
+<!--system and the outputs at every map reduce step of authorAttrVect map-reduce program from the repo.-->
+<!--The final output is <i>mr4aav12.txt</i> that contains TF-IDF scores in the final column.-->
+
+
+<!--&lt;!&ndash;Here are some snippets from the outputs of map reduce programs that gives AAV vectors for the authors from toy dataset.&ndash;&gt;-->
+<!--Here is a snippet from the output of map-reduce described programs above.-->
+
+<!--<br style="margin-bottom:10px;"/>-->
+<!--<div style="text-align: center">-->
+    <!--<a href="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/tfidf.jpg?token=AOOYCIfnE59APKitHCL5zO9s0beNAiWdks5bp_K1wA%3D%3D">-->
+        <!--<img src="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/tfidf.jpg?token=AOOYCIfnE59APKitHCL5zO9s0beNAiWdks5bp_K1wA%3D%3D" alt="gutenberg ngram analysis using hadoop map-reduce" align="middle" hspace="30" height="350">-->
+    <!--</a>-->
+
+    <!--<br/>-->
+    <!--<br/>-->
+    <!--<figcaption>Fig. 1: TF-IDF scores for toy dataset (in final column)</figcaption>-->
+<!--</div>-->
+<!--<br/>-->
+
+
+<!--Finally, we provide a document with unknown authorship to the <a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/cosineSimilarity">-->
+    <!--<b>cosineSimilarity</b></a> map-reduce program.  It produces the list of potential that are could have written that-->
+<!--document. Suppose we fed a document written <i>twain</i> as a document with unknown authorship. The cosineSimilarity program-->
+<!--will produce a list of potential authors like this one:-->
+
+
+<!--<br style="margin-bottom:20px;"/>-->
+<!--<p style="text-align: center;">-->
+    <!--<a href="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/top-auth.jpg?token=AOOYCGdBUN-jbjInfJ8iqHLNmFksGktDks5bp_FdwA%3D%3D"><img src="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/top-auth.jpg?token=AOOYCGdBUN-jbjInfJ8iqHLNmFksGktDks5bp_FdwA%3D%3D"></a>-->
+    <!--<figcaption class="figure-caption text-center">Fig. 2: Top authors for a document with unknown author</figcaption>-->
+<!--</p>-->
+
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>References:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+
+<!--<ol type="1">-->
+    <!--<li>https://en.wikipedia.org/wiki/N-gram</li>-->
+    <!--<li>https://www.gutenberg.org</li>-->
+<!--</ol>-->
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<small>-->
+    <!--<b>Note:</b>-->
+    <!--Some of the content for this post is taken from course material of CS435 (CSU) written by Prof. Sangmi Lee Pallickara and GTAs.-->
+    <!--</small>-->
+<!--</p>-->
+<!--<hr>-->

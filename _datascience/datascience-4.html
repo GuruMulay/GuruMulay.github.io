@@ -1,7 +1,7 @@
 ---
 title: "Hadoop MapReduce: Content Based Authorship Detection using TF/IDF Scores and
 Cosine Similarity"
-excerpt: "<br/><img src='/images/csu/proj/big-data-1/ngram1.png'> <br/> <small> </small> "
+excerpt: "<br/><img src='/images/datascience/tfidf/tfidf.jpg'> <br/> <small> </small> "
 collection: datascience
 tags:
   - Hadoop
@@ -219,61 +219,47 @@ and Part 3 is implemented
     </big>
 </p>
 
-Here are some snippets from the outputs of map reduce program for four profiles mentioned above. If you are interested
-you could get the entire files from a cloud bucket as below:
+Originally, we used the complete dataset as described above in the dataset section to found AAVs for all the authors in
+that dataset and then calculated their cosine similarity metric with AAV of the given document with unknown author.
 
-
+But for the purpose of illustration I will use a very small toy dataset containing 12 lines that can be found
+<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/blob/master/authorAttrVect_toy_dataset_illustration/testData12.txt">here</a>.
 
 <br/>
-<a href="
-https://project-data-store-public.storage.googleapis.com/csu-proj-data/big-data-stuff/guten1A"> Profile-1A,
-</a>
-
-<a href="
-https://project-data-store-public.storage.googleapis.com/csu-proj-data/big-data-stuff/guten1B"> Profile-1B,
-</a>
-
-<a href="
-https://project-data-store-public.storage.googleapis.com/csu-proj-data/big-data-stuff/guten2A"> Profile-2A,
-</a> and
-
-<a href="
-https://project-data-store-public.storage.googleapis.com/csu-proj-data/big-data-stuff/guten2B"> Profile-2B.
-</a>
-
-And the <a href="">source</a> as well.
+The
+<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/blob/master/authorAttrVect_toy_dataset_illustration/">
+    <b>authorAttrVect_toy_dataset_illustration</b></a> direcory contains a very small toy dataset fed as input to the
+system and the outputs at every map reduce step of authorAttrVect map-reduce program from the repo.
+The final output is <i>mr4aav12.txt</i> that contains TF-IDF scores in the final column.
 
 
-
-<div style="text-align: center">
-    <a href="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten1A.png">
-        <img src="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten1A.png" alt="gutenberg ngram analysis using hadoop map-reduce" align="middle" hspace="50" height="350">
-    </a>
-
-    <a href="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten1B.png">
-        <img src="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten1B.png" alt="gutenberg ngram analysis using hadoop map-reduce" align="middle" hspace="50" height="350">
-    </a>
-    <br/>
-    <br/>
-    <figcaption>Fig. 1: Profile 1A and 1B sample outputs</figcaption>
-</div>
-<br/>
-
+<!--Here are some snippets from the outputs of map reduce programs that gives AAV vectors for the authors from toy dataset.-->
+Here is a snippet from the output of map-reduce described programs above.
 
 <br style="margin-bottom:10px;"/>
 <div style="text-align: center">
-    <a href="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten2A.png">
-        <img src="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten2A.png" alt="gutenberg ngram analysis using hadoop map-reduce" align="middle" hspace="30" height="350">
+    <a href="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/tfidf.jpg?token=AOOYCIfnE59APKitHCL5zO9s0beNAiWdks5bp_K1wA%3D%3D">
+        <img src="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/tfidf.jpg?token=AOOYCIfnE59APKitHCL5zO9s0beNAiWdks5bp_K1wA%3D%3D" alt="gutenberg ngram analysis using hadoop map-reduce" align="middle" hspace="30" height="350">
     </a>
 
-    <a href="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten2B.png">
-        <img src="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten2B.png" alt="gutenberg ngram analysis using hadoop map-reduce" align="middle" hspace="30" height="350">
-    </a>
     <br/>
     <br/>
-    <figcaption>Fig. 1: Profile 2A and 2B sample outputs</figcaption>
+    <figcaption>Fig. 1: TF-IDF scores for toy dataset (in final column)</figcaption>
 </div>
 <br/>
+
+
+Finally, we provide a document with unknown authorship to the <a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/cosineSimilarity">
+    <b>cosineSimilarity</b></a> map-reduce program.  It produces the list of potential that are could have written that
+document. Suppose we fed a document written <i>twain</i> as a document with unknown authorship. The cosineSimilarity program
+will produce a list of potential authors like this one:
+
+
+<br style="margin-bottom:20px;"/>
+<p style="text-align: center;">
+    <a href="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/top-auth.jpg?token=AOOYCGdBUN-jbjInfJ8iqHLNmFksGktDks5bp_FdwA%3D%3D"><img src="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/top-auth.jpg?token=AOOYCGdBUN-jbjInfJ8iqHLNmFksGktDks5bp_FdwA%3D%3D"></a>
+    <figcaption class="figure-caption text-center">Fig. 2: Top authors for a document with unknown author</figcaption>
+</p>
 
 
 
