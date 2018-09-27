@@ -13,276 +13,234 @@ tags:
 
 
 <hr style="border-color: silver;">
-<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score" ><button type="button" class="btn btn--info"><i class="fa fa-github"></i> GitHub Source</button></a>
-<!--<i class="fa fa-file-code-o"></i>-->
-<!--<a href="#" class="btn btn&#45;&#45;inverse">Inverse Button</a>-->
-<!--<a href="#" class="btn btn&#45;&#45;info">Info Button</a>-->
-<!--<iframe src="https://ghbtns.com/github-btn.html?user=gurumulay&repo=big-data-class/tree/master/n-gram-analysis-of-gutenberg&type=star&count=false&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>-->
+<a href="https://github.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj" ><button type="button" class="btn btn--info"><i class="fa fa-github"></i> GitHub Source</button></a>
 <hr style="border-color: silver;">
 
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--&lt;!&ndash;<hr>&ndash;&gt;-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Introduction:</b>-->
-    <!--</big>-->
-<!--</p>-->
+<!--##############-->
+<p>
+    <big>
+    <b>Introduction:</b>
+    </big>
+</p>
+
+<strong> Brief intro to CwC:</strong>
+<br style="margin-bottom:10px;"/>
+
+<p>
+    The long term
+    goal of the <a href="https://www.cs.colostate.edu/~draper/home_research.php">CwC project</a>
+    is to build an AI agent that will communicate seamlessly with humans via gestures, expressions, and vocal communication
+    just like a real human being would with another human being. The agent achieves this communication by building a shared
+    perception with the humans using all the knowledge it acquired through all the past and current interactions with the humans.
+    The short term goal is
+    to get a structure of virtual blocks build from a virtual AI agent (Diana) via multi-modal communication.
+    CSU's computer vision lab (of which I am a part of) has built this system (please see the demo video below) as
+    a part of an active (as of 2018) DARPA project called CwC.
+</p>
+
+
+<p>
+    [[Video]]
+</p>
+
+<strong> RGB-based Skeleton Recognition for CwC:</strong>
+<br style="margin-bottom:10px;"/>
+
+<p>
+    Recent work by CMU [1], [2] in human pose recognition from RGB images, produces state-of-the-art
+    results on multiple datasets. Success of these methods
+    can be primarily attributed to convolutional neural
+    networks for joint detection and special techniques
+    to associate detected joints with people in a frame.
+    We incorporated this work to replace previous
+    depth-based pose recognition. Task involved writing a C++ wrapper around the OpenPose library
+    [1] and a Python server to interface this wrapper
+    with the rest of the client’s system, along with some
+    modifications to previous clients
+</p>
+
+
+<p>
+    As a part of my <a href="https://www.cs.colostate.edu/~cs793/Fall17/">Research Seminar Course (CSU CS793)</a>, I
+    worked on the front-end of the CwC project to replace the Kinect-based data collection module at the front-end
+    of the Communicating with Computers project with an RGB camera-based module in a seamless manner with following
+    objectives:
+
+<ul>
+    <li>Retrieve the pose skeleton keypoints of a human subject from RGB images.</li>
+    <li>Transmit keypoints & RGB images of hands, head to clients for gesture recognition.</li>
+    <li>Write a wrapper for <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">OpenPose library </a>
+        that does pose skeleton detection.</li>
+</ul>
+
+</p>
+
+
+<p>
+    <!--Approximate pipeline of the CwC project:-->
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj/master/images/cwc3.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj/master/images/cwc3.png" alt="CwC project block diagram" align="middle" hspace="30" height="300">
+        </a>
+        <br/>
+        <figcaption>Fig. 1: CwC project pipeline</figcaption>
+    </div>
+    <br/>
+
+</p>
+
+
+<p>
+    Here is the comparison between old and new front-end for our CwC pipeline.
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj/master/images/diff.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj/master/images/diff.png" alt="CwC project old vs new front-end" align="middle" hspace="30" height="300">
+        </a>
+        <br/>
+        <figcaption>Fig. 2: CwC: old vs new front-end</figcaption>
+    </div>
+    <br/>
 
+</p>
 
-<!--<p>-->
-    <!--The goal is to build an authorship detection system that provides a ranked list of-->
-    <!--possible authors for a document whose authorship is unknown. The system uses N-gram analysis from-->
-    <!--<a href="/datascience/datascience-3/">this project</a>. In particular, I used the word uni-grams from that project.-->
 
-    <!--Finding the attributes of literature content written by an author is important to detect unique-->
-    <!--writing style for that author. I built an attribute vector for each of the authors with the help of-->
-    <!--<a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">Term Frequency and Inverse Document Frequency (TF-IDF)</a>-->
-    <!--analysis. Authorship is determined based on the similarity between the attribute vectors of the unseen document and-->
-    <!--the pre-computed attribute vectors of authors. TF-IDF is used to calculate the weights of each of the entities in-->
-    <!--the attribute vector.-->
 
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>System Design: C++ wrapper and Python server</b>
+    </big>
+</p>
 
-<!--</p>-->
 
+<p>
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Definitions:</b>-->
-    <!--</big>-->
-<!--</p>-->
+<!--• •-->
 
+<ul>
 
-<!--&lt;!&ndash;MathJax examples&ndash;&gt;-->
+    <li>The C++ wrapper extracts pose skeletons from
+frames captured by a web-cam and uses these
+keypoints to crop the RGB images of hands and
+the head of the primary person in the video.</li>
 
-<!--&lt;!&ndash;<p>&ndash;&gt;-->
-  <!--&lt;!&ndash;When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are&ndash;&gt;-->
-  <!--&lt;!&ndash;$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$&ndash;&gt;-->
-<!--&lt;!&ndash;</p>&ndash;&gt;-->
+    <li>The Python server is responsible for
+communicating with the wrapper process to
+collect the skeleton keypoints, hands and head
+images for primary (engaged) person in the frame.</li>
 
-    <!--&lt;!&ndash;In equation \eqref{eq:sample}&ndash;&gt;-->
-    <!--&lt;!&ndash;&ndash;&gt;-->
-    <!--&lt;!&ndash;\begin{equation}&ndash;&gt;-->
-    <!--&lt;!&ndash;\int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}&ndash;&gt;-->
-    <!--&lt;!&ndash;\label{eq:sample}&ndash;&gt;-->
-    <!--&lt;!&ndash;\end{equation}&ndash;&gt;-->
+    <li>Server accepts four clients: skeleton, right hand,
+left hand, and head client.</li>
 
+    <li>For every frame processed by OpenPose, the
+server sends corresponding data to four clients.</li>
 
-<!--<p>-->
-    <!--<b>Term Frequency:</b>-->
-<!--</p>-->
+</ul>
 
-<!--<p>-->
-    <!--Let's assume that we have a collection of documents written by M authors. This collection of documents may-->
-    <!--contain multiple books written by an author. Let’s define a set of documents written by same author as-->
-    <!--a sub-collection $j$. We define $f_{ij}$ to be the frequency (Number of occurrences) of term (word) $i$ in-->
-    <!--sub-collection $j$.-->
+</p>
 
-    <!--<br/>-->
-    <!--\begin{equation}-->
-    <!--TF_{ij} = 0.5 +  {f_{ij} \over max_k f_{kj}}-->
-    <!--\label{eq:tf1}-->
-    <!--\end{equation}-->
-    <!--<br/>-->
 
-    <!--We use the augmented $TF$ (represented by 0.5 added initially in term 1 and then multiplied in terms 2 of-->
-    <!--\eqref{eq:tf1}) to prevent a bias towards longer documents. Term 2 is the raw frequency divided by the-->
-    <!--maximum raw frequency of any term $k$ in the sub-collection $j$. Stop words (e.g., a, an, the, etc) were-->
-    <!--not eliminated from the corpus. The most frequent term in the sub-collection will have a augmented $TF$ value of 1.-->
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj/master/images/m2.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj/master/images/m2.png" alt="System Design" align="middle" hspace="30" height="300">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 3: System Design</figcaption>
+    </div>
+    <br/>
 
-<!--</p>-->
+</p>
 
 
 
-<!--<p>-->
-    <!--<b>Inverse Document Frequency:</b>-->
-<!--</p>-->
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>System Details</b>
+    </big>
+</p>
 
+<!--•••••-->
+<p>
+<ul>
 
-<!--<p>-->
-    <!--Suppose that term $i$ appears in $n_i$ sub-collections within the corpus. For this assignment, we define the-->
-    <!--$IDF_i$, as:-->
+    <li>Primary person is the closest person in the center
+of frame. With only 2D skeletons, it’s challenging.</li>
 
-    <!--\begin{equation}-->
-    <!--IDF_i = log_{10} ({N \over n_i})-->
-    <!--\label{eq:idf1}-->
-    <!--\end{equation}-->
+    <li>We calculate the average expanse (length) of the
+limbs of candidate persons present in a central
+window and choose the closest person based on a
+fixed threshold of limb length (51 in our case).</li>
 
-    <!--where, $N$ is the total number of sub-collections (same as the number of authors).-->
-<!--</p>-->
+    <li>Outputs 18 keypoints (x, y pixel locations of body
+parts + confidence) for people in the image frame.</li>
 
+    <li>~15 FPS on 320x240x3 input on NVidia GTX980.</li>
 
-<!--<p>-->
-    <!--<b>TF-IDF value:</b>-->
-<!--</p>-->
+    <li>Server sends keypoints to arm motion recognition.</li>
 
-<!--<p>-->
-    <!--The TF-IDF score is the product - $TF_{ij}$ $\times$ $IDF_i$. The terms with the highest TF-IDF score are-->
-    <!--considered the best words that characterize the sub-collection (document). They are the most important-->
-    <!--attributes in the sub-collection's attribute vector.-->
-<!--</p>-->
+    <li>Wrapper crops a 64x64x3 image for left hand,
+right hand, and head; Server sends them to hand
+and head clients for pose recognition.</li>
 
+</ul>
+</p>
 
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Cosine Distance between Attribute Vectors:</b>-->
-    <!--</big>-->
-<!--</p>-->
 
-<!--<p>-->
-    <!--After calculating the TF, IDF, and TF-IDF scores for set of books written by the same author (sub-collection)-->
-    <!--in the corpus, we generate an <b> Author Attribute Vector (AAV) </b> as follows:-->
 
-    <!--Every author will have their own AAV representing their unique writing style with the help of TF-IDF score of words-->
-    <!--in the entire corpus. In order to find authorship of a unseen document, we compare the AAV of that document with-->
-    <!--AAVs of all the possible authors. Note that to compare an arbitrary AAV (from the document with unknown authorship)-->
-    <!--and existing AAVs, all of the AAVs must have the same dimension. For this comparison we calculate the <b>Cosine-->
-    <!--Distance</b> between two AAVs that gives a measure of similarity between the authors’ writing styles.-->
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Conclusions:</b>
+    </big>
+</p>
 
-    <!--Suppose that we have two authors with vectors, $AAV_1 = [x_1 , x_2 , ..., x_m]$ and $AAV_2 = [y_1 , y_2 , ..., y_m]$.-->
-    <!--The Cosine Similarity between them is defined as,-->
+<p>
+<ul>
 
-<!--</p>-->
+    <li>We successfully implemented & tested the system
+by seamlessly switching from Kinect-based front
+end. Hands-on testing with the AI agent proved
+that it’s possible to get complex block structures
+build from the agent even with a RGB sensor..</li>
 
-<!--<p style="text-align: center;">-->
-    <!--&lt;!&ndash;<figure>&ndash;&gt;-->
-    <!--<a href="/images/datascience/tfidf/cosine.jpg"><img src="/images/datascience/tfidf/cosine.jpg"></a>-->
-    <!--<figcaption class="figure-caption text-center"><a href="https://en.wikipedia.org/wiki/Cosine_similarity" title="">Cosine similarity [Source: Wikipedia]</a></figcaption>-->
-    <!--&lt;!&ndash;</figure>&ndash;&gt;-->
-<!--</p>-->
+    <li>The system ran with no significant lag, but it
+needed specific conditions (e.g., bright light).</li>
 
-<!--<p>-->
-    <!--Where $AAV_1$ is represented by $A$ and $AAV_2$ by $B$. Using this formula, we will be able to create a ranked list-->
-    <!--of potential authors for a given document with unknown authorship. Logically, the author with highest cosine-->
-    <!--similarity with given document will be the most probable author of the document.-->
-<!--</p>-->
+    <li>We demoed the system at DARPA in Dec 2017.</li>
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Dataset:</b>-->
-    <!--</big>-->
-<!--</p>-->
+    <li>We hope that it can possibly replace the Kinect
+sensor, making our project demo more portable..</li>
 
-<!--<p>-->
-    <!--Read <a href="/datascience/datascience-3/">the dataset description</a> from a previous post.-->
-<!--</p>-->
+    <li>In future, we aim to improve the performance in
+terms of fps and input image resolution.</li>
 
+</ul>
+</p>
 
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Methodology:</b>-->
-    <!--</big>-->
-<!--</p>-->
 
 
-<!--<p>-->
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>References:</b>
+    </big>
+</p>
 
-<!--<ul>-->
-
-    <!--<li><strong>Part 1:</strong> Calculate the TF, IDF, and TF-IDF values for all terms for all of the sub-collections-->
-        <!--in the corpus.</li>-->
-
-    <!--<li><strong>Part 2:</strong> Create the AAVs (author attribute vectors) for every author.</li>-->
-
-    <!--<li><strong>Part 3:</strong> Find cosine similarity between AAV of given document with unknown author and all the-->
-        <!--authors in the corpus.</li>-->
-
-<!--</ul>-->
-
-
-<!--We use multiple Mappers and Reducers chained together (called job chaining) that produce intermediate results and-->
-<!--then final results based on those intermediate results. Final output is a top-10 list of potential authors for the given-->
-<!--document with unknown authorship. Part 1 and Part 2 is implemented-->
-<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/authorAttrVect">here</a>-->
-<!--and Part 3 is implemented-->
-<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/cosineSimilarity">here</a>.-->
-
-<!--</p>-->
-
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Outputs:</b>-->
-    <!--</big>-->
-<!--</p>-->
-
-<!--Originally, we used the complete dataset as described above in the dataset section to found AAVs for all the authors in-->
-<!--that dataset and then calculated their cosine similarity metric with AAV of the given document with unknown author.-->
-
-<!--But for the purpose of illustration I will use a very small toy dataset containing 12 lines that can be found-->
-<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/blob/master/authorAttrVect_toy_dataset_illustration/testData12.txt">here</a>.-->
-
-<!--<br/>-->
-<!--The-->
-<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/blob/master/authorAttrVect_toy_dataset_illustration/">-->
-    <!--<b>authorAttrVect_toy_dataset_illustration</b></a> direcory contains a very small toy dataset fed as input to the-->
-<!--system and the outputs at every map reduce step of authorAttrVect map-reduce program from the repo.-->
-<!--The final output is <i>mr4aav12.txt</i> that contains TF-IDF scores in the final column.-->
-
-
-<!--&lt;!&ndash;Here are some snippets from the outputs of map reduce programs that gives AAV vectors for the authors from toy dataset.&ndash;&gt;-->
-<!--Here is a snippet from the output of map-reduce described programs above.-->
-
-<!--<br style="margin-bottom:10px;"/>-->
-<!--<div style="text-align: center">-->
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/tfidf.jpg?token=AOOYCIfnE59APKitHCL5zO9s0beNAiWdks5bp_K1wA%3D%3D">-->
-        <!--<img src="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/tfidf.jpg?token=AOOYCIfnE59APKitHCL5zO9s0beNAiWdks5bp_K1wA%3D%3D" alt="gutenberg ngram analysis using hadoop map-reduce" align="middle" hspace="30" height="350">-->
-    <!--</a>-->
-
-    <!--<br/>-->
-    <!--<br/>-->
-    <!--<figcaption>Fig. 1: TF-IDF scores for toy dataset (in final column)</figcaption>-->
-<!--</div>-->
-<!--<br/>-->
-
-
-<!--Finally, we provide a document with unknown authorship to the <a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/cosineSimilarity">-->
-    <!--<b>cosineSimilarity</b></a> map-reduce program.  It produces the list of potential that are could have written that-->
-<!--document. Suppose we fed a document written <i>twain</i> as a document with unknown authorship. The cosineSimilarity program-->
-<!--will produce a list of potential authors like this one:-->
-
-
-<!--<br style="margin-bottom:20px;"/>-->
-<!--<p style="text-align: center;">-->
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/top-auth.jpg?token=AOOYCGdBUN-jbjInfJ8iqHLNmFksGktDks5bp_FdwA%3D%3D"><img src="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/top-auth.jpg?token=AOOYCGdBUN-jbjInfJ8iqHLNmFksGktDks5bp_FdwA%3D%3D"></a>-->
-    <!--<figcaption class="figure-caption text-center">Fig. 2: Top authors for a document with unknown author</figcaption>-->
-<!--</p>-->
-
-
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>References:</b>-->
-    <!--</big>-->
-<!--</p>-->
-
-
-<!--<ol type="1">-->
-    <!--<li>https://en.wikipedia.org/wiki/N-gram</li>-->
-    <!--<li>https://www.gutenberg.org</li>-->
-<!--</ol>-->
-
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<small>-->
-    <!--<b>Note:</b>-->
-    <!--Some of the content for this post is taken from course material of CS435 (CSU) written by Prof. Sangmi Lee Pallickara and GTAs.-->
-    <!--</small>-->
-<!--</p>-->
-<!--<hr>-->
+<ol type="1">
+    <li>Openpose Library: github.com/CMU-Perceptual-Computing-Lab/openpose</li>
+    <li>Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields, Z Cao, T Simon, S Wei, Y Sheikh,
+        arXiv:1611.08050, 2016</li>
+</ol>
