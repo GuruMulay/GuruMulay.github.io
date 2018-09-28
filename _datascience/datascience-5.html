@@ -1,0 +1,189 @@
+---
+title: "Natural Gesture Data Modeled in Graph Database
+(Neo4j), contrasted with RDBMS (PostgreSQL)"
+excerpt: "<br/><img src='/images/datascience/graphdb/gdb1.png'> <br/> <small></small> "
+collection: datascience
+tags:
+  - graph-database
+  - Neo4j
+  - PostgreSQL
+  - EGGNOG
+  - DBMS
+---
+
+
+<hr style="border-color: silver;">
+<a href="https://github.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j
+" ><button type="button" class="btn btn--info"><i class="fa fa-github"></i> GitHub Source</button></a>
+<hr style="border-color: silver;">
+
+
+<!--##############-->
+<!--<hr>-->
+<p>
+    <big>
+    <b>Introduction to Neo4j:</b>
+    </big>
+</p>
+
+
+<p>
+
+<ul>
+    <li><a href="https://neo4j.com/">Neo4j</a> is a graph database management system developed by Neo
+Technology.</li>
+
+    <li>ACID-compliant transactional database with native graph storage
+and processing.</li>
+
+    <li>Community edition is open sourced and freely available and it is the
+leading graph database.</li>
+</ul>
+
+</p>
+
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Scope of this project:</b>
+    </big>
+</p>
+
+<p>
+    This project aims at developing a graph based database in Neo4j for faster
+    and more efficient data retrieval and storage. We modeled the <a href="http://localhost:4000/vision/vision-1/">
+    EGGNOG dataset in Neo4j.</a> The primary motivation behind exploring graph databases
+    was to be able to characterize the relations between gestures,
+    sessions, and participants. We decided to use Neo4j since it
+    is freely available graph database under community edition
+    and it is the leading graph database. Neo4j uses a powerful
+    query language known as cypher which allows to express
+    complex relationships and patterns existing between nodes that
+    represent data points.
+
+</p>
+
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Neo4J Graph Model:</b>
+    </big>
+</p>
+
+<p>
+    <b>Nodes:</b>
+</p>
+
+
+<p>
+<ul>
+    <li>Each of the gesture label is assigned to a node.</li>
+
+    <li>The time properties like StartTimeStamp, EndTimeStamp,
+StartFrame, EndFrame are assigned as the properties of the
+individual node.</li>
+
+    <li>Each of the Sessions has a node with properties: SessionName,
+Participant Number, Block Video Number, path of the video file.</li>
+
+    <li>Participants are represented as nodes with details: age, gender,
+dominantHand.</li>
+
+    <li>We have two nodes: With Sound and No Sound corresponding to
+type of experiment.</li>
+
+    <li>Ensure that uniqueness constraints are enforced on each node.</li>
+
+</ul>
+</p>
+
+
+<p style="text-align: center;">
+    <a href="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/nodes.png">
+        <img src="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/nodes.png"></a>
+    <figcaption class="figure-caption text-center"><a href="Nodes from Neo4j GraphDB of EGGNOG" title="">Nodes from Neo4j GraphDB of EGGNOG</a></figcaption>
+</p>
+
+
+<p>
+    <b>Relationships:</b>
+</p>
+
+
+<p>
+<ul>
+    <li>Two nodes get connected by a connector
+representing the relationship between the
+nodes.</li>
+
+    <li>This database has 3 relationships:
+PERFORMED_BY, PROJECT_TYPE, and PRESENT_IN.</li>
+
+    <li>PREFORMED_BY: from a gesture to a participant.</li>
+
+    <li>PRESENT_IN: from a gesture to a session.</li>
+
+    <li>PROJECT_TYPE: is it with/no sound experiment type.</li>
+
+    <li>Nodes & Relationships are constructed using CREATE command.</li>
+
+</ul>
+</p>
+
+<p style="text-align: center;">
+    <a href="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/relation.png">
+        <img src="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/relation.png"></a>
+    <figcaption class="figure-caption text-center"><a href="Relationships from Neo4j GraphDB of EGGNOG" title="">Relationships from Neo4j GraphDB of EGGNOG</a></figcaption>
+</p>
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Advantages of Neo4j over PostgreSQL:</b>
+    </big>
+</p>
+
+
+<p>
+<ul>
+
+    <li>Avoids costly JOIN operations.</li>
+
+    <li>Ability to represent intuitive relationships that naturally exist between the nodes.</li>
+
+    <li>Ability to assign properties to node that otherwise are represented as column in RDBMS.</li>
+
+    <li>Query execution time is independent of the number of nodes if the dataset is modeled in a
+appropriate structure.</li>
+
+</ul>
+</p>
+
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>References:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+
+<!--<ol type="1">-->
+    <!--<li>https://en.wikipedia.org/wiki/N-gram</li>-->
+    <!--<li>https://www.gutenberg.org</li>-->
+<!--</ol>-->
+
+
