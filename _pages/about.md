@@ -7,7 +7,7 @@ redirect_from:
   - /about/
   - /about.html
 image:
-    feature: /images/DSC02624_2_pan.JPG
+    feature: /images/DSC02624_3_pan.JPG
 ---
 
 
@@ -19,5 +19,5 @@ Previously, I was an undergraduate research student in the [Robotics Lab](http:/
 
 I love to go on hikes, bike on scenic trails, and to learn interesting things about the space exploration and archeology.
 
-Checkout some of my projects assembled in categories in the Navigation Bar above.
+Check out some of my projects assembled in categories in the Navigation Bar above.
 
