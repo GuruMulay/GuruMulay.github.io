@@ -19,5 +19,7 @@ Previously, I was an undergraduate research student in the [Robotics Lab](http:/
 
 I love to go on hikes, bike on scenic trails, and to learn interesting things about the space exploration and archeology.
 
-Check out some of my projects assembled in categories in the Navigation Bar above.
+Check out some of my projects assembled in categories in the Navigation Bar at the top.
+
+If you don't like reading and enjoy graphics jump directly to [this gallery page](https://gurumulay.github.io/gallery/).
 
