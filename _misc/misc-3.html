@@ -1,24 +1,30 @@
 ---
-title: "Transforming 3D Graphics Objects Defined in Geometry Definition File Formats (.ply, .obj) using axis-angle rotation"
-excerpt: "Computer Graphics: 3D Object Transformations<br/><img src='/images/csu/proj/big-data-1/ngram0.png'> <br/> <small> </small> "
+title: "JEdit and PDFSam OSS: Maintenance, Evolution, Code Smell Detection, and Refactoring"
+excerpt: "<br/><img src='/images/csu/proj/big-data-1/ngram0.png'> <br/> <small> </small> "
 collection: misc
 tags:
-  - computer-graphics
-  - 3D-graphics-transformations
-  - .obj
-  - .ply
-  - axis-angle-rotation
+  - OSS-maintenance-and-evolution
+  - code-smells
+  - JEdit
+  - PDFSam
+  - code-refactoring
 ---
 
 <hr style="border-color: silver;">
-<!--<large>Source:</large> -->
-<!--<iframe src="https://ghbtns.com/github-btn.html?user=gurumulay&repo=big-data-class/tree/master/n-gram-analysis-of-gutenberg&type=star&count=false&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>-->
+<a href="https://github.com/abchawla/cs581A3-f18-a2-gitrams-pdfsam/commits/master
+"><button type="button" class="btn btn--info"><i class="fa fa-github"></i> GitHub Source: PDFSam Fork</button></a>
+<a href="https://github.com/abchawla/cs581A3-f18-a2-gitrams-jedit
+"><button type="button" class="btn btn--info"><i class="fa fa-github"></i> GitHub Source: JEdit Fork</button></a>
+<br/>
+<small>Team: Gururaj Mulay and Abhimanyu Chawala</small>
 <hr style="border-color: silver;">
+
+
 
 
 
 <!--##############-->
-<hr>
+<!--<hr>-->
 <p>
     <big>
     <b>Introduction:</b>
@@ -27,22 +33,12 @@ tags:
 
 
 <p>
-    In 3D graphics, people often use geometry definition file formats such as
-    <a href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">Wavefront .obj format</a>
-    or <a href="https://en.wikipedia.org/wiki/PLY_(file_format)">Polygonal File Format .ply </a>
-    to render objects in a scene. These formats store the object in that are defined in terms of polygons.
-    These objects are stored in a 3D reference frame of its own. When you have to render multiple objects with their
-    own frame of reference into one scene having a global (world) frame of reference, you need to transform individual
-    objects into that world frame of reference.
-    <br/>
-    Transformation of a 3D object from one frame of reference to another can be achieved by a series of transformations
-    such as Rotation, Scale, and Translation. These transformations are applied to points in 3D that describe the
-    vertices of our polygonal objects. We will go over individual transformation below.
-</p>
-
-
-<p>
-    You can read more about the internals of this project <a href="https://www.cs.colostate.edu/~cs410/yr2017fa/more_assignments/assignment01.php">here</a>.
+    We worked on two open source softwares - <a href="http://www.jedit.org/">JEdit</a> and
+    <a href="https://pdfsam.org/">PDFSam</a>. JEdit is a free and open source mature text editor.
+    PDFsam is also a free and open source application to split, merge, extract pages, rotate and mix PDF files.
+    I have summarized the work we did as a part of Software Maintenance and Evolution class assignments below.
+    The goal of these series of assignment was to familiarize ourselves with the process of software maintenance,
+    evolution, code smell detection, and refactoring the software to get rid of code smells.
 </p>
 
 
@@ -50,120 +46,139 @@ tags:
 <hr>
 <p>
     <big>
-    <b>Rotation (Axis-Angle-Rotation Technique):</b>
+    <b>Software Maintenance and Evolution:</b>
     </big>
 </p>
 
 <p>
-    <a href="https://en.wikipedia.org/wiki/Axis%E2%80%93angle_representation">Axis-angle rotation technique</a>
-    is a standard way to rotate about a specified axis
-    <code>wx wy wz</code> by a specified angle <code>theta</code> in radians.
-
-</p>
-
-<p>
-Axis-angle rotation can be divided into three steps as follows:
-
-<ol type="1">
-
-    <li>Rotate data points to make axis-z the axis of rotation.</li>
-    <li>Rotate data points about axis-z.</li>
-    <li>Apply the inverse of the original rotation from step 1.</li>
-</ol>
-
-So for a set of 3D points represented by $P$, we get corresponding 'rotated' set of points $P'$ using the
-equation:
-
-    <br/>
-    \begin{equation}
-    P' = ({R_{w}^{-1} R_{Z_{Theta}} R_{w}}) \cdot {P}
-    \label{eq:t1}
-    \end{equation}
-    <br/>
-
-    where, each $R$ matrix (from right to left) corresponds to one step from 3 steps described above.
-    Here, we represent point $P_{A}$ in <a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">homogeneous coordinates</a>
-    format with $w = 1$.
-
-    <br/>
-    <br/>
-    Therefore, $P_{A} = [x,  y,  z,  w]'$
-
+    We implemented four change requests: two for JEdit and two for PDFSam. Both software systems are written in
+    Java. Below are the detailed reports on each of four change requests. You can find the source code for these change
+    requests in the Github forks links at the top of this page.
 </p>
 
 
-<p>
-    <b>Step 1 - $R_{w}$:</b>
-    <br/>
-    $R_{w}$ is defined as below:
-</p>
+<iframe src="/images/misc/oss/JEdit_change-request-log_1.pdf?#zoom=100" style="width:850px; height:900px;" frameborder="0">
+    <p>This browser does not support embedded PDFs. Please download the PDF to view it: <a href="/images/misc/oss/JEdit_change-request-log_1.pdf">Download PDF</a>.</p>
+</iframe>
 
+<iframe src="/images/misc/oss/JEdit_change-request-log_2.pdf?#zoom=100" style="width:850px; height:900px;" frameborder="0">
+    <p>This browser does not support embedded PDFs. Please download the PDF to view it: <a href="/images/misc/oss/JEdit_change-request-log_2.pdf">Download PDF</a>.</p>
+</iframe>
 
-<p>
-    <br style="margin-bottom:10px;"/>
-    <div style="text-align: center">
-        <a href="/images/misc/transformations/rw1.png">
-            <img src="/images/misc/transformations/rw1.png" alt="Rotation matrix to make axis-z the axis of rotation" align="middle" hspace="30" height="300">
-        </a>
-        <br/>
-        <figcaption>Rotation matrix to make axis-z the axis of rotation</figcaption>
-    </div>
-    <br/>
-</p>
+<iframe src="/images/misc/oss/PDFSam_change-request-log_1.pdf?#zoom=100" style="width:850px; height:900px;" frameborder="0">
+    <p>This browser does not support embedded PDFs. Please download the PDF to view it: <a href="/images/misc/oss/PDFSam_change-request-log_1.pdf">Download PDF</a>.</p>
+</iframe>
+
+<iframe src="/images/misc/oss/PDFSam_change-request-log_2.pdf?#zoom=100" style="width:850px; height:900px;" frameborder="0">
+    <p>This browser does not support embedded PDFs. Please download the PDF to view it: <a href="/images/misc/oss/PDFSam_change-request-log_2.pdf">Download PDF</a>.</p>
+</iframe>
 
 
 
-<p>
-    <b>Step 2 - $R_{Z_{Theta}}$:</b>
-    <br/>
-    $R_{Z_{Theta}}$ is a standard rotation matrix to rotate about axis-z. Now using
-    <a href="https://en.wikipedia.org/wiki/Euler%27s_rotation_theorem">Euler's Rotation Theorem</a>,
-</p>
 
-<p>
-    <br style="margin-bottom:10px;"/>
-    <div style="text-align: center">
-        <a href="/images/misc/transformations/rz.png">
-            <img src="/images/misc/transformations/rz.png" alt="Rotation matrix to rotate about axis-z by angle theta" align="middle" hspace="30" height="300">
-        </a>
-        <br/>
-        <figcaption>Rotation matrix to rotate about axis-z by angle theta</figcaption>
-    </div>
-    <br/>
-</p>
+<!--<p>-->
+<!--Axis-angle rotation can be divided into three steps as follows:-->
+
+<!--<ol type="1">-->
+
+    <!--<li>Rotate data points to make axis-z the axis of rotation.</li>-->
+    <!--<li>Rotate data points about axis-z.</li>-->
+    <!--<li>Apply the inverse of the original rotation from step 1.</li>-->
+<!--</ol>-->
+
+<!--So for a set of 3D points represented by $P$, we get corresponding 'rotated' set of points $P'$ using the-->
+<!--equation:-->
+
+    <!--<br/>-->
+    <!--\begin{equation}-->
+    <!--P' = ({R_{w}^{-1} R_{Z_{Theta}} R_{w}}) \cdot {P}-->
+    <!--\label{eq:t1}-->
+    <!--\end{equation}-->
+    <!--<br/>-->
+
+    <!--where, each $R$ matrix (from right to left) corresponds to one step from 3 steps described above.-->
+    <!--Here, we represent point $P_{A}$ in <a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">homogeneous coordinates</a>-->
+    <!--format with $w = 1$.-->
+
+    <!--<br/>-->
+    <!--<br/>-->
+    <!--Therefore, $P_{A} = [x,  y,  z,  w]'$-->
+
+<!--</p>-->
 
 
-<p>
-    <b>Step 3 - $R_{w}^{-1}$:</b>
-    <br/>
-    Since $R_{w}$ is a  rotation matrix with all its vectors being unit length, its inverse is its transpose matrix.
-    Therefore, $R_{w}^{-1} = R_{w}^{'}$.
-</p>
+<!--<p>-->
+    <!--<b>Step 1 - $R_{w}$:</b>-->
+    <!--<br/>-->
+    <!--$R_{w}$ is defined as below:-->
+<!--</p>-->
 
-<!--##############-->
-<hr>
-<p>
-    <big>
-    <b>Scaling:</b>
-    </big>
-</p>
 
-<p>
-    In order to scale the point $P_{A} = [x,  y,  z,  1]'$, by a scaling factor <code>sx sy sz</code>, following scaling
-    equation is used,
-</p>
+<!--<p>-->
+    <!--<br style="margin-bottom:10px;"/>-->
+    <!--<div style="text-align: center">-->
+        <!--<a href="/images/misc/transformations/rw1.png">-->
+            <!--<img src="/images/misc/transformations/rw1.png" alt="Rotation matrix to make axis-z the axis of rotation" align="middle" hspace="30" height="300">-->
+        <!--</a>-->
+        <!--<br/>-->
+        <!--<figcaption>Rotation matrix to make axis-z the axis of rotation</figcaption>-->
+    <!--</div>-->
+    <!--<br/>-->
+<!--</p>-->
 
-<p>
-    <br style="margin-bottom:10px;"/>
-    <div style="text-align: center">
-        <a href="/images/misc/transformations/s1.png">
-            <img src="/images/misc/transformations/s1.png" alt="Scaling equation" align="middle" hspace="30" height="300">
-        </a>
-        <br/>
-        <figcaption>Scaling equation</figcaption>
-    </div>
-    <br/>
-</p>
+
+
+<!--<p>-->
+    <!--<b>Step 2 - $R_{Z_{Theta}}$:</b>-->
+    <!--<br/>-->
+    <!--$R_{Z_{Theta}}$ is a standard rotation matrix to rotate about axis-z. Now using-->
+    <!--<a href="https://en.wikipedia.org/wiki/Euler%27s_rotation_theorem">Euler's Rotation Theorem</a>,-->
+<!--</p>-->
+
+<!--<p>-->
+    <!--<br style="margin-bottom:10px;"/>-->
+    <!--<div style="text-align: center">-->
+        <!--<a href="/images/misc/transformations/rz.png">-->
+            <!--<img src="/images/misc/transformations/rz.png" alt="Rotation matrix to rotate about axis-z by angle theta" align="middle" hspace="30" height="300">-->
+        <!--</a>-->
+        <!--<br/>-->
+        <!--<figcaption>Rotation matrix to rotate about axis-z by angle theta</figcaption>-->
+    <!--</div>-->
+    <!--<br/>-->
+<!--</p>-->
+
+
+<!--<p>-->
+    <!--<b>Step 3 - $R_{w}^{-1}$:</b>-->
+    <!--<br/>-->
+    <!--Since $R_{w}$ is a  rotation matrix with all its vectors being unit length, its inverse is its transpose matrix.-->
+    <!--Therefore, $R_{w}^{-1} = R_{w}^{'}$.-->
+<!--</p>-->
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>Scaling:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+<!--<p>-->
+    <!--In order to scale the point $P_{A} = [x,  y,  z,  1]'$, by a scaling factor <code>sx sy sz</code>, following scaling-->
+    <!--equation is used,-->
+<!--</p>-->
+
+<!--<p>-->
+    <!--<br style="margin-bottom:10px;"/>-->
+    <!--<div style="text-align: center">-->
+        <!--<a href="/images/misc/transformations/s1.png">-->
+            <!--<img src="/images/misc/transformations/s1.png" alt="Scaling equation" align="middle" hspace="30" height="300">-->
+        <!--</a>-->
+        <!--<br/>-->
+        <!--<figcaption>Scaling equation</figcaption>-->
+    <!--</div>-->
+    <!--<br/>-->
+<!--</p>-->
 
 
 
