@@ -46,7 +46,7 @@ tags:
 <hr>
 <p>
     <big>
-    <b>Software Maintenance and Evolution:</b>
+    <b>1. Software Maintenance and Evolution:</b>
     </big>
 </p>
 
@@ -69,196 +69,135 @@ tags:
     <p>This browser does not support embedded PDFs. Please download the PDF to view it: <a href="/images/misc/oss/PDFSam_change-request-log_1.pdf">Download PDF</a>.</p>
 </iframe>
 
-<iframe src="/images/misc/oss/PDFSam_change-request-log_2.pdf?#zoom=100" style="width:850px; height:900px;" frameborder="0">
-    <p>This browser does not support embedded PDFs. Please download the PDF to view it: <a href="/images/misc/oss/PDFSam_change-request-log_2.pdf">Download PDF</a>.</p>
+<iframe src="/images/misc/oss/PDFSam_change-request-log_3.pdf?#zoom=100" style="width:850px; height:900px;" frameborder="0">
+    <p>This browser does not support embedded PDFs. Please download the PDF to view it: <a href="/images/misc/oss/PDFSam_change-request-log_3.pdf">Download PDF</a>.</p>
+</iframe>
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>2. Software Quality & Code Smells:</b>
+    </big>
+</p>
+
+<p>
+    In this section, we analyze the code quality of JEdit and PDFsam. We measure and understand different code metrics,
+    such as cohesion and coupling, and explain code smells detected in both systems.
+    There are several tools or plugins that help detect code smells so that you don't have to do it manually.
+    For example, Eclipse plugins such as Metrics3 and JDeodorant.
+</p>
+
+
+<p>
+    <b>Analysing Code Metrics:</b>
+</p>
+
+
+<p>
+<ul>
+    <li>Compute various code metrics for the original version of both the softwares.</li>
+
+    <li>Compute the same code metrics for our modified version of both the softwares.</li>
+
+    <li>Identify changed metrics and explain what constituted those changes.</li>
+
+</ul>
+</p>
+
+
+<p>
+    <b>Coupling and Cohesion:</b>
+</p>
+
+<p>
+<ul>
+    <li>For both the modified softwares, find two classes with <b>highest cohesion</b></li>
+
+    <li>For both the modified softwares, find two classes with <b>highest coupling</b></li>
+
+    <li>Identify type of cohesion or coupling and explain why.</li>
+
+</ul>
+</p>
+
+
+<p>
+    <b>Detect Code Bad Smells using <a href="https://users.encs.concordia.ca/~nikolaos/jdeodorant/">JDeodorant</a>:</b>
+</p>
+
+
+<p>
+    For each modified software, we select one smelly class/method detected by JDeodorant for three different smells
+    (details in the report below). In total, we select six smelly classes/methods. Then, for each smelly code component:
+</p>
+
+
+<p>
+<ul>
+    <li>Describe the smell.</li>
+
+    <li>Explain why the method/class is flagged as smelly.</li>
+
+</ul>
+</p>
+
+<p>
+    Below is the detailed reports on this section which analyses software quality and code smells.
+</p>
+
+
+<iframe src="/images/misc/oss/software-quality-and-code-smells.pdf?#zoom=100" style="width:850px; height:900px;" frameborder="0">
+    <p>This browser does not support embedded PDFs. Please download the PDF to view it: <a href="/images/misc/oss/software-quality-and-code-smells.pdf">Download PDF</a>.</p>
 </iframe>
 
 
 
 
-<!--<p>-->
-<!--Axis-angle rotation can be divided into three steps as follows:-->
-
-<!--<ol type="1">-->
-
-    <!--<li>Rotate data points to make axis-z the axis of rotation.</li>-->
-    <!--<li>Rotate data points about axis-z.</li>-->
-    <!--<li>Apply the inverse of the original rotation from step 1.</li>-->
-<!--</ol>-->
-
-<!--So for a set of 3D points represented by $P$, we get corresponding 'rotated' set of points $P'$ using the-->
-<!--equation:-->
-
-    <!--<br/>-->
-    <!--\begin{equation}-->
-    <!--P' = ({R_{w}^{-1} R_{Z_{Theta}} R_{w}}) \cdot {P}-->
-    <!--\label{eq:t1}-->
-    <!--\end{equation}-->
-    <!--<br/>-->
-
-    <!--where, each $R$ matrix (from right to left) corresponds to one step from 3 steps described above.-->
-    <!--Here, we represent point $P_{A}$ in <a href="https://en.wikipedia.org/wiki/Homogeneous_coordinates">homogeneous coordinates</a>-->
-    <!--format with $w = 1$.-->
-
-    <!--<br/>-->
-    <!--<br/>-->
-    <!--Therefore, $P_{A} = [x,  y,  z,  w]'$-->
-
-<!--</p>-->
-
-
-<!--<p>-->
-    <!--<b>Step 1 - $R_{w}$:</b>-->
-    <!--<br/>-->
-    <!--$R_{w}$ is defined as below:-->
-<!--</p>-->
-
-
-<!--<p>-->
-    <!--<br style="margin-bottom:10px;"/>-->
-    <!--<div style="text-align: center">-->
-        <!--<a href="/images/misc/transformations/rw1.png">-->
-            <!--<img src="/images/misc/transformations/rw1.png" alt="Rotation matrix to make axis-z the axis of rotation" align="middle" hspace="30" height="300">-->
-        <!--</a>-->
-        <!--<br/>-->
-        <!--<figcaption>Rotation matrix to make axis-z the axis of rotation</figcaption>-->
-    <!--</div>-->
-    <!--<br/>-->
-<!--</p>-->
-
-
-
-<!--<p>-->
-    <!--<b>Step 2 - $R_{Z_{Theta}}$:</b>-->
-    <!--<br/>-->
-    <!--$R_{Z_{Theta}}$ is a standard rotation matrix to rotate about axis-z. Now using-->
-    <!--<a href="https://en.wikipedia.org/wiki/Euler%27s_rotation_theorem">Euler's Rotation Theorem</a>,-->
-<!--</p>-->
-
-<!--<p>-->
-    <!--<br style="margin-bottom:10px;"/>-->
-    <!--<div style="text-align: center">-->
-        <!--<a href="/images/misc/transformations/rz.png">-->
-            <!--<img src="/images/misc/transformations/rz.png" alt="Rotation matrix to rotate about axis-z by angle theta" align="middle" hspace="30" height="300">-->
-        <!--</a>-->
-        <!--<br/>-->
-        <!--<figcaption>Rotation matrix to rotate about axis-z by angle theta</figcaption>-->
-    <!--</div>-->
-    <!--<br/>-->
-<!--</p>-->
-
-
-<!--<p>-->
-    <!--<b>Step 3 - $R_{w}^{-1}$:</b>-->
-    <!--<br/>-->
-    <!--Since $R_{w}$ is a  rotation matrix with all its vectors being unit length, its inverse is its transpose matrix.-->
-    <!--Therefore, $R_{w}^{-1} = R_{w}^{'}$.-->
-<!--</p>-->
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Scaling:</b>-->
-    <!--</big>-->
-<!--</p>-->
-
-<!--<p>-->
-    <!--In order to scale the point $P_{A} = [x,  y,  z,  1]'$, by a scaling factor <code>sx sy sz</code>, following scaling-->
-    <!--equation is used,-->
-<!--</p>-->
-
-<!--<p>-->
-    <!--<br style="margin-bottom:10px;"/>-->
-    <!--<div style="text-align: center">-->
-        <!--<a href="/images/misc/transformations/s1.png">-->
-            <!--<img src="/images/misc/transformations/s1.png" alt="Scaling equation" align="middle" hspace="30" height="300">-->
-        <!--</a>-->
-        <!--<br/>-->
-        <!--<figcaption>Scaling equation</figcaption>-->
-    <!--</div>-->
-    <!--<br/>-->
-<!--</p>-->
-
-
-
 <!--##############-->
 <hr>
 <p>
     <big>
-    <b>Translation:</b>
+    <b>3. Refactoring OSS (JEdit and PDFsam):</b>
     </big>
 </p>
 
-<p>
-    In order to translate the point $P_{A} = [x,  y,  z,  1]'$, by a translation factor <code>tx ty tz</code>,
-    following translation equation is used,
-</p>
 
 <p>
-    <br style="margin-bottom:10px;"/>
-    <div style="text-align: center">
-        <a href="/images/misc/transformations/t1.png">
-            <img src="/images/misc/transformations/t1.png" alt="Scaling equation" align="middle" hspace="30" height="300">
-        </a>
-        <br/>
-        <figcaption>Translation equation</figcaption>
-    </div>
-    <br/>
+    With first section involving implementation of change requests, we familiarized ourselves with the functionality,
+    design, and internal structure of JEdit and PDFsam. Then we assessed the quality of both systems by measuring
+    some of their code properties and by detecting some of their code smells. In this section, we attempt to improve
+    the code quality of these modified software systems by refactoring their code to remove bad smells.
 </p>
 
 
-
-<!--##############-->
-<hr>
 <p>
-    <big>
-    <b>Results:</b>
-    </big>
+    <b>Automatic and Manual Refactoring:</b>
 </p>
 
-Here are some examples of .obj objects before and after applying the transformations. If you are interested, you could
-find <a href="
-https://console.cloud.google.com/storage/browser/project-data-store-public/csu-proj-data/comp-graphics/transformations/?pli=1">more examples here</a>
-or download directly from the the download links on
-<a href="https://www.cs.colostate.edu/~cs410/yr2018fa/more_assignments/assignment01.php">this page</a>.
-You will find 'driver' files in driver folder that describe what transformation to apply on which object file
-(from models folder). The corresponding outputs are stored in the driver_outputs in a folder named after the driver files.
+
+<p>
+<ul>
+    <li>Refactor two smelly code components of each software system using automatic refactoring tools available
+        in Eclipse IDE.</li>
+
+    <li>Refactor two smelly code components of each software system manually.</li>
+
+    <li>Describe the refactoring in details with rationale of the chosen refactoring operations.</li>
+
+</ul>
+</p>
 
 
-<!--<br style="margin-bottom:25px;"/>-->
-<!--<div style="text-align: center">-->
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten1A.png">-->
-        <!--<img src="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten1A.png" alt="gutenberg ngram analysis using hadoop map-reduce" align="middle" hspace="50" height="350">-->
-    <!--</a>-->
-
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten1B.png">-->
-        <!--<img src="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten1B.png" alt="gutenberg ngram analysis using hadoop map-reduce" align="middle" hspace="50" height="350">-->
-    <!--</a>-->
-    <!--<br/>-->
-    <!--<br/>-->
-    <!--<figcaption>Fig. 1: Profile 1A and 1B sample outputs</figcaption>-->
-<!--</div>-->
-<!--<br/>-->
+<p>
+    Below is the detailed reports on this section which analyses software quality and code smells.
+</p>
 
 
-<!--<br style="margin-bottom:10px;"/>-->
-<!--<div style="text-align: center">-->
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten2A.png">-->
-        <!--<img src="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten2A.png" alt="gutenberg ngram analysis using hadoop map-reduce" align="middle" hspace="30" height="350">-->
-    <!--</a>-->
-
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten2B.png">-->
-        <!--<img src="https://raw.githubusercontent.com/GuruMulay/big-data-class/master/n-gram-analysis-of-gutenberg/guten2B.png" alt="gutenberg ngram analysis using hadoop map-reduce" align="middle" hspace="30" height="350">-->
-    <!--</a>-->
-    <!--<br/>-->
-    <!--<br/>-->
-    <!--<figcaption>Fig. 1: Profile 2A and 2B sample outputs</figcaption>-->
-<!--</div>-->
-<!--<br/>-->
-
-
-
+<iframe src="/images/misc/oss/refactoring-oss.pdf?#zoom=100" style="width:850px; height:900px;" frameborder="0">
+    <p>This browser does not support embedded PDFs. Please download the PDF to view it: <a href="/images/misc/oss/refactoring-oss.pdf">Download PDF</a>.</p>
+</iframe>
 
 
 <!--&lt;!&ndash;##############&ndash;&gt;-->
@@ -283,7 +222,7 @@ You will find 'driver' files in driver folder that describe what transformation 
 <p>
     <small>
     <b>Note:</b>
-    Some of the content for this post is taken from course material of CS410 (CSU) written by Prof. Ross Beveridge.
+    Some of the content for this post is taken from course material of CS581 (CSU) written by Prof. Laura Moreno.
     </small>
 </p>
 <hr>
