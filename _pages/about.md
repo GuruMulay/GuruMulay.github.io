@@ -21,5 +21,5 @@ I love to go on hikes, bike on scenic trails, and to learn interesting things ab
 
 Check out some of my projects assembled in categories in the Navigation Bar at the top.
 
-If you don't like reading and enjoy graphics jump directly to [this gallery page](https://gurumulay.github.io/gallery/).
+If you don't like reading and enjoy browsing images then jump directly to [this gallery page](https://gurumulay.github.io/gallery/).
 
