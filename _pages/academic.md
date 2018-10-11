@@ -42,8 +42,8 @@ redirect_from:
 | CS530: Fault-Tolerant Computing                               | Control Systems                                       | Operations Research            |
 | CS533: Database Management Systems                            | Signals & Systems                                     ||
 | CS581A3: Software Maintenance & Evolution                     | Electronics Product Design                            ||
-| Digital Image Processing                                      | Electro-magnetics                                     ||
-| Soft Computing                                                | Digital Logic Design                                  ||
+| [Digital Image Processing](https://github.com/GuruMulay/digital-image-processing)                                      | Electro-magnetics                                     ||
+| [Soft Computing](https://github.com/GuruMulay/soft-computing-and-neural-networks-stuff)                                                | Digital Logic Design                                  ||
 | Computer Networks                                             | Digital Communication                                 ||
 | Computer Organization & Architecture                          | Integrated Circuits & Applications                    ||
 | System Programming & Operating Systems                        | Solid State Devices & Circuits                        ||
