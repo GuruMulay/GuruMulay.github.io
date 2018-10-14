@@ -109,6 +109,9 @@
       {% if author.wikipedia %}
         <li><a href="https://en.wikipedia.org/wiki/User:{{ author.wikipedia }}"><i class="fa fa-fw fa-chain" aria-hidden="true"></i> Wikipedia</a></li>
       {% endif %}
+      {% if author.cadlab %}
+        <li><a href="https://cadlab.io/{{ author.cadlab }}"><i class="fa fa-fw fa-arrows-alt" aria-hidden="true"></i> Cadlab</a></li>
+      {% endif %}
     </ul>
   </div>
 </div>
