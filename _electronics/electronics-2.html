@@ -28,16 +28,21 @@ tags:
 
 
 <p>
-    A motor driver consists of an H-bridge with added speed control mechanism.
-    A basic H-bridge circuit is made up of four switches and a motor.
-    For speed control one can use four MOSFETS as a switching device to control the on and off time of the motor.
-    This can be achieved by applying PWM signal to the gate of the MOSFET.
+    A motor driver consists of an H-bridge with a mechanism to control the speed of the motor.
+    A basic H-bridge circuit is consist of four switches and a motor.
+    For speed control one can use four MOSFETS as the switching devices to control the on and off time of the motor.
+    Speed control is achieved by applying Pulse Width Modulated (PWM) signal to the Gate of the MOSFET.
 
-    RELAY-MOSFET Driver in this project is a simple circuit in which the H-bridge was constructed using two
+    <br/>
+    <br/>
+
+    Relay-MOSFET driver in this project is a simple circuit in which the H-bridge was constructed using two
     electromagnetic relays (EMR) used as 4 switches.
-    They were used to control the direction of the motor.
-    Now to control the speed an N-channel MOSFET IRF460N was used for switching of motor.
-    Pulse Width Modulated (PWM) signal was given to the GATE of this MOSFET.
+    They were used to control the spinning direction of the motor.
+    Now to control the speed, an N-channel MOSFET IRF460N was used for switching of the motor.
+    PWM signal given to the GATE of this MOSFET controlled the on and off time of the MOSFET which in turn decides the
+    amount of time for which current flows through the motor. A PWM of 50% duty time keeps the motor on for 50% of the
+    times and thus making it spin at 50% of the speed it would achieve with a 100% duty cycle PWM signal.
     In this way by changing the duty cycle of the PWM signal, we can control the ON and OFF times of the motor.
     This MOSFET was required to carry large amounts of current hence a power MOSFET IRF460N was used.
     This motor driver was used in the Manual Robot that my robotics team designed for the robotics competition -
@@ -45,10 +50,13 @@ tags:
     It was a enormous challenge to design a motor driver circuit that will withstand the high currents and high power
     required to carry our 65 Kg manual operator [PICTURE].
 
-    Typical average current on-load for this driver was about 5-10 Amperes, and peak current would go up to 15-20 Amperes.
+    <br/>
+    <br/>
+
+    Typical average on-load current for this driver was about 5-10 Amperes, and peak current would go up to 15-20 Amperes.
     For a circuit running at 24 V, these are really high current ratings.
-    To put this in perspective, a typical average scale motor driver carries about 2 Ampere continuous current on-load.
-    On average it consumed 240 W power on-load.
+    To put this in perspective, a typical average scale motor driver carries about 2 Amperes of continuous current on-load.
+    On average the relay-MOSFET motor driver consumed 240 W power on-load.
 
 </p>
 
@@ -67,74 +75,33 @@ tags:
 </p>
 
 
+<ul>
 
+    <li><strong>Relays:</strong> Two 10A /24VDC relays were used as 4 switches for direction control.</li>
+
+    <li><strong>ULN2003A IC:</strong> It is a Darlington pair IC. The current required to drive the coils of the relays
+        was fulfilled by this Darlington pair IC.</li>
+
+    <li><strong>MOSFET (IRF460N):</strong> This power MOSFET is capable of handling a large quantity of continuous
+        currents and also its RDS(ON) is few milliohms, hence selected. Heat sink was also provided for proper heat
+        decipitation.</li>
+
+    <li><strong>Diodes:</strong> These are 2 freewheeling diodes used whenever freewheeling was required by the
+        motor.</li>
+
+
+</ul>
+
+
+
+
+<!--##############-->
+<hr>
 <p>
-
-1. RELAYS :
-Two 10A /24VDC relays were used as 4 switches for direction control.
-2. ULN2003A :
-It is a Darlington pair IC .The current requirement to drive the coils of relays was fulfilled by this Darlington pair IC.
-3. MOSFET (IRF460N) :
-This power MOSFET is capable of handling a large quantity of continuous current and also its RDS(ON) is few milliohms ,hence selected. Heat sink was also provided for heat decipitation .
-4. DIODES :These are 2 freewheeling diodes used whenever freewheeling was required .
-
-
+    <big>
+    <b>Printed Circuit Board:</b>
+    </big>
 </p>
-
-
-<!--<p>-->
-    <!--<b>Term Frequency:</b>-->
-<!--</p>-->
-
-<!--<p>-->
-    <!--Let's assume that we have a collection of documents written by M authors. This collection of documents may-->
-    <!--contain multiple books written by an author. Let’s define a set of documents written by same author as-->
-    <!--a sub-collection $j$. We define $f_{ij}$ to be the frequency (Number of occurrences) of term (word) $i$ in-->
-    <!--sub-collection $j$.-->
-
-    <!--<br/>-->
-    <!--\begin{equation}-->
-    <!--TF_{ij} = 0.5 +  {f_{ij} \over max_k f_{kj}}-->
-    <!--\label{eq:tf1}-->
-    <!--\end{equation}-->
-    <!--<br/>-->
-
-    <!--We use the augmented $TF$ (represented by 0.5 added initially in term 1 and then multiplied in terms 2 of-->
-    <!--\eqref{eq:tf1}) to prevent a bias towards longer documents. Term 2 is the raw frequency divided by the-->
-    <!--maximum raw frequency of any term $k$ in the sub-collection $j$. Stop words (e.g., a, an, the, etc) were-->
-    <!--not eliminated from the corpus. The most frequent term in the sub-collection will have a augmented $TF$ value of 1.-->
-
-<!--</p>-->
-
-
-
-<!--<p>-->
-    <!--<b>Inverse Document Frequency:</b>-->
-<!--</p>-->
-
-
-<!--<p>-->
-    <!--Suppose that term $i$ appears in $n_i$ sub-collections within the corpus. For this assignment, we define the-->
-    <!--$IDF_i$, as:-->
-
-    <!--\begin{equation}-->
-    <!--IDF_i = log_{10} ({N \over n_i})-->
-    <!--\label{eq:idf1}-->
-    <!--\end{equation}-->
-
-    <!--where, $N$ is the total number of sub-collections (same as the number of authors).-->
-<!--</p>-->
-
-
-<!--<p>-->
-    <!--<b>TF-IDF value:</b>-->
-<!--</p>-->
-
-<!--<p>-->
-    <!--The TF-IDF score is the product - $TF_{ij}$ $\times$ $IDF_i$. The terms with the highest TF-IDF score are-->
-    <!--considered the best words that characterize the sub-collection (document). They are the most important-->
-    <!--attributes in the sub-collection's attribute vector.-->
-<!--</p>-->
 
 
 
@@ -218,17 +185,6 @@ Further better MOSFETS can be used .
 
 <!--<p>-->
 
-<!--<ul>-->
-
-    <!--<li><strong>Part 1:</strong> Calculate the TF, IDF, and TF-IDF values for all terms for all of the sub-collections-->
-        <!--in the corpus.</li>-->
-
-    <!--<li><strong>Part 2:</strong> Create the AAVs (author attribute vectors) for every author.</li>-->
-
-    <!--<li><strong>Part 3:</strong> Find cosine similarity between AAV of given document with unknown author and all the-->
-        <!--authors in the corpus.</li>-->
-
-<!--</ul>-->
 
 
 <!--We use multiple Mappers and Reducers chained together (called job chaining) that produce intermediate results and-->
@@ -293,19 +249,19 @@ Further better MOSFETS can be used .
 
 
 
-<!--&lt;!&ndash;&lt;!&ndash;##############&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;<hr>&ndash;&gt;-->
-<!--&lt;!&ndash;<p>&ndash;&gt;-->
-    <!--&lt;!&ndash;<big>&ndash;&gt;-->
-    <!--&lt;!&ndash;<b>References:</b>&ndash;&gt;-->
-    <!--&lt;!&ndash;</big>&ndash;&gt;-->
-<!--&lt;!&ndash;</p>&ndash;&gt;-->
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>References:</b>-->
+    <!--</big>-->
+<!--</p>-->
 
 
-<!--&lt;!&ndash;<ol type="1">&ndash;&gt;-->
-    <!--&lt;!&ndash;<li>https://en.wikipedia.org/wiki/N-gram</li>&ndash;&gt;-->
-    <!--&lt;!&ndash;<li>https://www.gutenberg.org</li>&ndash;&gt;-->
-<!--&lt;!&ndash;</ol>&ndash;&gt;-->
+<!--<ol type="1">-->
+    <!--<li>https://en.wikipedia.org/wiki/N-gram</li>-->
+    <!--<li>https://www.gutenberg.org</li>-->
+<!--</ol>-->
 
 
 
