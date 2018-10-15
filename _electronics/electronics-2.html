@@ -18,54 +18,68 @@ tags:
 <hr style="border-color: silver;">
 
 
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--&lt;!&ndash;<hr>&ndash;&gt;-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Introduction:</b>-->
-    <!--</big>-->
-<!--</p>-->
-
-
-<!--<p>-->
-    <!--The goal is to build an authorship detection system that provides a ranked list of-->
-    <!--possible authors for a document whose authorship is unknown. The system uses N-gram analysis from-->
-    <!--<a href="/datascience/datascience-3/">this project</a>. In particular, I used the word uni-grams from that project.-->
-
-    <!--Finding the attributes of literature content written by an author is important to detect unique-->
-    <!--writing style for that author. I built an attribute vector for each of the authors with the help of-->
-    <!--<a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">Term Frequency and Inverse Document Frequency (TF-IDF)</a>-->
-    <!--analysis. Authorship is determined based on the similarity between the attribute vectors of the unseen document and-->
-    <!--the pre-computed attribute vectors of authors. TF-IDF is used to calculate the weights of each of the entities in-->
-    <!--the attribute vector.-->
-
-
-<!--</p>-->
-
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--##############-->
 <!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Definitions:</b>-->
-    <!--</big>-->
-<!--</p>-->
+<p>
+    <big>
+    <b>Introduction:</b>
+    </big>
+</p>
 
 
-<!--&lt;!&ndash;MathJax examples&ndash;&gt;-->
+<p>
+    A motor driver consists of an H-bridge with added speed control mechanism.
+    A basic H-bridge circuit is made up of four switches and a motor.
+    For speed control one can use four MOSFETS as a switching device to control the on and off time of the motor.
+    This can be achieved by applying PWM signal to the gate of the MOSFET.
 
-<!--&lt;!&ndash;<p>&ndash;&gt;-->
-  <!--&lt;!&ndash;When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are&ndash;&gt;-->
-  <!--&lt;!&ndash;$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$&ndash;&gt;-->
-<!--&lt;!&ndash;</p>&ndash;&gt;-->
+    RELAY-MOSFET Driver in this project is a simple circuit in which the H-bridge was constructed using two
+    electromagnetic relays (EMR) used as 4 switches.
+    They were used to control the direction of the motor.
+    Now to control the speed an N-channel MOSFET IRF460N was used for switching of motor.
+    Pulse Width Modulated (PWM) signal was given to the GATE of this MOSFET.
+    In this way by changing the duty cycle of the PWM signal, we can control the ON and OFF times of the motor.
+    This MOSFET was required to carry large amounts of current hence a power MOSFET IRF460N was used.
+    This motor driver was used in the Manual Robot that my robotics team designed for the robotics competition -
+    Robocon 2012. The manual robot was required to be driven by a manual operator sitting on top of the robot.
+    It was a enormous challenge to design a motor driver circuit that will withstand the high currents and high power
+    required to carry our 65 Kg manual operator [PICTURE].
 
-    <!--&lt;!&ndash;In equation \eqref{eq:sample}&ndash;&gt;-->
-    <!--&lt;!&ndash;&ndash;&gt;-->
-    <!--&lt;!&ndash;\begin{equation}&ndash;&gt;-->
-    <!--&lt;!&ndash;\int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}&ndash;&gt;-->
-    <!--&lt;!&ndash;\label{eq:sample}&ndash;&gt;-->
-    <!--&lt;!&ndash;\end{equation}&ndash;&gt;-->
+    Typical average current on-load for this driver was about 5-10 Amperes, and peak current would go up to 15-20 Amperes.
+    For a circuit running at 24 V, these are really high current ratings.
+    To put this in perspective, a typical average scale motor driver carries about 2 Ampere continuous current on-load.
+    On average it consumed 240 W power on-load.
+
+</p>
+
+
+
+
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Circuit Components:</b>
+    </big>
+</p>
+
+
+
+<p>
+
+1. RELAYS :
+Two 10A /24VDC relays were used as 4 switches for direction control.
+2. ULN2003A :
+It is a Darlington pair IC .The current requirement to drive the coils of relays was fulfilled by this Darlington pair IC.
+3. MOSFET (IRF460N) :
+This power MOSFET is capable of handling a large quantity of continuous current and also its RDS(ON) is few milliohms ,hence selected. Heat sink was also provided for heat decipitation .
+4. DIODES :These are 2 freewheeling diodes used whenever freewheeling was required .
+
+
+</p>
 
 
 <!--<p>-->
@@ -174,13 +188,32 @@ tags:
 
 
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Methodology:</b>-->
-    <!--</big>-->
-<!--</p>-->
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Practical Performance:</b>
+    </big>
+</p>
+
+
+
+<p>
+At lower frequencies of PWM i.e. less than 8 KHz , MAXON R30 would respond to the PWM only after 10% duty cycle . At higher frequencies like 16 KHz or 32 KHz it would respond only after 30% duty cycle. This was probably because the response of the MOSFET at lower duty cycle was not good which would further worsened at higher frequencies.
+LINEARITY: The response of motor to the PWM was not linear ; e.g. if 50% PWM is applied then ideally voltage across the motor should be 12 V , but practically it departed from this value .To achieve linearity a transistor was tried to control the GATE voltage .
+Freewheeling diodes D1 and D2 can be connected whenever freewheeling is required and can be removed otherwise.
+This driver was tested several times by drawing a current of about 5 to 6 A continuously for two hours. During this the MOSFET would show normal heating with heat sink.
+When mounted on the manual machine and ridden a few times ,the ULN2003 was damaged through its ground pin. The same was noted when used for raising and lowering of jaws. Probable reason concluded was : Voltage fluctuations present in the GROND plane, produced by the motor were going directly to the GND pin of ULN and this damaged the IC.
+
+Another version with DRAIN connected to Vcc was tried but as SOURCE was connected to the motor it went floating and the circuit couldn’t work.
+
+
+Possible Improvements:
+To avoid the damage to ULN, an inductor can be placed between power ground and ULN’s GND for isolation .
+Further better MOSFETS can be used .
+</p>
+
+
 
 
 <!--<p>-->
