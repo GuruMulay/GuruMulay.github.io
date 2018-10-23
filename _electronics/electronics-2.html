@@ -30,7 +30,7 @@ tags:
 <p>
     A motor driver consists of an H-bridge with a mechanism to control the speed of the motor.
     A basic H-bridge circuit is consist of four switches and a motor.
-    For speed control one can use four MOSFETS as the switching devices to control the on and off time of the motor.
+    For speed control one can use four MOSFETs as the switching devices to control the on and off time of the motor.
     Speed control is achieved by applying Pulse Width Modulated (PWM) signal to the Gate of the MOSFET.
 
     <br/>
@@ -103,56 +103,70 @@ tags:
     </big>
 </p>
 
+<p>
+    Complete design of this motor driver can be found in th repository links above. Here is the schematic of the PCB.
+</p>
 
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Cosine Distance between Attribute Vectors:</b>-->
-    <!--</big>-->
-<!--</p>-->
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm_sch.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm_sch.png" alt="Schematic: relay-mosfet dc motor driver" align="middle" hspace="30" height="300">
+        </a>
+        <br/>
+        <figcaption>Fig. 1: Schematic - relay-MOSFET DC motor driver</figcaption>
+    </div>
+    <br/>
 
-<!--<p>-->
-    <!--After calculating the TF, IDF, and TF-IDF scores for set of books written by the same author (sub-collection)-->
-    <!--in the corpus, we generate an <b> Author Attribute Vector (AAV) </b> as follows:-->
+</p>
 
-    <!--Every author will have their own AAV representing their unique writing style with the help of TF-IDF score of words-->
-    <!--in the entire corpus. In order to find authorship of a unseen document, we compare the AAV of that document with-->
-    <!--AAVs of all the possible authors. Note that to compare an arbitrary AAV (from the document with unknown authorship)-->
-    <!--and existing AAVs, all of the AAVs must have the same dimension. For this comparison we calculate the <b>Cosine-->
-    <!--Distance</b> between two AAVs that gives a measure of similarity between the authors’ writing styles.-->
 
-    <!--Suppose that we have two authors with vectors, $AAV_1 = [x_1 , x_2 , ..., x_m]$ and $AAV_2 = [y_1 , y_2 , ..., y_m]$.-->
-    <!--The Cosine Similarity between them is defined as,-->
+<p>
+    Here are some screenshots of the board files from EAGLE PCB design software and corresponding circuit board.
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/brd5.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/brd5.png" alt="PCB design: relay-MOSFET motor driver" align="middle" hspace="30" height="300">
+        </a>
+        <br/>
+        <figcaption>Fig. 2: PCB design: relay-MOSFET motor driver</figcaption>
+    </div>
+    <br/>
 
-<!--</p>-->
 
-<!--<p style="text-align: center;">-->
-    <!--&lt;!&ndash;<figure>&ndash;&gt;-->
-    <!--<a href="/images/datascience/tfidf/cosine.jpg"><img src="/images/datascience/tfidf/cosine.jpg"></a>-->
-    <!--<figcaption class="figure-caption text-center"><a href="https://en.wikipedia.org/wiki/Cosine_similarity" title="">Cosine similarity [Source: Wikipedia]</a></figcaption>-->
-    <!--&lt;!&ndash;</figure>&ndash;&gt;-->
-<!--</p>-->
+    <!--<br style="margin-bottom:10px;"/>-->
+    <!--<div style="text-align: center">-->
+        <!--<a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/brd5.png">-->
+            <!--<img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/brd5.png" alt="PCB design: relay-MOSFET motor driver" align="middle" hspace="30" height="300">-->
+        <!--</a>-->
+        <!--<br/>-->
+        <!--<figcaption>Fig. 2: PCB design: relay-MOSFET motor driver</figcaption>-->
+    <!--</div>-->
+    <!--<br/>-->
 
-<!--<p>-->
-    <!--Where $AAV_1$ is represented by $A$ and $AAV_2$ by $B$. Using this formula, we will be able to create a ranked list-->
-    <!--of potential authors for a given document with unknown authorship. Logically, the author with highest cosine-->
-    <!--similarity with given document will be the most probable author of the document.-->
-<!--</p>-->
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Dataset:</b>-->
-    <!--</big>-->
-<!--</p>-->
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm2013_2.png"">
+            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm2013_2.png"" alt="PCB design: relay-MOSFET motor driver" align="middle" hspace="30" height="300">
+        </a>
+        <br/>
+        <figcaption>Fig. 3: PCB design: relay-MOSFET motor driver</figcaption>
+    </div>
+    <br/>
 
-<!--<p>-->
-    <!--Read <a href="/datascience/datascience-3/">the dataset description</a> from a previous post.-->
-<!--</p>-->
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm1.png"">
+            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm1.png"" alt="Relay-MOSFET motor driver: PCB design" align="middle" hspace="30" height="300">
+        </a>
+        <br/>
+        <figcaption>Fig. 3: Relay-MOSFET motor driver: PCB</figcaption>
+    </div>
+    <br/>
 
+</p>
 
 
 <!--##############-->
