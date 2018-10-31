@@ -15,7 +15,9 @@ Hi! I am Guru - a graduate student in Computer Science at Colorado State Univers
 I am involved in one of the coolest projects [Communicating with Computers](https://www.cs.colostate.edu/~draper/home_research.php) in computer vision.
 My current research work for MS thesis focuses on exploring and developing Convolutional Neural Networks, specifically the Pose Machines, to predict person's joint locations given only an RGB image of the person.
 
-Previously, I was an undergraduate research student in the [Robotics Lab](http://robocon.in/) of MIT Pune, India, where I worked with a team of some awesome students to build some awesome Robots like [these](http://robocon.in/photos/2013-2/) and [these from our Youtube channel](https://www.youtube.com/user/MITRobocon)!
+Previously, I was an undergraduate research student in the [Robotics Lab](http://robocon.in/) of MIT Pune, India under
+the guidance of my adviser late Dr. Savita Kulkarni. I worked with a team of awesome students to build some awesome
+Robots like [these](http://robocon.in/photos/2013-2/) and [these from our Youtube channel](https://www.youtube.com/user/MITRobocon)!
 
 I love to go on hikes, bike on scenic trails, and to learn interesting things about space exploration and archaeology.
 

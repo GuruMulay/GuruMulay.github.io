@@ -10,7 +10,7 @@ redirect_from:
 
 *****************
 
-|**Publications:** Please visit my [Google Scholar](https://scholar.google.com/citations?user=O3IPYzIAAAAJ&hl=en) profile.|
+|**Publications:** Please visit my [Google Scholar - Gururaj Mulay](https://scholar.google.com/citations?user=O3IPYzIAAAAJ&hl=en) profile.|
 
 
 *****************
