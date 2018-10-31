@@ -47,8 +47,9 @@ tags:
     This MOSFET was required to carry large amounts of current hence a power MOSFET IRF460N was used.
     This motor driver was used in the Manual Robot that my robotics team designed for the robotics competition -
     Robocon 2012. The manual robot was required to be driven by a manual operator sitting on top of the robot.
-    It was a enormous challenge to design a motor driver circuit that will withstand the high currents and high power
-    required to carry our 65 Kg manual operator [PICTURE].
+    It was an enormous challenge to design a motor driver circuit that will withstand the high currents and high power
+    required to carry our 65 Kg manual operator. Here is a picture of my team's
+    <a href="https://farm2.staticflickr.com/1816/30304829428_00e34edc21_k.jpg">manual robot in action.</a>
 
     <br/>
     <br/>
@@ -148,8 +149,8 @@ tags:
 
     <br style="margin-bottom:10px;"/>
     <div style="text-align: center">
-        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm2013_2.png"">
-            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm2013_2.png"" alt="PCB design: relay-MOSFET motor driver" align="middle" hspace="30" height="300">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm2013_2.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm2013_2.png" alt="PCB design: relay-MOSFET motor driver" align="middle" hspace="30" height="300">
         </a>
         <br/>
         <figcaption>Fig. 3: PCB design: relay-MOSFET motor driver</figcaption>
@@ -158,8 +159,8 @@ tags:
 
     <br style="margin-bottom:10px;"/>
     <div style="text-align: center">
-        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm1.png"">
-            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm1.png"" alt="Relay-MOSFET motor driver: PCB design" align="middle" hspace="30" height="300">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm1.jpg">
+            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm1.jpg" alt="Relay-MOSFET motor driver: PCB design" align="middle" hspace="30" height="300">
         </a>
         <br/>
         <figcaption>Fig. 3: Relay-MOSFET motor driver: PCB</figcaption>
@@ -178,89 +179,55 @@ tags:
 </p>
 
 
-
 <p>
-At lower frequencies of PWM i.e. less than 8 KHz , MAXON R30 would respond to the PWM only after 10% duty cycle . At higher frequencies like 16 KHz or 32 KHz it would respond only after 30% duty cycle. This was probably because the response of the MOSFET at lower duty cycle was not good which would further worsened at higher frequencies.
-LINEARITY: The response of motor to the PWM was not linear ; e.g. if 50% PWM is applied then ideally voltage across the motor should be 12 V , but practically it departed from this value .To achieve linearity a transistor was tried to control the GATE voltage .
-Freewheeling diodes D1 and D2 can be connected whenever freewheeling is required and can be removed otherwise.
-This driver was tested several times by drawing a current of about 5 to 6 A continuously for two hours. During this the MOSFET would show normal heating with heat sink.
-When mounted on the manual machine and ridden a few times ,the ULN2003 was damaged through its ground pin. The same was noted when used for raising and lowering of jaws. Probable reason concluded was : Voltage fluctuations present in the GROND plane, produced by the motor were going directly to the GND pin of ULN and this damaged the IC.
-
-Another version with DRAIN connected to Vcc was tried but as SOURCE was connected to the motor it went floating and the circuit couldn’t work.
-
-
-Possible Improvements:
-To avoid the damage to ULN, an inductor can be placed between power ground and ULN’s GND for isolation .
-Further better MOSFETS can be used .
+    <b>Frequency Response:</b>
+</p>
+<p>
+    At lower frequencies of PWM (less than 8 KHz), MAXON R30 motor would respond to the PWM only after 10% duty cycle.
+    At higher frequencies like 16 KHz or 32 KHz it would respond only after 30% duty cycle.
+    This is because the response of the MOSFET at lower duty cycle was not good which further worsens at higher frequencies.
 </p>
 
+<p>
+    <b>Linearity:</b>
+</p>
+<p>
+The response of motor to the PWM was not linear. If 50% PWM is applied then the ideal voltage across the motor should
+    be 12 Volts, but practically it departed from this value. To achieve linearity, we experimented with a transistor
+    to control the GATE voltage.
+</p>
 
+<p>
+    <b>Load Testing:</b>
+</p>
+<p>
+    This driver was tested several times by drawing a current of about 5 A to 6 A continuously for two hours.
+    During this, the MOSFET would show normal degree of heating with a decent heat sink.
 
+    We mounted this motor driver on the manual machine and rode it a few times with a total load weight of 75 Kg
+    (machine + manual operator). We observed that ULN2003 would frequently get damaged at its ground pin.
+    The same was noted when used for raising and lowering of the grabbing jaws of the manual machine.
+    We concluded that a probable reason was the voltage fluctuations present in the GROUND plane of the circuit during
+    on-load operations. These fluctuations produced by the motor were going directly to the GND pin of ULN IC and this
+    would ultimately damage the IC.
+</p>
 
-<!--<p>-->
+<p>
+    <b>Other:</b>
+</p>
+<p>
+    I also tried another version with DRAIN connected to VCC. With this configuration the SOURCE was connected to the
+    motor and it went floating causing the circuit not to work. Freewheeling diodes D1 and D2 can be connected
+    whenever freewheeling is required and can be removed otherwise.
+</p>
 
-
-
-<!--We use multiple Mappers and Reducers chained together (called job chaining) that produce intermediate results and-->
-<!--then final results based on those intermediate results. Final output is a top-10 list of potential authors for the given-->
-<!--document with unknown authorship. Part 1 and Part 2 is implemented-->
-<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/authorAttrVect">here</a>-->
-<!--and Part 3 is implemented-->
-<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/cosineSimilarity">here</a>.-->
-
-<!--</p>-->
-
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Outputs:</b>-->
-    <!--</big>-->
-<!--</p>-->
-
-<!--Originally, we used the complete dataset as described above in the dataset section to found AAVs for all the authors in-->
-<!--that dataset and then calculated their cosine similarity metric with AAV of the given document with unknown author.-->
-
-<!--But for the purpose of illustration I will use a very small toy dataset containing 12 lines that can be found-->
-<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/blob/master/authorAttrVect_toy_dataset_illustration/testData12.txt">here</a>.-->
-
-<!--<br/>-->
-<!--The-->
-<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/blob/master/authorAttrVect_toy_dataset_illustration/">-->
-    <!--<b>authorAttrVect_toy_dataset_illustration</b></a> direcory contains a very small toy dataset fed as input to the-->
-<!--system and the outputs at every map reduce step of authorAttrVect map-reduce program from the repo.-->
-<!--The final output is <i>mr4aav12.txt</i> that contains TF-IDF scores in the final column.-->
-
-
-<!--&lt;!&ndash;Here are some snippets from the outputs of map reduce programs that gives AAV vectors for the authors from toy dataset.&ndash;&gt;-->
-<!--Here is a snippet from the output of map-reduce described programs above.-->
-
-<!--<br style="margin-bottom:10px;"/>-->
-<!--<div style="text-align: center">-->
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/tfidf.jpg?token=AOOYCIfnE59APKitHCL5zO9s0beNAiWdks5bp_K1wA%3D%3D">-->
-        <!--<img src="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/tfidf.jpg?token=AOOYCIfnE59APKitHCL5zO9s0beNAiWdks5bp_K1wA%3D%3D" alt="gutenberg ngram analysis using hadoop map-reduce" align="middle" hspace="30" height="350">-->
-    <!--</a>-->
-
-    <!--<br/>-->
-    <!--<br/>-->
-    <!--<figcaption>Fig. 1: TF-IDF scores for toy dataset (in final column)</figcaption>-->
-<!--</div>-->
-<!--<br/>-->
-
-
-<!--Finally, we provide a document with unknown authorship to the <a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/cosineSimilarity">-->
-    <!--<b>cosineSimilarity</b></a> map-reduce program.  It produces the list of potential that are could have written that-->
-<!--document. Suppose we fed a document written <i>twain</i> as a document with unknown authorship. The cosineSimilarity program-->
-<!--will produce a list of potential authors like this one:-->
-
-
-<!--<br style="margin-bottom:20px;"/>-->
-<!--<p style="text-align: center;">-->
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/top-auth.jpg?token=AOOYCGdBUN-jbjInfJ8iqHLNmFksGktDks5bp_FdwA%3D%3D"><img src="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/top-auth.jpg?token=AOOYCGdBUN-jbjInfJ8iqHLNmFksGktDks5bp_FdwA%3D%3D"></a>-->
-    <!--<figcaption class="figure-caption text-center">Fig. 2: Top authors for a document with unknown author</figcaption>-->
-<!--</p>-->
-
+<p>
+    <b>Possible Improvements:</b>
+</p>
+<p>
+- To avoid the damage to ULN, an inductor can be placed between power ground and ULN’s GND for isolation.<br/>
+- Better MOSFETs with higher power can be used.
+</p>
 
 
 <!--&lt;!&ndash;##############&ndash;&gt;-->
@@ -276,15 +243,3 @@ Further better MOSFETS can be used .
     <!--<li>https://en.wikipedia.org/wiki/N-gram</li>-->
     <!--<li>https://www.gutenberg.org</li>-->
 <!--</ol>-->
-
-
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<small>-->
-    <!--<b>Note:</b>-->
-    <!--Some of the content for this post is taken from course material of CS435 (CSU) written by Prof. Sangmi Lee Pallickara and GTAs.-->
-    <!--</small>-->
-<!--</p>-->
-<!--<hr>-->
