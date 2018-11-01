@@ -1,6 +1,6 @@
 ---
 title: "Smallest Motor Driver I Ever Made!"
-excerpt: "<br/><img src='/images/electronics/motor-driver-smallest/2mos10-1.png'><br/> <small></small> "
+excerpt: "<br/><img src='/images/electronics/motor-driver-ir-smallest/2mos10_both-1.png'><br/> <small></small>"
 collection: electronics
 tags:
   - DC-motor-driver
@@ -10,6 +10,8 @@ tags:
   - PCB-design
   - EAGLE-PCB-software
   - tiny-powerful-motor-driver
+  - Texas-Instruments-CSD18501Q5A
+  - h-bridge
 ---
 
 
@@ -22,172 +24,166 @@ tags:
 
 
 
-
-This board had dimensions of 5.3 cm X 4.0 cm (~ 2.08 inch X 1.57 inch). In perspective of a DC-motor driver capable of
-providing 5-10 Amperes of continuous current, this board was really a small, tiny, self-containing, and compact board.
-
-
-<!--<hr style="border-color: silver;">-->
-<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score" ><button type="button" class="btn btn&#45;&#45;info"><i class="fa fa-github"></i> GitHub Source</button></a>-->
-<!--&lt;!&ndash;<i class="fa fa-file-code-o"></i>&ndash;&gt;-->
-<!--&lt;!&ndash;<a href="#" class="btn btn&#45;&#45;inverse">Inverse Button</a>&ndash;&gt;-->
-<!--&lt;!&ndash;<a href="#" class="btn btn&#45;&#45;info">Info Button</a>&ndash;&gt;-->
-<!--&lt;!&ndash;<iframe src="https://ghbtns.com/github-btn.html?user=gurumulay&repo=big-data-class/tree/master/n-gram-analysis-of-gutenberg&type=star&count=false&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>&ndash;&gt;-->
-<!--<hr style="border-color: silver;">-->
-
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--&lt;!&ndash;<hr>&ndash;&gt;-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Introduction:</b>-->
-    <!--</big>-->
-<!--</p>-->
-
-
-<!--<p>-->
-    <!--The goal is to build an authorship detection system that provides a ranked list of-->
-    <!--possible authors for a document whose authorship is unknown. The system uses N-gram analysis from-->
-    <!--<a href="/datascience/datascience-3/">this project</a>. In particular, I used the word uni-grams from that project.-->
-
-    <!--Finding the attributes of literature content written by an author is important to detect unique-->
-    <!--writing style for that author. I built an attribute vector for each of the authors with the help of-->
-    <!--<a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">Term Frequency and Inverse Document Frequency (TF-IDF)</a>-->
-    <!--analysis. Authorship is determined based on the similarity between the attribute vectors of the unseen document and-->
-    <!--the pre-computed attribute vectors of authors. TF-IDF is used to calculate the weights of each of the entities in-->
-    <!--the attribute vector.-->
-
-
-<!--</p>-->
-
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--##############-->
 <!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Definitions:</b>-->
-    <!--</big>-->
-<!--</p>-->
+<p>
+    <big>
+    <b>Introduction:</b>
+    </big>
+</p>
 
 
-<!--&lt;!&ndash;MathJax examples&ndash;&gt;-->
+<p>
+    Size of a motor driver circuit primarily depends on the footprint area of the MOSFETs and their driver circuitry,
+    heat-sinks for the MOSFETs, and the connectors. A DIP packaged MOSFET requires a large heat-sink (Figure 3) because the heat
+    dissipated is large as compared to the SMD counterpart of the same MOSFET family. This is because, the on-state
+    resistance (RDS-ON) of a DIP MOSFET is typically much larger as compared to an SMD MOSFET. Therefore, in a power
+    motor driver circuit, the power dissipated due to this resistance is higher in a DIP MOSFET as compared to the SMD
+    MOSFET. As a result if you use a SMD MOSFET in a motor driver circuit, then you can avoid using large physical
+    heat-sinks because the SMD MOSFETs will not heat up as much as the DIP MOSFETs at the same power levels of the
+    circuit.
 
-<!--&lt;!&ndash;<p>&ndash;&gt;-->
-  <!--&lt;!&ndash;When \(a \ne 0\), there are two solutions to \(ax^2 + bx + c = 0\) and they are&ndash;&gt;-->
-  <!--&lt;!&ndash;$$x = {-b \pm \sqrt{b^2-4ac} \over 2a}.$$&ndash;&gt;-->
-<!--&lt;!&ndash;</p>&ndash;&gt;-->
+    <br/>
+    <br/>
 
-    <!--&lt;!&ndash;In equation \eqref{eq:sample}&ndash;&gt;-->
-    <!--&lt;!&ndash;&ndash;&gt;-->
-    <!--&lt;!&ndash;\begin{equation}&ndash;&gt;-->
-    <!--&lt;!&ndash;\int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}&ndash;&gt;-->
-    <!--&lt;!&ndash;\label{eq:sample}&ndash;&gt;-->
-    <!--&lt;!&ndash;\end{equation}&ndash;&gt;-->
+    The motivation for this motor driver was to decrease the heat dissipated from the motor driver and thereby
+    increasing the reliability and life-span of the motor driver circuit as a whole. This motor driver was the a version
+    of <a href="/electronics/electronics-1/">the IR motor driver that I discussed in earlier post.</a>
+    Instead of using DIP packaged IRFZ48N series MOSFETs, I used Texas Instruments' CSD18501Q5A series SMD MOSFETs.
+    These SMD MOSFETS have really small footprint (smaller than a pinky nail). In Figure 1, you can see the footprint of
+    MOSFETs on the right side that has a h-bridge using four SMD MOSFETs. Also, their RDS-ON is extremely small as
+    compared to the DIP MOSFETs. Therefore this circuit did not require any physical heat-sinks (like Figure 3). The
+    heat sinking process achieved by providing very thick ground pads that occupied a large area of the PCB footprint.
 
+    <br/>
+    <br/>
 
-<!--<p>-->
-    <!--<b>Term Frequency:</b>-->
-<!--</p>-->
+    This motor driver is for bidirectional speed control of only one motor. It requires four MOSFETs for to form a
+    standard H-bridge configuration. The PCB has dimensions of 5.3 cm X 4.0 cm (~ 2.08 inch X 1.57 inch).
+    In perspective of a DC-motor driver capable of providing 5-10 Amperes of continuous current, this board was
+    really a small, tiny, self-containing, and compact board.
 
-<!--<p>-->
-    <!--Let's assume that we have a collection of documents written by M authors. This collection of documents may-->
-    <!--contain multiple books written by an author. Let’s define a set of documents written by same author as-->
-    <!--a sub-collection $j$. We define $f_{ij}$ to be the frequency (Number of occurrences) of term (word) $i$ in-->
-    <!--sub-collection $j$.-->
-
-    <!--<br/>-->
-    <!--\begin{equation}-->
-    <!--TF_{ij} = 0.5 +  {f_{ij} \over max_k f_{kj}}-->
-    <!--\label{eq:tf1}-->
-    <!--\end{equation}-->
-    <!--<br/>-->
-
-    <!--We use the augmented $TF$ (represented by 0.5 added initially in term 1 and then multiplied in terms 2 of-->
-    <!--\eqref{eq:tf1}) to prevent a bias towards longer documents. Term 2 is the raw frequency divided by the-->
-    <!--maximum raw frequency of any term $k$ in the sub-collection $j$. Stop words (e.g., a, an, the, etc) were-->
-    <!--not eliminated from the corpus. The most frequent term in the sub-collection will have a augmented $TF$ value of 1.-->
-
-<!--</p>-->
+</p>
 
 
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-ir-smallest-pcb/master/images/2mos10_bottom.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-ir-smallest-pcb/master/images/2mos10_bottom.png" alt="motor driver PCB: bottom side" align="middle" hspace="10" height="300">
+        </a>
+        <br/>
+        <figcaption>Fig. 1: Motor driver PCB: bottom side</figcaption>
+    </div>
+    <br/>
 
-<!--<p>-->
-    <!--<b>Inverse Document Frequency:</b>-->
-<!--</p>-->
-
-
-<!--<p>-->
-    <!--Suppose that term $i$ appears in $n_i$ sub-collections within the corpus. For this assignment, we define the-->
-    <!--$IDF_i$, as:-->
-
-    <!--\begin{equation}-->
-    <!--IDF_i = log_{10} ({N \over n_i})-->
-    <!--\label{eq:idf1}-->
-    <!--\end{equation}-->
-
-    <!--where, $N$ is the total number of sub-collections (same as the number of authors).-->
-<!--</p>-->
+</p>
 
 
-<!--<p>-->
-    <!--<b>TF-IDF value:</b>-->
-<!--</p>-->
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-ir-smallest-pcb/master/images/2mos10_top.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-ir-smallest-pcb/master/images/2mos10_top.png" alt="motor driver PCB: top side" align="middle" hspace="10" height="300">
+        </a>
+        <br/>
+        <figcaption>Fig. 2: Motor driver PCB: top side</figcaption>
+    </div>
+    <br/>
 
-<!--<p>-->
-    <!--The TF-IDF score is the product - $TF_{ij}$ $\times$ $IDF_i$. The terms with the highest TF-IDF score are-->
-    <!--considered the best words that characterize the sub-collection (document). They are the most important-->
-    <!--attributes in the sub-collection's attribute vector.-->
-<!--</p>-->
+</p>
 
 
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Cosine Distance between Attribute Vectors:</b>-->
-    <!--</big>-->
-<!--</p>-->
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://farm2.staticflickr.com/1772/29053735687_a37c7a6b0d_k.jpg">
+            <img src="https://farm2.staticflickr.com/1772/29053735687_a37c7a6b0d_k.jpg" alt="motor driver PCB: DIP MOSFETs and large heat-sinks" align="middle" hspace="10" height="300">
+        </a>
+        <br/>
+        <figcaption>Fig. 3: Motor driver PCB: DIP MOSFETs and large heat-sinks</figcaption>
+    </div>
+    <br/>
 
-<!--<p>-->
-    <!--After calculating the TF, IDF, and TF-IDF scores for set of books written by the same author (sub-collection)-->
-    <!--in the corpus, we generate an <b> Author Attribute Vector (AAV) </b> as follows:-->
+</p>
 
-    <!--Every author will have their own AAV representing their unique writing style with the help of TF-IDF score of words-->
-    <!--in the entire corpus. In order to find authorship of a unseen document, we compare the AAV of that document with-->
-    <!--AAVs of all the possible authors. Note that to compare an arbitrary AAV (from the document with unknown authorship)-->
-    <!--and existing AAVs, all of the AAVs must have the same dimension. For this comparison we calculate the <b>Cosine-->
-    <!--Distance</b> between two AAVs that gives a measure of similarity between the authors’ writing styles.-->
 
-    <!--Suppose that we have two authors with vectors, $AAV_1 = [x_1 , x_2 , ..., x_m]$ and $AAV_2 = [y_1 , y_2 , ..., y_m]$.-->
-    <!--The Cosine Similarity between them is defined as,-->
+<p>
+    Here is the motor driver PCB in action on-load with a
+    <a href="https://wiki.ece.cmu.edu/ddl/index.php/Windshield_wiper_assembly_2">wiper motor</a> that requires high power
+    to drive because it is a high-torque motor. This specific motor circuit was a dual version of the PCB that we are
+    discussing in this post and it could driver 2 motors independently and simultaneously. As you may have figured out
+    that it was an obvious quick-and-dirty prototype PCB. But being the first version, it worked pretty well
+    on its maiden on-load testing!
 
-<!--</p>-->
+    <br/>
+    <br/>
 
-<!--<p style="text-align: center;">-->
-    <!--&lt;!&ndash;<figure>&ndash;&gt;-->
-    <!--<a href="/images/datascience/tfidf/cosine.jpg"><img src="/images/datascience/tfidf/cosine.jpg"></a>-->
-    <!--<figcaption class="figure-caption text-center"><a href="https://en.wikipedia.org/wiki/Cosine_similarity" title="">Cosine similarity [Source: Wikipedia]</a></figcaption>-->
-    <!--&lt;!&ndash;</figure>&ndash;&gt;-->
-<!--</p>-->
+    I remember that I was extremely happy to see the prototype working like a charm because soldering those 8 SMD MOSFETs
+    took eons. With a little exaggeration, I had to put my blood, sweat, and tears ensuring that the tiny tiny pins of
+    the MSOFETs did not get short! I think those pins are like 0.5 mm apart at the best (Figure 1).
+    You short Gate to Drain and boooom ..... expect 4 hours of soldering (and life) to go in vain!
 
-<!--<p>-->
-    <!--Where $AAV_1$ is represented by $A$ and $AAV_2$ by $B$. Using this formula, we will be able to create a ranked list-->
-    <!--of potential authors for a given document with unknown authorship. Logically, the author with highest cosine-->
-    <!--similarity with given document will be the most probable author of the document.-->
-<!--</p>-->
+</p>
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Dataset:</b>-->
-    <!--</big>-->
-<!--</p>-->
 
-<!--<p>-->
-    <!--Read <a href="/datascience/datascience-3/">the dataset description</a> from a previous post.-->
-<!--</p>-->
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-ir-smallest-pcb/master/images/DSC_0011.jpg">
+            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-ir-smallest-pcb/master/images/DSC_0011.jpg" alt="Dual motor driver PCB in action: SMD MOSFETs" align="middle" hspace="10" height="300">
+        </a>
+        <br/>
+        <figcaption>Fig. 4: Dual motor driver PCB in action: SMD MOSFETs</figcaption>
+    </div>
+    <br/>
+
+</p>
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Circuit Components:</b>
+    </big>
+</p>
+
+
+<ul>
+
+    <li><strong>IR2520DS IC SMD (IR2104 IC DIP):</strong> Half bridge MOSFET driver IC that works on the concept of bootstrapping.</li>
+
+    <li><strong>CSD18501Q5A MOSFETs:</strong> SMD MOSFETs from Texas Instruments.</li>
+
+    <li><strong>7818 Voltage Regulator:</strong> Generates 18 V required by the motor driver ICs.</li>
+
+    <li><strong>1N5819 Diodes:</strong> Freewheeling diodes.</li>
+
+    <li><strong>MUX and Gates:</strong> The exact part numbers can be found in the schematic image below.</li>
+
+    <li><strong>RCL components:</strong> The exact values of resistors and capacitors can be found in the schematic
+        image below.</li>
+
+    <li><strong>Connectors:</strong> Header connectors, IC holders.</li>
+
+</ul>
+
+
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-ir-smallest-pcb/master/images/2mos10_1_schematic.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-ir-smallest-pcb/master/images/2mos10_1_schematic.png" alt="Motor driver schematic" align="middle" hspace="10" height="300">
+        </a>
+        <br/>
+        <figcaption>Fig. 4: Motor driver schematic</figcaption>
+    </div>
+    <br/>
+
+</p>
+
 
 
 
@@ -195,110 +191,14 @@ providing 5-10 Amperes of continuous current, this board was really a small, tin
 <!--<hr>-->
 <!--<p>-->
     <!--<big>-->
-    <!--<b>Methodology:</b>-->
+    <!--<b>Practical Performance:</b>-->
     <!--</big>-->
 <!--</p>-->
 
 
 <!--<p>-->
-
-<!--<ul>-->
-
-    <!--<li><strong>Part 1:</strong> Calculate the TF, IDF, and TF-IDF values for all terms for all of the sub-collections-->
-        <!--in the corpus.</li>-->
-
-    <!--<li><strong>Part 2:</strong> Create the AAVs (author attribute vectors) for every author.</li>-->
-
-    <!--<li><strong>Part 3:</strong> Find cosine similarity between AAV of given document with unknown author and all the-->
-        <!--authors in the corpus.</li>-->
-
-<!--</ul>-->
-
-
-<!--We use multiple Mappers and Reducers chained together (called job chaining) that produce intermediate results and-->
-<!--then final results based on those intermediate results. Final output is a top-10 list of potential authors for the given-->
-<!--document with unknown authorship. Part 1 and Part 2 is implemented-->
-<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/authorAttrVect">here</a>-->
-<!--and Part 3 is implemented-->
-<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/cosineSimilarity">here</a>.-->
-
+    <!--<b>Frequency Response:</b>-->
 <!--</p>-->
 
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Outputs:</b>-->
-    <!--</big>-->
-<!--</p>-->
-
-<!--Originally, we used the complete dataset as described above in the dataset section to found AAVs for all the authors in-->
-<!--that dataset and then calculated their cosine similarity metric with AAV of the given document with unknown author.-->
-
-<!--But for the purpose of illustration I will use a very small toy dataset containing 12 lines that can be found-->
-<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/blob/master/authorAttrVect_toy_dataset_illustration/testData12.txt">here</a>.-->
-
-<!--<br/>-->
-<!--The-->
-<!--<a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/blob/master/authorAttrVect_toy_dataset_illustration/">-->
-    <!--<b>authorAttrVect_toy_dataset_illustration</b></a> direcory contains a very small toy dataset fed as input to the-->
-<!--system and the outputs at every map reduce step of authorAttrVect map-reduce program from the repo.-->
-<!--The final output is <i>mr4aav12.txt</i> that contains TF-IDF scores in the final column.-->
-
-
-<!--&lt;!&ndash;Here are some snippets from the outputs of map reduce programs that gives AAV vectors for the authors from toy dataset.&ndash;&gt;-->
-<!--Here is a snippet from the output of map-reduce described programs above.-->
-
-<!--<br style="margin-bottom:10px;"/>-->
-<!--<div style="text-align: center">-->
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/tfidf.jpg?token=AOOYCIfnE59APKitHCL5zO9s0beNAiWdks5bp_K1wA%3D%3D">-->
-        <!--<img src="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/tfidf.jpg?token=AOOYCIfnE59APKitHCL5zO9s0beNAiWdks5bp_K1wA%3D%3D" alt="gutenberg ngram analysis using hadoop map-reduce" align="middle" hspace="30" height="350">-->
-    <!--</a>-->
-
-    <!--<br/>-->
-    <!--<br/>-->
-    <!--<figcaption>Fig. 1: TF-IDF scores for toy dataset (in final column)</figcaption>-->
-<!--</div>-->
-<!--<br/>-->
-
-
-<!--Finally, we provide a document with unknown authorship to the <a href="https://github.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/tree/master/cosineSimilarity">-->
-    <!--<b>cosineSimilarity</b></a> map-reduce program.  It produces the list of potential that are could have written that-->
-<!--document. Suppose we fed a document written <i>twain</i> as a document with unknown authorship. The cosineSimilarity program-->
-<!--will produce a list of potential authors like this one:-->
-
-
-<!--<br style="margin-bottom:20px;"/>-->
-<!--<p style="text-align: center;">-->
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/top-auth.jpg?token=AOOYCGdBUN-jbjInfJ8iqHLNmFksGktDks5bp_FdwA%3D%3D"><img src="https://raw.githubusercontent.com/GuruMulay/content-based-authorship-detection-using-tfidf-score/master/top-auth.jpg?token=AOOYCGdBUN-jbjInfJ8iqHLNmFksGktDks5bp_FdwA%3D%3D"></a>-->
-    <!--<figcaption class="figure-caption text-center">Fig. 2: Top authors for a document with unknown author</figcaption>-->
-<!--</p>-->
-
-
-
-<!--&lt;!&ndash;&lt;!&ndash;##############&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;<hr>&ndash;&gt;-->
-<!--&lt;!&ndash;<p>&ndash;&gt;-->
-    <!--&lt;!&ndash;<big>&ndash;&gt;-->
-    <!--&lt;!&ndash;<b>References:</b>&ndash;&gt;-->
-    <!--&lt;!&ndash;</big>&ndash;&gt;-->
-<!--&lt;!&ndash;</p>&ndash;&gt;-->
-
-
-<!--&lt;!&ndash;<ol type="1">&ndash;&gt;-->
-    <!--&lt;!&ndash;<li>https://en.wikipedia.org/wiki/N-gram</li>&ndash;&gt;-->
-    <!--&lt;!&ndash;<li>https://www.gutenberg.org</li>&ndash;&gt;-->
-<!--&lt;!&ndash;</ol>&ndash;&gt;-->
-
-
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<small>-->
-    <!--<b>Note:</b>-->
-    <!--Some of the content for this post is taken from course material of CS435 (CSU) written by Prof. Sangmi Lee Pallickara and GTAs.-->
-    <!--</small>-->
-<!--</p>-->
 <!--<hr>-->
