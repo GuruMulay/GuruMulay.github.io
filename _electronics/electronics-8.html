@@ -5,7 +5,7 @@ collection: electronics
 tags:
   - DC-motor-driver
   - bootstrapping
-  - smd-MOSFETS
+  - smd-MOSFETs
   - power-MOSFETs
   - PCB-design
   - EAGLE-PCB-software
@@ -26,20 +26,20 @@ tags:
 
 <!--##############-->
 <!--<hr>-->
-<p>
-    <big>
-    <b>Introduction:</b>
-    </big>
-</p>
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>Introduction:</b>-->
+    <!--</big>-->
+<!--</p>-->
 
 
 <p>
     Size of a motor driver circuit primarily depends on the footprint area of the MOSFETs and their driver circuitry,
-    heat-sinks for the MOSFETs, and the connectors. A DIP packaged MOSFET requires a large heat-sink (Figure 3) because the heat
-    dissipated is large as compared to the SMD counterpart of the same MOSFET family. This is because, the on-state
-    resistance (RDS-ON) of a DIP MOSFET is typically much larger as compared to an SMD MOSFET. Therefore, in a power
-    motor driver circuit, the power dissipated due to this resistance is higher in a DIP MOSFET as compared to the SMD
-    MOSFET. As a result if you use a SMD MOSFET in a motor driver circuit, then you can avoid using large physical
+    heat-sinks for the MOSFETs, and the connectors. A DIP packaged MOSFET requires a large heat-sink (Figure 3) because
+    the heat dissipated is large as compared to the SMD counterpart of the same MOSFET family. This is because, the
+    on-state resistance (RDS-ON) of a DIP MOSFET is typically much larger as compared to an SMD MOSFET. Therefore, in a
+    power motor driver circuit, the power dissipated due to this resistance is higher in a DIP MOSFET as compared to the
+    SMD MOSFET. As a result if you use a SMD MOSFET in a motor driver circuit, then you can avoid using large physical
     heat-sinks because the SMD MOSFETs will not heat up as much as the DIP MOSFETs at the same power levels of the
     circuit.
 
@@ -50,7 +50,7 @@ tags:
     increasing the reliability and life-span of the motor driver circuit as a whole. This motor driver was the a version
     of <a href="/electronics/electronics-1/">the IR motor driver that I discussed in earlier post.</a>
     Instead of using DIP packaged IRFZ48N series MOSFETs, I used Texas Instruments' CSD18501Q5A series SMD MOSFETs.
-    These SMD MOSFETS have really small footprint (smaller than a pinky nail). In Figure 1, you can see the footprint of
+    These SMD MOSFETs have really small footprint (smaller than a pinky nail). In Figure 1, you can see the footprint of
     MOSFETs on the right side that has a h-bridge using four SMD MOSFETs. Also, their RDS-ON is extremely small as
     compared to the DIP MOSFETs. Therefore this circuit did not require any physical heat-sinks (like Figure 3). The
     heat sinking process achieved by providing very thick ground pads that occupied a large area of the PCB footprint.
@@ -60,8 +60,29 @@ tags:
 
     This motor driver is for bidirectional speed control of only one motor. It requires four MOSFETs for to form a
     standard H-bridge configuration. The PCB has dimensions of 5.3 cm X 4.0 cm (~ 2.08 inch X 1.57 inch).
-    In perspective of a DC-motor driver capable of providing 5-10 Amperes of continuous current, this board was
-    really a small, tiny, self-containing, and compact board.
+    In perspective of a DC-motor driver capable of providing 5-10 Amperes of continuous current, this board was really
+    a small, tiny, self-containing, and compact board.
+
+    <br/>
+    <br/>
+
+    I tested this motor driver on-load with various types of DC motors such as standard, economic,
+    <a href="https://www.walmart.com/ip/High-Torque-Low-Speed-Solder-Cylindricaluction-Gear-Box-Motor-DC-24V-20RPM/127991422">
+        low-end DC motors like these</a>, MAXON DC motors, power-window motor, wiper motor, etc. The later two are high
+    torque motors which require very high power to drive them while former two are high RPM motors that work on low
+    power. In figure 4 you can see the circuit being tested on a wiper motor which drew 3A current at 9V without
+    even putting any load on the motor. With on-load testing the typical continuous current for this particular motor
+    was about 8A.
+
+    <br/>
+    <br/>
+
+    After working with DIP packaged MOSFETs for several years, I found it astonishing to see those tiny, pea-sized MOSFET
+    carried continuous currents over 5A for several minutes on-load at operating voltage of 24V. Even more surprising
+    was that the MOSFETs did not heat crazily unlike the DIP MOSFETs at the same power levels. I still cannot fathom the
+    fact that a tiny thing made from silicon and other fancy stuff can conduct excess of 5A currents continuously
+    without burning out!
+
 
 </p>
 
@@ -73,7 +94,7 @@ tags:
             <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-ir-smallest-pcb/master/images/2mos10_bottom.png" alt="motor driver PCB: bottom side" align="middle" hspace="10" height="300">
         </a>
         <br/>
-        <figcaption>Fig. 1: Motor driver PCB: bottom side</figcaption>
+        <figcaption>Fig. 1: Motor driver PCB: bottom side (not to scale, enlarged)</figcaption>
     </div>
     <br/>
 
@@ -87,7 +108,7 @@ tags:
             <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-ir-smallest-pcb/master/images/2mos10_top.png" alt="motor driver PCB: top side" align="middle" hspace="10" height="300">
         </a>
         <br/>
-        <figcaption>Fig. 2: Motor driver PCB: top side</figcaption>
+        <figcaption>Fig. 2: Motor driver PCB: top side (not to scale, enlarged)</figcaption>
     </div>
     <br/>
 
@@ -114,8 +135,8 @@ tags:
     <a href="https://wiki.ece.cmu.edu/ddl/index.php/Windshield_wiper_assembly_2">wiper motor</a> that requires high power
     to drive because it is a high-torque motor. This specific motor circuit was a dual version of the PCB that we are
     discussing in this post and it could driver 2 motors independently and simultaneously. As you may have figured out
-    that it was an obvious quick-and-dirty prototype PCB. But being the first version, it worked pretty well
-    on its maiden on-load testing!
+    that it was an obvious quick-and-dirty prototype PCB. But being the first version, it worked pretty well on its
+    maiden on-load testing!
 
     <br/>
     <br/>
@@ -178,7 +199,7 @@ tags:
             <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-ir-smallest-pcb/master/images/2mos10_1_schematic.png" alt="Motor driver schematic" align="middle" hspace="10" height="300">
         </a>
         <br/>
-        <figcaption>Fig. 4: Motor driver schematic</figcaption>
+        <figcaption>Fig. 5: Motor driver schematic</figcaption>
     </div>
     <br/>
 
