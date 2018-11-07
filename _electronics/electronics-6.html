@@ -21,67 +21,86 @@ tags:
 <hr style="border-color: silver;">
 
 
-<!--##############-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Introduction:</b>-->
-    <!--</big>-->
-<!--</p>-->
+##############
+<hr>
+<p>
+    <big>
+    <b>Context and Motivation:</b>
+    </big>
+</p>
 
 
-<!--<p>-->
-    <!--Size of a motor driver circuit primarily depends on the footprint area of the MOSFETs and their driver circuitry,-->
-    <!--heat-sinks for the MOSFETs, and the connectors. A DIP packaged MOSFET requires a large heat-sink (Figure 3) because-->
-    <!--the heat dissipated is large as compared to the SMD counterpart of the same MOSFET family. This is because, the-->
-    <!--on-state resistance (RDS-ON) of a DIP MOSFET is typically much larger as compared to an SMD MOSFET. Therefore, in a-->
-    <!--power motor driver circuit, the power dissipated due to this resistance is higher in a DIP MOSFET as compared to the-->
-    <!--SMD MOSFET. As a result if you use a SMD MOSFET in a motor driver circuit, then you can avoid using large physical-->
-    <!--heat-sinks because the SMD MOSFETs will not heat up as much as the DIP MOSFETs at the same power levels of the-->
-    <!--circuit.-->
+<p>
+    The semi-automatic robots that my robotics group designed were usually maneuvered using a Sony PS2 controller. As a
+    primary function, PS2 controlled the speed and direction of the robots using the analog joysticks on the controller.
+    The secondary functions were turning jaws to grab objects open and close, controlling secondary motors on the robot
+    such as the one used to raise or lower the gantry system in the front. In image below, you can see our robot
+    operator controlling the semi-automatic robot using the PS2 controller.
 
-    <!--<br/>-->
-    <!--<br/>-->
+    <br/>
+    A micro-controller reads the signals coming from PS2 via PS2 specific connector. For this connector, the signals are
+    - DATA, COMMAND, GND, VCC, ATTN, CLK, and ACKN. In initial versions of PS2 controller PCB, we fed the signals coming
+    from the PS2 directly to our master micro-controller Atmega2560 that also handles algorithms of forward-inverse kinematics,
+    path planning, sensing, etc. Control signals coming from PS2 were fed directly to the master. Master converted these
+    signals in appropriate motor speeds and directions. However, as we moved from simple two-wheel driver to a holonomic
+    driver system for the robots, the master started handling four motors simultaneously. This caused master
+    micro-controller to get overloaded as it handled too many algorithms simultaneously.
 
-    <!--The motivation for this motor driver was to decrease the heat dissipated from the motor driver and thereby-->
-    <!--increasing the reliability and life-span of the motor driver circuit as a whole. This motor driver was the a version-->
-    <!--of <a href="/electronics/electronics-1/">the IR motor driver that I discussed in earlier post.</a>-->
-    <!--Instead of using DIP packaged IRFZ48N series MOSFETs, I used Texas Instruments' CSD18501Q5A series SMD MOSFETs.-->
-    <!--These SMD MOSFETs have really small footprint (smaller than a pinky nail). In Figure 1, you can see the footprint of-->
-    <!--MOSFETs on the right side that has a h-bridge using four SMD MOSFETs. Also, their RDS-ON is extremely small as-->
-    <!--compared to the DIP MOSFETs. Therefore this circuit did not require any physical heat-sinks (like Figure 3). The-->
-    <!--heat sinking process achieved by providing very thick ground pads that occupied a large area of the PCB footprint.-->
+    <br/>
+    <br/>
 
-    <!--<br/>-->
-    <!--<br/>-->
-
-    <!--This motor driver is for bidirectional speed control of only one motor. It requires four MOSFETs for to form a-->
-    <!--standard H-bridge configuration. The PCB has dimensions of 5.3 cm X 4.0 cm (~ 2.08 inch X 1.57 inch).-->
-    <!--In perspective of a DC-motor driver capable of providing 5-10 Amperes of continuous current, this board was really-->
-    <!--a small, tiny, self-containing, and compact board.-->
-
-    <!--<br/>-->
-    <!--<br/>-->
-
-    <!--I tested this motor driver on-load with various types of DC motors such as standard, economic,-->
-    <!--<a href="https://www.walmart.com/ip/High-Torque-Low-Speed-Solder-Cylindricaluction-Gear-Box-Motor-DC-24V-20RPM/127991422">-->
-        <!--low-end DC motors like these</a>, MAXON DC motors, power-window motor, wiper motor, etc. The later two are high-->
-    <!--torque motors which require very high power to drive them while former two are high RPM motors that work on low-->
-    <!--power. In figure 4 you can see the circuit being tested on a wiper motor which drew 3A current at 9V without-->
-    <!--even putting any load on the motor. With on-load testing the typical continuous current for this particular motor-->
-    <!--was about 8A.-->
-
-    <!--<br/>-->
-    <!--<br/>-->
-
-    <!--After working with DIP packaged MOSFETs for several years, I found it astonishing to see those tiny, pea-sized MOSFET-->
-    <!--carried continuous currents over 5A for several minutes on-load at operating voltage of 24V. Even more surprising-->
-    <!--was that the MOSFETs did not heat crazily unlike the DIP MOSFETs at the same power levels. I still cannot fathom the-->
-    <!--fact that a tiny thing made from silicon and other fancy stuff can conduct excess of 5A currents continuously-->
-    <!--without burning out!-->
+    One solution to avoid processing of PS2 controller signals on the master MCU was to create a modular design. We
+    decided to design a PCB with an MCU that solely handles and processed the PS2 signals before routing them to the
+    master micro-controller. So, modularization was the primary motive behind this PCB.
 
 
-<!--</p>-->
+
+    <br/>
+    <br/>
+
+    This motor driver is for bidirectional speed control of only one motor. It requires four MOSFETs for to form a
+    standard H-bridge configuration. The PCB has dimensions of 5.3 cm X 4.0 cm (~ 2.08 inch X 1.57 inch).
+    In perspective of a DC-motor driver capable of providing 5-10 Amperes of continuous current, this board was really
+    a small, tiny, self-containing, and compact board.
+
+    <br/>
+    <br/>
+
+    I tested this motor driver on-load with various types of DC motors such as standard, economic,
+    <a href="https://www.walmart.com/ip/High-Torque-Low-Speed-Solder-Cylindricaluction-Gear-Box-Motor-DC-24V-20RPM/127991422">
+        low-end DC motors like these</a>, MAXON DC motors, power-window motor, wiper motor, etc. The later two are high
+    torque motors which require very high power to drive them while former two are high RPM motors that work on low
+    power. In figure 4 you can see the circuit being tested on a wiper motor which drew 3A current at 9V without
+    even putting any load on the motor. With on-load testing the typical continuous current for this particular motor
+    was about 8A.
+
+    <br/>
+    <br/>
+
+    After working with DIP packaged MOSFETs for several years, I found it astonishing to see those tiny, pea-sized MOSFET
+    carried continuous currents over 5A for several minutes on-load at operating voltage of 24V. Even more surprising
+    was that the MOSFETs did not heat crazily unlike the DIP MOSFETs at the same power levels. I still cannot fathom the
+    fact that a tiny thing made from silicon and other fancy stuff can conduct excess of 5A currents continuously
+    without burning out!
+
+
+</p>
+
+
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://farm2.staticflickr.com/1887/30304823788_1b3a643b12_k.jpg">
+            <img alt="" src="https://farm2.staticflickr.com/1887/30304823788_1b3a643b12_k.jpg" style="float: left; width: 49%; margin-right: 1%; margin-bottom: 1em;"></a>
+        <a href="https://farm2.staticflickr.com/1911/45711583292_47d51fbb4c_o.jpg">
+            <img alt="" src="https://farm2.staticflickr.com/1911/45711583292_47d51fbb4c_o.jpg" style="float: left; width: 49%; margin-right: 1%; margin-bottom: 1em;"></a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 1: PS2 controller to maneuver the semi-automatic robot (PS2 at the top of front wheel)</figcaption>
+    </div>
+    <br/>
+
+</p>
 
 
 <p>
@@ -96,6 +115,7 @@ tags:
     <br/>
 
 </p>
+
 
 
 
