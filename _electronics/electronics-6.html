@@ -21,11 +21,11 @@ tags:
 <hr style="border-color: silver;">
 
 
-##############
-<hr>
+<!--##############-->
+<!--<hr>-->
 <p>
     <big>
-    <b>Context and Motivation:</b>
+    <b>Introduction and Motivation:</b>
     </big>
 </p>
 
@@ -33,27 +33,36 @@ tags:
 <p>
     The semi-automatic robots that my robotics group designed were usually maneuvered using a Sony PS2 controller. As a
     primary function, PS2 controlled the speed and direction of the robots using the analog joysticks on the controller.
-    The secondary functions were turning jaws to grab objects open and close, controlling secondary motors on the robot
-    such as the one used to raise or lower the gantry system in the front. In image below, you can see our robot
-    operator controlling the semi-automatic robot using the PS2 controller.
+    The secondary functions were turning jaws open and close to grab objects, controlling secondary motors on the robot
+    such as the one used to raise or lower the gantry system in the front. The image (Figure 1) below shows one such
+    semiautomatic robot that an operator controlled using the PS2 controller.
 
     <br/>
     <br/>
-    
-    A micro-controller reads the signals coming from PS2 via PS2 specific connector. For this connector, the signals are
-    - DATA, COMMAND, GND, VCC, ATTN, CLK, and ACKN. In initial versions of PS2 controller PCB, we fed the signals coming
-    from the PS2 directly to our master micro-controller Atmega2560 that also handles algorithms of forward-inverse kinematics,
-    path planning, sensing, etc. Control signals coming from PS2 were fed directly to the master. Master converted these
+
+
+    To achieve PS2-based control, a master micro-controller onn the robot reads the signals coming from PS2 via
+    PS2 specific connector. For this connector, the signals are - DATA, COMMAND, GND, VCC, ATTN, CLK, and ACKN.
+    In initial versions of PS2 controller PCB, we fed the signals coming from the PS2 directly to our master
+    micro-controller (Atmega2560) that also handles algorithms of forward-inverse kinematics, path planning, sensing,
+    etc. Control signals coming from PS2 were fed directly to the master micro-controller. Master converted these
     signals in appropriate motor speeds and directions. However, as we moved from simple two-wheel driver to a holonomic
-    driver system for the robots, the master started handling four motors simultaneously. This caused master
-    micro-controller to get overloaded as it handled too many algorithms simultaneously.
+    driver system for the robots, the master started handling velocity control algorithms of four motors simultaneously.
+    This caused master micro-controller to get overloaded as it handled many computationally expensive algorithms
+    simultaneously. That is why we decided to isolate the PS2 signal processing from the main algorithms running on
+    the master micro-controller.
 
     <br/>
     <br/>
 
-    One solution to avoid processing of PS2 controller signals on the master MCU was to create a modular design. We
-    decided to design a PCB with an MCU that solely handles and processed the PS2 signals before routing them to the
-    master micro-controller. So, modularization was the primary motive behind this PCB.
+    One solution to avoid processing of PS2 controller signals on the master micro-controller was to create a modular
+    design. We decided to design a PCB with a micro-controller that solely handled and processed the PS2 signals before
+    routing them to the master micro-controller.
+    Hence, modularization was the primary motive behind the design of this PCB that isolated PS2 signal processing from
+    main algorithms of navigation and sensing on our semi-automatic robots. We deployed this modularized approach the
+    next year on our semi-automatic robot. While my other teammates worked on the software part of modularization and
+    isolation of the algorithms, I worked on the PCB design. After multiple prototypes, I decided on this specific
+    prototype which was compact for our robot that year (as shown in figure 2 - the robot on top with a PS2).
 
 
 
@@ -68,23 +77,6 @@ tags:
     <br/>
     <br/>
 
-    I tested this motor driver on-load with various types of DC motors such as standard, economic,
-    <a href="https://www.walmart.com/ip/High-Torque-Low-Speed-Solder-Cylindricaluction-Gear-Box-Motor-DC-24V-20RPM/127991422">
-        low-end DC motors like these</a>, MAXON DC motors, power-window motor, wiper motor, etc. The later two are high
-    torque motors which require very high power to drive them while former two are high RPM motors that work on low
-    power. In figure 4 you can see the circuit being tested on a wiper motor which drew 3A current at 9V without
-    even putting any load on the motor. With on-load testing the typical continuous current for this particular motor
-    was about 8A.
-
-    <br/>
-    <br/>
-
-    After working with DIP packaged MOSFETs for several years, I found it astonishing to see those tiny, pea-sized MOSFET
-    carried continuous currents over 5A for several minutes on-load at operating voltage of 24V. Even more surprising
-    was that the MOSFETs did not heat crazily unlike the DIP MOSFETs at the same power levels. I still cannot fathom the
-    fact that a tiny thing made from silicon and other fancy stuff can conduct excess of 5A currents continuously
-    without burning out!
-
 
 </p>
 
@@ -93,9 +85,9 @@ tags:
     <br style="margin-bottom:10px;"/>
     <div style="text-align: center">
         <a href="https://farm2.staticflickr.com/1887/30304823788_1b3a643b12_k.jpg">
-            <img alt="" src="https://farm2.staticflickr.com/1887/30304823788_1b3a643b12_k.jpg" style="float: left; width: 49%; margin-right: 1%; margin-bottom: 1em;"></a>
+            <img alt="PS2 controller to maneuver the semi-automatic robot (PS2 at the top of front wheel)" src="https://farm2.staticflickr.com/1887/30304823788_1b3a643b12_k.jpg" style="float: left; width: 49%; margin-right: 1%; margin-bottom: 1em;"></a>
         <a href="https://farm2.staticflickr.com/1911/45711583292_47d51fbb4c_o.jpg">
-            <img alt="" src="https://farm2.staticflickr.com/1911/45711583292_47d51fbb4c_o.jpg" style="float: left; width: 49%; margin-right: 1%; margin-bottom: 1em;"></a>
+            <img alt="PS2 controller to maneuver the semi-automatic robot (PS2 at the top of front wheel)" src="https://farm2.staticflickr.com/1911/45711583292_47d51fbb4c_o.jpg" style="float: left; width: 49%; margin-right: 1%; margin-bottom: 1em;"></a>
         <br/>
         <br/>
         <figcaption>Fig. 1: PS2 controller to maneuver the semi-automatic robot (PS2 at the top of front wheel)</figcaption>
@@ -105,6 +97,22 @@ tags:
 </p>
 
 
+
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://farm2.staticflickr.com/1856/44123682322_46531d257b_k.jpg">
+            <img src="https://farm2.staticflickr.com/1856/44123682322_46531d257b_k.jpg" alt="Deploying this PCB design on a semi-automatic robot (robot on the top half)" align="middle" hspace="10" height="300">
+        </a>
+        <br/>
+        <figcaption>Fig. 2: Deploying this PCB design on a semi-automatic robot (robot on the top half)</figcaption>
+    </div>
+    <br/>
+
+</p>
+
+
+
 <p>
     <br style="margin-bottom:10px;"/>
     <div style="text-align: center">
@@ -112,7 +120,7 @@ tags:
             <img src="https://raw.githubusercontent.com/GuruMulay/ps2-atmega32-board-robocon2013/master/images/ps2_both.png" alt="Atmega32-PS2 interface PCB" align="middle" hspace="10" height="300">
         </a>
         <br/>
-        <figcaption>Fig. 1: Atmega32-PS2 interface PCB</figcaption>
+        <figcaption>Fig. 3: Atmega32-PS2 interface PCB (All layers)</figcaption>
     </div>
     <br/>
 
@@ -130,22 +138,17 @@ tags:
             <img alt="Atmega32-PS2 interface PCB: Bottom" src="https://raw.githubusercontent.com/GuruMulay/ps2-atmega32-board-robocon2013/master/images/ps2_bottom.png" style="float: left; width: 49%; margin-right: 1%; margin-bottom: 1em;"></a>
         <br/>
         <br/>
-        <figcaption>Fig. 2: Atmega32-PS2 interface PCB: Top and Bottom side</figcaption>
+        <figcaption>Fig. 4: Atmega32-PS2 interface PCB: Top and Bottom sides</figcaption>
     </div>
     <br/>
 
 </p>
 
 
-
-
 <p>
-
-
-    <br/>
-    <br/>
-
-
+    Here, is the actual PCB that was deployed on the robot from figure 2. I tried to keep it compact because the the
+    mounting position of this PCB couldn't be predetermined during mechanical design considerations. Therefore, a compact
+    design helped us mount this PCB almost anywhere on the bot as we wanted.
 </p>
 
 
@@ -156,7 +159,7 @@ tags:
             <img src="https://raw.githubusercontent.com/GuruMulay/ps2-atmega32-board-robocon2013/master/images/DSC_0080.jpg" alt="Atmega32-PS2 interface PCB in action, mounted on a robot" align="middle" hspace="10" height="300">
         </a>
         <br/>
-        <figcaption>Fig. 3: Atmega32-PS2 interface PCB in action, mounted on a robot</figcaption>
+        <figcaption>Fig. 5: Atmega32-PS2 interface PCB in action, mounted on a robot</figcaption>
     </div>
     <br/>
 
@@ -187,6 +190,15 @@ tags:
 </ul>
 
 
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Circuit Schematic:</b>
+    </big>
+</p>
+
+
 <p>
     <br style="margin-bottom:10px;"/>
     <div style="text-align: center">
@@ -194,7 +206,7 @@ tags:
             <img src="https://raw.githubusercontent.com/GuruMulay/ps2-atmega32-board-robocon2013/master/images/ps2_atmega32_sch.png" alt="Atmega32-PS2 interface PCB schematic" align="middle" hspace="10" height="300">
         </a>
         <br/>
-        <figcaption>Fig. 4: Atmega32-PS2 interface PCB schematic</figcaption>
+        <figcaption>Fig. 6: Atmega32-PS2 interface PCB schematic</figcaption>
     </div>
     <br/>
 
