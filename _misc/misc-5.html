@@ -23,6 +23,85 @@ tags:
     </big>
 </p>
 
+<p>
+    A .obj file is usually defined in terms of triangle that form the faces of a 3D object. They follow
+    <a href="https://en.wikipedia.org/wiki/Wavefront_.obj_file">Wavefront .obj</a> file format.
+    Each face and vertex forming that face has a normal associated with it. The transition of these normals going from
+    one face to the next adjacent face is not smooth. When you render a .obj file without smoothing these normals, you
+    get a object that shows triangular artifacts as shown in the Figure 2a. With this approach, for every location on a
+    specific triangular face, there is single normal associated with it. This normal ($N_{true}$) can either be read from
+    the .obj file or can be calculated using cross product of the edge vectors of that triangle using the formula in \eqref{eq:nt1}.
+
+    <br/>
+    \begin{equation}
+    N_{true} = (A - B) \times (A - C)
+    \label{eq:nt1}
+    \end{equation}
+    <br/>
+
+</p>
+
+
+<p>
+    However, it is possible to get a smooth rendering of a .obj file by smoothing out the transitions of normals going
+    from one face to the adjacent faces. With this approach, the normal at a point on the triangular face is calculated
+    dynamically depending on what point we want to render on our image plane. In this case, the normal at point $I$ on a
+    triangular face is defined by \eqref{eq:ni1}
+
+    <br/>
+    \begin{equation}
+    N_{true} = (1 - \beta - \gamma)*N_{A} + \beta*N_{B} + \gamma*N_{C}
+    \label{eq:ni1}
+    \end{equation}
+    <br/>
+
+    Here, $N_{A}$, $N_{B}$, and $N_{C}$ are the mean normals at vertex $A$, $B$, and $C$ respectively of the
+    triangular face. The constants $\beta$ and $\gamma$ are the distances of point $I$ from vertex $A$ along the edges
+    of the triangular face.
+
+</p>
+
+
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="/images/misc/obj-smoothing/face1.png">
+            <img src="/images/misc/obj-smoothing/face1.png" alt="Illustration on finding 'smooth' normal" align="middle" hspace="0" height="700">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 1: Illustration on finding 'smooth' normal</figcaption>
+    </div>
+</p>
+
+
+<p>
+    Now, the mean normal at any vertex, say vertex $A$, can be found using simply averaging the $N_{true}$ of all the
+    triangular faces in that .obj file that share the vertex $A$ using \eqref{eq:av1}.
+
+    <br/>
+    \begin{equation}
+    N_{A} = mean(N1_{true}, N2_{true}, N3_{true}, N4_{true}, ....)
+    \label{eq:av1}
+    \end{equation}
+    <br/>
+
+    You can find the mean normals for vertex $B$ and $C$ using similar logic.
+
+    <br/>
+    <br/>
+
+    However, there is one more check that ensures that we are not smoothing out the edges of sharp objects such as a cube.
+    With cube, you should not find mean of two adjacent triangles belonging to adjacent square faces of the cube, because
+    that will smooth out the edge of the cube that we do not intend to smooth. Similar goes with the corners of the cube or the
+    pointy horn of the cow in Figure 3a which should not be smoothed. Therefore to avoid smoothing the sharp parts of the
+    .obj file you should ensure that when finding the mean vertex normal (as in \eqref{eq:av1}), the normals that are being
+    averaged are within some angle $\delta$ of the $N1_{true}$ of the face in consideration. Figure 3b shows smoothing with
+    $\delta = 22^\text{o}$. For Figure, 4 and 5 the $\delta$ is gradually increased with $\delta$ equal to $30^\text{o}$,
+    $45^\text{o}$, and  $60^\text{o}$. As you can see, with higher $\delta$ threshold we get more smoothly rendered object.
+
+</p>
+
 
 <p>
     <br style="margin-bottom:10px;"/>
@@ -33,7 +112,7 @@ tags:
             <img alt="A sphere made of triangles (.obj file): after smoothing" src="https://farm5.staticflickr.com/4805/31921125568_5658cb1714_o.jpg" style="float: left; width: 49%; margin-right: 1%; margin-bottom: 1em;"></a>
         <br/>
         <br/>
-        <figcaption>Fig. 1: A sphere made of triangles (.obj file): before and after smoothing</figcaption>
+        <figcaption>Fig. 2: A sphere made of triangles (.obj file): before and after smoothing</figcaption>
     </div>
 </p>
 
@@ -41,28 +120,41 @@ tags:
 <p>
     <br style="margin-bottom:10px;"/>
     <div style="text-align: center">
-        <a href="https://farm5.staticflickr.com/4848/31921125778_db1e5d1979_o.jpg">
-            <img alt="A cow made of triangles (.obj file): before smoothing" src="https://farm5.staticflickr.com/4848/31921125778_db1e5d1979_o.jpg" style="float: left; width: 49%; margin-right: 1%; margin-bottom: 1em;"></a>
-        <a href="https://farm5.staticflickr.com/4892/30852606077_72984cf178_o.jpg">
-            <img alt="A cow made of triangles (.obj file): after smoothing" src="https://farm5.staticflickr.com/4892/30852606077_72984cf178_o.jpg" style="float: left; width: 49%; margin-right: 1%; margin-bottom: 1em;"></a>
+        <a href="https://farm5.staticflickr.com/4872/30862525147_a0d60d4c45_o.jpg">
+            <img alt="A cow made of triangles (.obj file): before smoothing" src="https://farm5.staticflickr.com/4872/30862525147_a0d60d4c45_o.jpg" style="float: left; width: 49%; margin-right: 1%; margin-bottom: 1em;"></a>
+        <a href="https://farm5.staticflickr.com/4840/30862525327_a9b6f0854e_o.jpg">
+            <img alt="A cow made of triangles (.obj file): after smoothing" src="https://farm5.staticflickr.com/4840/30862525327_a9b6f0854e_o.jpg" style="float: left; width: 49%; margin-right: 1%; margin-bottom: 1em;"></a>
         <br/>
         <br/>
-        <figcaption>Fig. 2: A cow made of triangles (.obj file): before and after smoothing</figcaption>
+        <figcaption>Fig. 3: A cow made of triangles (.obj file): before and after smoothing (smoothing angle = 22 degrees)</figcaption>
     </div>
 </p>
 
+
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://farm5.staticflickr.com/4804/45077653724_bcc038dd36_o.jpg">
+            <img alt="A cow made of triangles (.obj file): before smoothing" src="https://farm5.staticflickr.com/4804/45077653724_bcc038dd36_o.jpg" style="float: left; width: 49%; margin-right: 1%; margin-bottom: 1em;"></a>
+        <a href="https://farm5.staticflickr.com/4823/30862525257_831c176a66_o.jpg">
+            <img alt="A cow made of triangles (.obj file): after smoothing" src="https://farm5.staticflickr.com/4823/30862525257_831c176a66_o.jpg" style="float: left; width: 49%; margin-right: 1%; margin-bottom: 1em;"></a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 4: Progressive smoothing (smoothing angles are 30 and 45 degrees)</figcaption>
+    </div>
+</p>
 
 
 
 <p>
     <br style="margin-bottom:10px;"/>
     <div style="text-align: center">
-        <a href="https://farm5.staticflickr.com/4814/31921125658_22b4214ed6_o.jpg">
-            <img src="https://farm5.staticflickr.com/4814/31921125658_22b4214ed6_o.jpg" alt="A smoothed cow (cow.obj file)" align="middle" hspace="0" height="700">
+        <a href="https://farm5.staticflickr.com/4819/30862525197_fc847eb611_o.jpg">
+            <img src="https://farm5.staticflickr.com/4819/30862525197_fc847eb611_o.jpg" alt="A smoothed cow (cow.obj file)" align="middle" hspace="0" height="700">
         </a>
         <br/>
         <br/>
-        <figcaption>Fig. 3: A smoothed cow (cow.obj file)</figcaption>
+        <figcaption>Fig. 5: A smoothed cow (cow.obj file) with smoothing angle = 60 degrees</figcaption>
     </div>
 </p>
 
