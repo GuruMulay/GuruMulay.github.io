@@ -1,0 +1,348 @@
+---
+title: "Tiny High Power DC Motor Driver using POWER Relays and SMD MOSFETs"
+excerpt: "<br/><img src='/images/electronics/motor-driver-rm-smallest/rm_smallest.png'><br/> <small></small>"
+collection: electronics
+tags:
+  - DC-motor-driver
+  - tiny-relay-MOSFET-motor-driver
+  - power-MOSFETs
+  - power-relays
+  - PCB-design
+  - EAGLE-PCB-software
+---
+
+<!--<hr style="border-color: silver;">-->
+<!--<a href="https://github.com/GuruMulay/dc-motor-driver-relay-mosfet"><button type="button" class="btn btn&#45;&#45;info"><i class="fa fa-github"></i> GitHub Source</button></a>-->
+<!--<br/>-->
+<!--<a href="https://cadlab.io/project/1369/master/files"><button type="button" class="btn btn&#45;&#45;info"><i class="fa fa-object-group"></i> CadlabIO Source</button></a>-->
+<!--<hr style="border-color: silver;">-->
+
+
+<!--##############-->
+<!--<hr>-->
+<p>
+    <big>
+    <b>Introduction:</b>
+    </big>
+</p>
+
+
+<!--<p>-->
+    <!--A motor driver consists of an H-bridge with a mechanism to control the speed of the motor.-->
+    <!--A basic H-bridge circuit is consist of four switches and a motor.-->
+    <!--For speed control one can use four MOSFETs as the switching devices to control the on and off time of the motor.-->
+    <!--Speed control is achieved by applying Pulse Width Modulated (PWM) signal to the Gate of the MOSFET.-->
+
+    <!--<br/>-->
+    <!--<br/>-->
+
+    <!--Relay-MOSFET driver in this project is a simple circuit in which the H-bridge was constructed using two-->
+    <!--electromagnetic relays (EMR) used as 4 switches.-->
+    <!--They were used to control the spinning direction of the motor.-->
+    <!--Now to control the speed, an N-channel MOSFET IRF460N was used for switching of the motor.-->
+    <!--PWM signal given to the GATE of this MOSFET controlled the on and off time of the MOSFET which in turn decides the-->
+    <!--amount of time for which current flows through the motor. A PWM of 50% duty time keeps the motor on for 50% of the-->
+    <!--times and thus making it spin at 50% of the speed it would achieve with a 100% duty cycle PWM signal.-->
+    <!--In this way by changing the duty cycle of the PWM signal, we can control the ON and OFF times of the motor.-->
+    <!--This MOSFET was required to carry large amounts of current hence a power MOSFET IRF460N was used.-->
+    <!--This motor driver was used in the Manual Robot that my robotics team designed for the robotics competition - -->
+    <!--Robocon 2012. The manual robot was required to be driven by a manual operator sitting on top of the robot.-->
+    <!--It was an enormous challenge to design a motor driver circuit that will withstand the high currents and high power-->
+    <!--required to carry our 65 Kg manual operator. Here is a picture of my team's-->
+    <!--<a href="https://farm2.staticflickr.com/1816/30304829428_00e34edc21_k.jpg">manual robot in action.</a>-->
+
+    <!--<br/>-->
+    <!--<br/>-->
+
+    <!--Typical average on-load current for this driver was about 5-10 Amperes, and peak current would go up to 15-20 Amperes.-->
+    <!--For a circuit running at 24 V, these are really high current ratings.-->
+    <!--To put this in perspective, a typical average scale motor driver carries about 2 Amperes of continuous current on-load.-->
+    <!--On average the relay-MOSFET motor driver consumed 240 W power on-load.-->
+
+<!--</p>-->
+
+
+
+
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Circuit Components:</b>
+    </big>
+</p>
+
+
+<ul>
+
+    <li><strong>Relays:</strong> Two 10A /24VDC relays were used as 4 switches for direction control.</li>
+
+    <li><strong>ULN2003A IC:</strong> It is a Darlington pair IC. The current required to drive the coils of the relays
+        was fulfilled by this Darlington pair IC.</li>
+
+    <li><strong>MOSFET (IRF460N):</strong> This power MOSFET is capable of handling a large quantity of continuous
+        currents and also its RDS(ON) is few milliohms, hence selected. Heat sink was also provided for proper heat
+        dissipation.</li>
+
+    <li><strong>Diodes:</strong> These are 2 freewheeling diodes used whenever freewheeling was required by the
+        motor.</li>
+
+
+</ul>
+
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Printed Circuit Board:</b>
+    </big>
+</p>
+
+<p>
+    Complete design of this motor driver can be found in th repository links above. Here is the schematic of the PCB.
+</p>
+
+
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/REL1_sch.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/REL1_sch.png" alt="Schematic: relay-mosfet dc motor driver" align="middle" hspace="0" height="300">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 1: Schematic: Tiny relay-MOSFET DC motor driver</figcaption>
+    </div>
+</p>
+
+
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/rm_smallest.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/rm_smallest.png" alt="Schematic: relay-mosfet dc motor driver" align="middle" hspace="0" height="300">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 1: PCB: Tiny relay-MOSFET DC motor driver</figcaption>
+    </div>
+</p>
+
+
+
+
+
+
+<p>
+    Here are some of the initial prototypes that I tried:
+</p>
+
+<p>
+    <!--<br style="margin-bottom:10px;"/>-->
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1716.jpg">
+            <img alt="Load testing setup: tiny relay-MOSFET motor driver" src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1716.jpg" style="float: left; width: 47%; margin-right: 3%; margin-bottom: 1em;"></a>
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1733.jpg">
+            <img alt="Load testing setup: tiny relay-MOSFET motor driver" src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1733.jpg" style="float: left; width: 47%; margin-right: 3%; margin-bottom: 1.1em;"></a>
+        <br/>
+        <figcaption>Fig. 5: Load testing setup: tiny relay-MOSFET motor driver</figcaption>
+    </div>
+</p>
+
+
+
+<p>
+    <!--<br style="margin-bottom:10px;"/>-->
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1736.jpg">
+            <img alt="Load testing setup: tiny relay-MOSFET motor driver" src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1736.jpg" style="float: left; width: 47%; margin-right: 3%; margin-bottom: 1em;"></a>
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1745.jpg">
+            <img alt="Load testing setup: tiny relay-MOSFET motor driver" src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1745.jpg" style="float: left; width: 47%; margin-right: 3%; margin-bottom: 1.1em;"></a>
+        <br/>
+        <figcaption>Fig. 5: Load testing setup: tiny relay-MOSFET motor driver</figcaption>
+    </div>
+</p>
+
+
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1748.jpg">
+            <img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1748.jpg" alt="Schematic: relay-mosfet dc motor driver" align="middle" hspace="0" height="300">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 1: On Load: Tiny relay-MOSFET DC motor driver</figcaption>
+    </div>
+</p>
+
+
+
+
+<!--<p>-->
+    <!--&lt;!&ndash;<br style="margin-bottom:10px;"/>&ndash;&gt;-->
+    <!--<div style="text-align: center">-->
+        <!--<a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1748.jpg">-->
+            <!--<img alt="Load testing setup: tiny relay-MOSFET motor driver" src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1748.jpg" style="float: left; width: 47%; margin-right: 3%; margin-bottom: 1em;"></a>-->
+        <!--<a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_17458.jpg">-->
+            <!--<img alt="Load testing setup: tiny relay-MOSFET motor driver" src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1758.jpg" style="float: left; width: 47%; margin-right: 3%; margin-bottom: 1.1em;"></a>-->
+        <!--<br/>-->
+        <!--<figcaption>Fig. 5: Load testing setup: tiny relay-MOSFET motor driver</figcaption>-->
+    <!--</div>-->
+<!--</p>-->
+
+
+
+
+<p>
+    <!--<br style="margin-bottom:10px;"/>-->
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1754.jpg">
+            <img alt="Load testing setup: tiny relay-MOSFET motor driver" src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1754.jpg" style="float: left; width: 47%; margin-right: 3%; margin-bottom: 1em;"></a>
+        <a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_17463.jpg">
+            <img alt="Load testing setup: tiny relay-MOSFET motor driver" src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet-smallest-pcb/master/images/DSC_1763.jpg" style="float: left; width: 47%; margin-right: 3%; margin-bottom: 1.1em;"></a>
+        <br/>
+        <figcaption>Fig. 5: Load testing setup: tiny relay-MOSFET motor driver</figcaption>
+    </div>
+</p>
+
+
+
+
+
+
+<!--<p>-->
+    <!--Here are some screenshots of the board files from EAGLE PCB design software and corresponding circuit board.-->
+
+    <!--<br style="margin-bottom:10px;"/>-->
+    <!--<div style="text-align: center">-->
+        <!--<a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/brd5.png">-->
+            <!--<img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/brd5.png" alt="PCB design: relay-MOSFET motor driver" align="middle" hspace="0" height="300">-->
+        <!--</a>-->
+        <!--<br/>-->
+        <!--<br/>-->
+        <!--<figcaption>Fig. 2: PCB design: relay-MOSFET motor driver</figcaption>-->
+    <!--</div>-->
+
+
+    <!--<br style="margin-bottom:10px;"/>-->
+    <!--<div style="text-align: center">-->
+        <!--<a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm2013_2.png">-->
+            <!--<img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm2013_2.png" alt="PCB design: relay-MOSFET motor driver" align="middle" hspace="0" height="300">-->
+        <!--</a>-->
+        <!--<br/>-->
+        <!--<br/>-->
+        <!--<figcaption>Fig. 3: PCB design: relay-MOSFET motor driver</figcaption>-->
+    <!--</div>-->
+
+
+    <!--<br style="margin-bottom:10px;"/>-->
+    <!--<div style="text-align: center">-->
+        <!--<a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm1.jpg">-->
+            <!--<img src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/rm1.jpg" alt="Relay-MOSFET motor driver: PCB design" align="middle" hspace="0" height="300">-->
+        <!--</a>-->
+        <!--<br/>-->
+        <!--<br/>-->
+        <!--<figcaption>Fig. 4: Relay-MOSFET motor driver PCB</figcaption>-->
+    <!--</div>-->
+
+<!--</p>-->
+
+
+
+
+<!--<p>-->
+    <!--<br style="margin-bottom:10px;"/>-->
+    <!--<div style="text-align: center">-->
+        <!--<a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/Pic0808003.jpg">-->
+            <!--<img alt="Initial prototypes of relay-MOSFET motor driver" src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/Pic0808003.jpg" style="float: left; width: 47%; margin-right: 3%; margin-bottom: 1em;"></a>-->
+        <!--<a href="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/Pic0912002.jpg">-->
+            <!--<img alt="Initial prototypes of relay-MOSFET motor driver" src="https://raw.githubusercontent.com/GuruMulay/dc-motor-driver-relay-mosfet/master/media/Pic0912002.jpg" style="float: left; width: 47%; margin-right: 3%; margin-bottom: 1em;"></a>-->
+        <!--<br/>-->
+        <!--<br/>-->
+        <!--<figcaption>Fig. 5: Initial prototypes of relay-MOSFET motor driver</figcaption>-->
+    <!--</div>-->
+<!--</p>-->
+
+
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>Practical Performance:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+
+<!--<p>-->
+    <!--<b>Frequency Response:</b>-->
+<!--</p>-->
+<!--<p>-->
+    <!--At lower frequencies of PWM (less than 8 KHz), MAXON R30 motor would respond to the PWM only after 10% duty cycle.-->
+    <!--At higher frequencies like 16 KHz or 32 KHz it would respond only after 30% duty cycle.-->
+    <!--This is because the response of the MOSFET at lower duty cycle was not good which further worsens at higher frequencies.-->
+<!--</p>-->
+
+<!--<p>-->
+    <!--<b>Linearity:</b>-->
+<!--</p>-->
+<!--<p>-->
+<!--The response of motor to the PWM was not linear. If 50% PWM is applied then the ideal voltage across the motor should-->
+    <!--be 12 Volts, but practically it departed from this value. To achieve linearity, we experimented with a transistor-->
+    <!--to control the GATE voltage.-->
+<!--</p>-->
+
+<!--<p>-->
+    <!--<b>Load Testing:</b>-->
+<!--</p>-->
+<!--<p>-->
+    <!--This driver was tested several times by drawing a current of about 5 A to 6 A continuously for two hours.-->
+    <!--During this, the MOSFET would show normal degree of heating with a decent heat sink.-->
+
+    <!--We mounted this motor driver on the manual machine and rode it a few times with a total load weight of 75 Kg-->
+    <!--(machine + manual operator). We observed that ULN2003 would frequently get damaged at its ground pin.-->
+    <!--The same was noted when used for raising and lowering of the grabbing jaws of the manual machine.-->
+    <!--We concluded that a probable reason was the voltage fluctuations present in the GROUND plane of the circuit during-->
+    <!--on-load operations. These fluctuations produced by the motor were going directly to the GND pin of ULN IC and this-->
+    <!--would ultimately damage the IC.-->
+<!--</p>-->
+
+<!--<p>-->
+    <!--<b>Other:</b>-->
+<!--</p>-->
+<!--<p>-->
+    <!--I also tried another version with DRAIN connected to VCC. With this configuration the SOURCE was connected to the-->
+    <!--motor and it went floating causing the circuit not to work. Freewheeling diodes D1 and D2 can be connected-->
+    <!--whenever freewheeling is required and can be removed otherwise.-->
+<!--</p>-->
+
+<!--<p>-->
+    <!--<b>Possible Improvements:</b>-->
+<!--</p>-->
+<!--<p>-->
+<!-- - To avoid the damage to ULN, an inductor can be placed between power ground and ULN’s GND for isolation.<br/>-->
+<!-- - Better MOSFETs with higher power can be used.-->
+<!--</p>-->
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>References:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+
+<!--<ol type="1">-->
+    <!--<li>https://en.wikipedia.org/wiki/N-gram</li>-->
+    <!--<li>https://www.gutenberg.org</li>-->
+<!--</ol>-->
