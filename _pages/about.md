@@ -21,5 +21,5 @@ Robots like [these](http://robocon.in/photos/2013-2/) and [these from our Youtub
 
 I love to go on hikes, bike on scenic trails, and to learn interesting things about space exploration and archaeology.
 
-Check out some of my projects assembled in categories in the Navigation Bar at the top. If you don't like reading and enjoy browsing images then jump directly to [this gallery page](https://gurumulay.github.io/gallery/).
+Check out some of my projects and posts assembled in categories in the Navigation Bar at the top. If you don't like reading and enjoy browsing images then jump directly to [this gallery page](https://gurumulay.github.io/gallery/).
 
