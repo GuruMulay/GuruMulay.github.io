@@ -74,7 +74,14 @@
 
   .archive__item-title {
     text-decoration: underline;
+    /*color:yellow*/
   }
+
+  .archive__item-excerpt {
+    opacity: .3;
+    color:yellow;
+  }
+
 }
 
 

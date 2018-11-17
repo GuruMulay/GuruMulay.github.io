@@ -34,45 +34,6 @@
       {% endif %}
     </h2>
 
-    <style>
-        * {
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        .item {
-            position: relative;
-            border: 0px solid #333;
-            margin: 0%;
-            overflow: hidden;
-            width: 700px;
-            <!--height: 100%; doesn't work-->
-        }
-
-        .item img {
-            <!--float: left;-->
-            margin-bottom: 0.0em;
-            border: 0px solid #ddd;
-            border-radius: 0px;
-            padding: 0px;
-            <!--width: 50%;-->
-            <!--margin-right: 50%;-->
-            max-width: 100%;
-            -moz-transition: all 0.35s;
-            -webkit-transition: all 0.35s;
-            transition: all 0.35s;
-        }
-
-        .item:hover img {
-            -moz-transform: scale(1.1);
-            -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-        }
-    </style>
-
     {% if post.read_time %}
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
     {% endif %}
@@ -87,9 +48,7 @@
 
     {% if post.excerpt and site.read_more != 'enabled' %}
     <p class="archive__item-excerpt" itemprop="description">
-    <div class="item">
     <a href="{{ base_path }}{{ post.url }}">{{ post.excerpt | markdownify }}</a>
-    </div>
     </p>
     {% elsif post.excerpt and site.read_more == 'enabled' %}
     <p class="archive__item-excerpt" itemprop="description"><p>{{ post.excerpt | markdownify | remove: '<p>' | remove: '</p>' }}<strong><a href="{{ base_path }}{{ post.url }}" rel="permalink"> Read more</a></strong></p></p>
