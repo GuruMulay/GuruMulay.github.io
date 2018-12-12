@@ -59,6 +59,15 @@
   }
 }
 
+.archive__item-image {
+  margin-top: 0;
+  font-size: $type-size-6;
+
+  & + p {
+    text-indent: 0;
+  }
+}
+
 .archive__item-teaser {
   border-radius: $border-radius;
   overflow: hidden;
@@ -74,6 +83,14 @@
 
   .archive__item-title {
     text-decoration: underline;
+    /*background: red;*/
+    /*color:yellow*/
+  }
+
+  .archive__item-image {
+    transform: scale(1.1);
+    /*text-decoration: underline;*/
+    /*background: red;*/
     /*color:yellow*/
   }
 
