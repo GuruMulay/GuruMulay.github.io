@@ -1,7 +1,7 @@
 Website
 
 # All URLs
-1. gurumulay.com
+1. www.gurumulay.com i.e., https://gurumulay.github.io/
 2. http://bit.ly/2wKLsdW
 3. https://tinyurl.com/ya2txvfk
 4. https://preview.tinyurl.com/ya2txvfk

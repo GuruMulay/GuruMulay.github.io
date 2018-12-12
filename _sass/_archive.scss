@@ -68,7 +68,7 @@
 }
 
 img {
-    width: 500px;
+    /*width: 500px;*/
     border-radius: 3px;
     border: 0px solid #ddd;
     -webkit-box-sizing: border-box;
@@ -90,9 +90,9 @@ img {
   }
 
   img {
-    -moz-transform: scale(1.055);
-    -webkit-transform: scale(1.055);
-    transform: scale(1.055);
+    -moz-transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
     box-shadow: 0 0 10px rgba(#000, 0.55);
     /*max-width: 100%;*/
   }
