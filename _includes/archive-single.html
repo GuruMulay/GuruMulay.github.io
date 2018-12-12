@@ -34,45 +34,45 @@
       {% endif %}
     </h2>
 
-    <style>
-        <!--* {-->
-            <!-- -moz-box-sizing: border-box;-->
-            <!-- -webkit-box-sizing: border-box;-->
-            <!--box-sizing: border-box;-->
-            <!--margin: 0;-->
-            <!--padding: 0;-->
+    <!--<style>-->
+        <!--&lt;!&ndash;* {&ndash;&gt;-->
+            <!--&lt;!&ndash; -moz-box-sizing: border-box;&ndash;&gt;-->
+            <!--&lt;!&ndash; -webkit-box-sizing: border-box;&ndash;&gt;-->
+            <!--&lt;!&ndash;box-sizing: border-box;&ndash;&gt;-->
+            <!--&lt;!&ndash;margin: 0;&ndash;&gt;-->
+            <!--&lt;!&ndash;padding: 0;&ndash;&gt;-->
+        <!--&lt;!&ndash;}&ndash;&gt;-->
+
+        <!--.item {-->
+            <!--&lt;!&ndash;position: relative;&ndash;&gt;-->
+            <!--&lt;!&ndash;border: 0px solid #333;&ndash;&gt;-->
+            <!--&lt;!&ndash;margin: 0%;&ndash;&gt;-->
+            <!--&lt;!&ndash;overflow: hidden;&ndash;&gt;-->
+            <!--&lt;!&ndash;width: 500px;&ndash;&gt;-->
+            <!--&lt;!&ndash;height: 100%; doesn't work&ndash;&gt;-->
         <!--}-->
 
-        .item {
-            <!--position: relative;-->
-            <!--border: 0px solid #333;-->
-            <!--margin: 0%;-->
-            <!--overflow: hidden;-->
-            <!--width: 500px;-->
-            <!--height: 100%; doesn't work-->
-        }
+        <!--img {-->
+            <!--&lt;!&ndash;float: left;&ndash;&gt;-->
+            <!--&lt;!&ndash;margin-bottom: 0.0em;&ndash;&gt;-->
+            <!--&lt;!&ndash;border: 0px solid #ddd;&ndash;&gt;-->
+            <!--&lt;!&ndash;border-radius: 0px;&ndash;&gt;-->
+            <!--&lt;!&ndash;padding: 0px;&ndash;&gt;-->
+            <!--&lt;!&ndash;width: 50%;&ndash;&gt;-->
+            <!--&lt;!&ndash;margin-right: 50%;&ndash;&gt;-->
+            <!--&lt;!&ndash;max-width: 100%;&ndash;&gt;-->
+            <!--&lt;!&ndash; -moz-transition: all 0.35s;&ndash;&gt;-->
+             <!-- -webkit-box-sizing: border-box;-->
+             <!-- -webkit-transition: all 0.35s;-->
+            <!--transition: all 0.35s;-->
+        <!--}-->
 
-        img {
-            <!--float: left;-->
-            <!--margin-bottom: 0.0em;-->
-            <!--border: 0px solid #ddd;-->
-            <!--border-radius: 0px;-->
-            <!--padding: 0px;-->
-            <!--width: 50%;-->
-            <!--margin-right: 50%;-->
-            <!--max-width: 100%;-->
-            <!-- -moz-transition: all 0.35s;-->
-             -webkit-box-sizing: border-box;
-             -webkit-transition: all 0.35s;
-            transition: all 0.35s;
-        }
-
-        .item:hover img {
-             -moz-transform: scale(1.1);
-             -webkit-transform: scale(1.1);
-            transform: scale(1.1);
-        }
-    </style>
+        <!--.item:hover img {-->
+             <!-- -moz-transform: scale(1.1);-->
+             <!-- -webkit-transform: scale(1.1);-->
+            <!--transform: scale(1.1);-->
+        <!--}-->
+    <!--</style>-->
 
     {% if post.read_time %}
       <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
@@ -87,11 +87,11 @@
         {% endif %}
 
     {% if post.excerpt and post.image and site.read_more != 'enabled' %}
-    <div class="item">
     <p class="archive__item-excerpt" itemprop="description">
       <a href="{{ base_path }}{{ post.url }}">{{ post.excerpt | markdownify }}</a>
     </p>
-    <p class="item">
+    <div class="archive__item-image">
+    <p>
       <a href="{{ base_path }}{{ post.url }}">{{ post.image | markdownify }}</a>
     </p>
     </div>

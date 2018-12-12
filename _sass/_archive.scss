@@ -86,14 +86,18 @@
     /*background: red;*/
     /*color:yellow*/
   }
+}
 
-  .archive__item-image {
+img {
+    -webkit-box-sizing: border-box;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+}
+
+.archive__item-image:hover img {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
     transform: scale(1.1);
-    /*text-decoration: underline;*/
-    /*background: red;*/
-    /*color:yellow*/
-  }
-
 }
 
 
