@@ -76,6 +76,12 @@
   }
 }
 
+img {
+    -webkit-box-sizing: border-box;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+}
+
 .archive__item:hover {
   .archive__item-teaser {
     box-shadow: 0 0 10px rgba(#000, 0.25);
@@ -86,19 +92,21 @@
     /*background: red;*/
     /*color:yellow*/
   }
+
+  img {
+    -moz-transform: scale(1.075);
+    -webkit-transform: scale(1.075);
+    transform: scale(1.075);
+  }
+
 }
 
-img {
-    -webkit-box-sizing: border-box;
-    -webkit-transition: all 0.35s;
-    transition: all 0.35s;
-}
-
+/*
 .archive__item-image:hover img {
     -moz-transform: scale(1.1);
     -webkit-transform: scale(1.1);
     transform: scale(1.1);
-}
+}*/
 
 
 /*
