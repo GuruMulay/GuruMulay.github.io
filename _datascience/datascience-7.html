@@ -1,6 +1,6 @@
 ---
 title: "Analysis of Yelp Business Dataset: Feature Selection, Prediction, and Sentiment Analysis"
-excerpt: "<br/><img src='/images/datascience/graphdb/gdb1.png'> <br/> <small></small> "
+excerpt: "<br/><img src='/images/datascience/yelp/toronto_restaurants2.png'><br/><small></small> "
 collection: datascience
 tags:
   - yelp-business-dataset
@@ -9,246 +9,314 @@ tags:
 ---
 
 
-<!--<hr style="border-color: silver;">-->
-<!--<a href="https://github.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j-->
-<!--" ><button type="button" class="btn btn&#45;&#45;info"><i class="fa fa-github"></i> GitHub Source</button></a>-->
-<!--<hr style="border-color: silver;">-->
+<hr style="border-color: silver;">
+<a href="https://github.com/GuruMulay/yelp-data-analysis-big-data-project">
+    <button type="button" class="btn btn--info"><i class="fa fa-github"></i> GitHub Source</button></a>
+<hr style="border-color: silver;">
 
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--&lt;!&ndash;<hr>&ndash;&gt;-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Introduction to Neo4j:</b>-->
-    <!--</big>-->
-<!--</p>-->
-
-
-<!--<p>-->
-
-<!--<ul>-->
-    <!--<li><a href="https://neo4j.com/">Neo4j</a> is a graph database management system developed by Neo-->
-<!--Technology.</li>-->
-
-    <!--<li>ACID-compliant transactional database with native graph storage-->
-<!--and processing.</li>-->
-
-    <!--<li>Community edition is open sourced and freely available and it is the-->
-<!--leading graph database.</li>-->
-<!--</ul>-->
-
-<!--</p>-->
-
-
-
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--##############-->
 <!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Scope of this project:</b>-->
-    <!--</big>-->
-<!--</p>-->
+<p>
+    <big>
+    <b>Objectives:</b>
+    </big>
+</p>
+
+
+<p>
+<ul>
+    <li>Feature Selection</li>
+    <li>Ratings Prediction</li>
+    <li>Sentiment Analysis</li>
+    <li>Geo-spatial Visualization</li>
+</ul>
+</p>
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Yelp Dataset Description:</b>
+    </big>
+</p>
+
+<p>
+    <a href="https://www.yelp.com/dataset_challenge">Yelp Business dataset </a> is freely available for academic
+    research. It covers the businesses from select major cities such as Pittsburgh, Charlotte, Urbana-Champaign, Phoenix
+    , Las Vegas, Madison, and Cleveland from the USA and few more cities from other countries. The original data is
+    subdivided into five different sub-datasets viz., business, review, user, check-in, and tip. Each of these
+    sub-datasets is a JSON file with one JSON-object per line, which contain nested JSON arrays and objects.
+</p>
+
+
+<ul>
+    <li><b>Sub-datasets: Business, User Review, Check-in</b>; Total size: 5 GB</li>
+    <li><b>Business:</b> 144K businesses with stars, attributes, categories such as parking availability, happy hour,
+        drive through, restaurants table service</li>
+    <li><b>Review:</b> 4M user comments, useful votes</li>
+    <li><b>Check-in:</b> check-in counts</li>
+</ul>
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Challenges with Yelp dataset:</b>
+    </big>
+</p>
+
+
+<ul>
+    <li><b>Huge feature space with categorical features:</b></li> Yelp dataset has numerous categories in the features
+    like business attributes, categories, zip-codes, etc. These features are qualitative features that does not have a
+    numerical value associated with them.
+
+    <br/>
+    <br/>
+
+    <li><b>Integration of sub-datasets:</b></li> Another challenge was the integration of four different sub-datasets
+    using a number of map-reduce jobs. For example, in one of the methodology we require the dataset in the form
+    of business_id, attributes_count, categories_count, check-in_counts, review_counts, stars. This requires a series of
+    map reduce jobs to get rea data with required fields.
+
+    <!--<li>For a specific city, collected all Business_id, Latitude, Longitude, and Stars</li>-->
+</ul>
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Feature Selection & Ratings Prediction:</b>
+    </big>
+</p>
+
+<p>
+    Yelp business dataset has a large number of features in the attributes and categories columns.
+    These features are mostly categorical wherein businesses have some unique and some common
+    features. In order to form a feature space for our analysis, we select the top N frequently
+    occurring attributes in businesses and top N frequently occurring categories in business. We use this feature space
+    for the ratings prediction. Figure 1 shows the architecture of the map-reduce jobs for feature selection.
+    The first map-reduce job parses the JSON object for the business data to produce <code>&lt;bID, stars
+    features&gt;</code>. The second map-reduce job reads this file to order the features by their frequency.
+    Figure2 below show frequently occurring attributes and categories in Yelp dataset.
+
+</p>
+
+
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/feature_selection.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/feature_selection.png" alt="Hadoop Map Reduce architecture for Yelp dataset feature selection" align="middle" hspace="0" width="700">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 1: Hadoop Map Reduce architecture for Yelp dataset feature selection</figcaption>
+    </div>
+</p>
+
+
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/attributes.png">
+            <img alt="Yelp dataset: frequently occurring attributes" src="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/attributes.png" style="float: left; width: 47%; margin-right: 3%; margin-bottom: 1em;"></a>
+        <a href="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/categories.png">
+            <img alt="Yelp dataset: frequently occurring categories" src="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/categories.png" style="float: left; width: 47%; margin-right: 3%; margin-bottom: 2em;"></a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 2: Yelp dataset: frequently occurring attributes and categories</figcaption>
+    </div>
+</p>
+
+
+<p>
+    Given a set of features per business, we train machine learning models on the training data and use this model to
+    predict the star ratings of any business from the testing data. We tried regression models to predict rating based
+    on the count of features from feature space. However, this approach did not work properly. Therefore we moved to
+    classification approach. We used multiple models from scikit-learn on the categorical feature space viz.,
+    Support Vector Machine (SVM) with linear kernel, SVM RBF kernel, Stochastic Gradient Descent (SGD), SGD with kernel.
+    We formulated the classification problem as a multi-class classification problem with 11 output
+    classes corresponding to the 11 values of ratings viz., [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]. The
+    results were better as compared to linear regression but not really the best. The classifiers work well only for a
+    few of the classes, for example class 8 class 10 from figure 3. This suggest that we need to extract better features
+    from the datasets or tune the parameters of classifiers better.
+
+    <br>
+    <br>
+    <b>Evaluation of classification models:</b>
+    <br>
+    <br>
+
+    The dataset we use on categorical feature space (i.e., attributes) has 144072 samples (i.e,
+    business_id). We divide the dataset into 80-20 train-test split. Ground truth is the available
+    ratings in terms of stars (out of 5). For the purpose of classification we convert the class values from
+    floating values to integer values by multiplying by 2. Therefore classes [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    represent the actual rating of [0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5].
+    Figure 3 shows the Precision, Recall, and f1 scores for the classification methods.
+    This is clearly not the best outcome of training a classifier, but given the time constraints for this class project
+    we had dto settle to these results without doing any further analysis.
+
+
+    <!--The confusion matrices for SVM_linear, SVM_RBF, SGD, and SGD_kernel are shown in the figure 3. Elements along diagonal are-->
+    <!--the correctly classified businesses and the non-diagonal elements are either false positives or false negatives.-->
+
+
+    <!--The feature spaces that we use for this analysis are: a) categorical features as described earlier and  b) counts based feature space.-->
+    <!--General architecture of ‘ratings prediction’ methodology is shown in figure 3. We use map-reduce jobs to create-->
+    <!--features such as review counts, check-in counts, attribute counts, category counts and stars for each business-->
+    <!--that were arranged based on business_id as the key. Using these features, we trained machine learning models in-->
+    <!--Python using scikit-learn.-->
+
+</p>
+
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/prf1.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/prf1.png" alt="Precision, Recall, and f1 scores for classification models for ratings prediction" align="middle" hspace="0" width="400">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 3: Precision, Recall, and f1 scores for classification models for ratings prediction</figcaption>
+    </div>
+</p>
+
+
 
 <!--<p>-->
-    <!--This project aims at developing a graph based database in Neo4j for faster-->
-    <!--and more efficient data retrieval and storage. We modeled the <a href="http://localhost:4000/vision/vision-1/">-->
-    <!--EGGNOG dataset in Neo4j.</a> The primary motivation behind exploring graph databases-->
-    <!--was to be able to characterize the relations between gestures,-->
-    <!--sessions, and participants. We decided to use Neo4j since it-->
-    <!--is freely available graph database under community edition-->
-    <!--and it is the leading graph database. Neo4j uses a powerful-->
-    <!--query language known as cypher which allows to express-->
-    <!--complex relationships and patterns existing between nodes that-->
-    <!--represent data points.-->
-
+    <!--<br style="margin-bottom:10px;"/>-->
+    <!--<div style="text-align: center">-->
+        <!--<a href="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/arch.png">-->
+            <!--<img src="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/arch.png" alt="Hadoop Map Reduce architecture for Yelp dataset ratings prediction" align="middle" hspace="0" width="700">-->
+        <!--</a>-->
+        <!--<br/>-->
+        <!--<br/>-->
+        <!--<figcaption>Fig. 3: Hadoop Map Reduce architecture for Yelp dataset ratings prediction</figcaption>-->
+    <!--</div>-->
 <!--</p>-->
 
 
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Sentiment analysis:</b>
+    </big>
+</p>
+
+<p>
+    We use the set of reviews associated with every business_id retrieved from the 'user reviews dataset'
+    using Map Reduce.The architecture of the map-reduce jobs is given in figure below. At the end of the first
+    map-reduce job, we get the data in the format <code>&lt;reviewID, stars [review text]&gt</code>;.
+    We find the overall sentiment for a given business following the sentiment analysis method described in the article
+    [1]. Finally, we integrated the individual user reviews with their sentiment value with
+    the ‘business dataset’ using ‘business_id’ as the primary key. Then we find the mean value of the
+    sentiment for each business based on the sentiments of all the review for that business.
+    We use two text files pos-words.txt and neg-words.txt [1] to get a set of positive and
+    negative words. Then we find the total number of positive and negative words that are mentioned
+    in a review. Now, using following formula described in [1] we calculate the total sentiment value
+    associated with the review.
+
+    <br/>
+    \begin{equation}
+    sentimentValue = (nPositive − nNegative)/(nPositive + nNegative)
+    \label{eq:t1}
+    \end{equation}
+    <br/>
+
+    This method tell whether the reviews are of positive, negative, or neutral sentiment. This analysis helps
+    the business owner determine the overall sentiment about their business and whether they need to improve their
+    service or features knowing their average review sentiment value between -1 to +1.
+</p>
+
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/sentiment.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/sentiment.png" alt="Hadoop Map Reduce architecture for sentiment analysis" align="middle" hspace="0" width="700">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 4: Hadoop Map Reduce architecture for sentiment analysis</figcaption>
+    </div>
+</p>
 
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Neo4J Graph Model:</b>-->
-    <!--</big>-->
-<!--</p>-->
-
-<!--<p>-->
-    <!--<b>Nodes:</b>-->
-<!--</p>-->
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Geo-spatial Visualization of Ratings:</b>
+    </big>
+</p>
 
 
-<!--<p>-->
-<!--<ul>-->
-    <!--<li>Each of the gesture label is assigned to a node.</li>-->
+<p>
+<ul>
+    <li>Visualization reveals trends in star ratings within a city</li>
 
-    <!--<li>The time properties like StartTimeStamp, EndTimeStamp,-->
-<!--StartFrame, EndFrame are assigned as the properties of the individual node.</li>-->
+    <li>Used MapReduce jobs with ‘city’ as key to Parse business_data</li>
 
-    <!--<li>Each of the Sessions has a node with properties: SessionName,-->
-<!--Participant Number, Block Video Number, path of the video file.</li>-->
+    <li>For a specific city, collected all Business_id, Latitude, Longitude, and Stars</li>
 
-    <!--<li>Participants are represented as nodes with details: age, gender, dominantHand.</li>-->
-
-    <!--<li>We have two nodes: With Sound and No Sound corresponding to type of experiment.</li>-->
-
-    <!--<li>Ensure that uniqueness constraints are enforced on each node.</li>-->
-
-<!--</ul>-->
-<!--</p>-->
+    <li>Used <a href="https://developers.google.com/fusiontables/">Google Fusion Table API</a> for plotting heatmap
+        (representing highly rated businesses) overlaid on the geographic map of the city. For example, figure below
+        shows highly rated businesses in Toronto city.</li>
+</ul>
+</p>
 
 
-<!--<p style="text-align: center;">-->
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/nodes.png">-->
-        <!--<img src="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/nodes.png"></a>-->
-    <!--<figcaption class="figure-caption text-center"><a href="Nodes from Neo4j GraphDB of EGGNOG" title="">Nodes from Neo4j GraphDB of EGGNOG</a></figcaption>-->
-<!--</p>-->
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/geo_mr.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/geo_mr.png" alt="MapReduce job to get highly rated businesses in Toronto" align="middle" hspace="0" width="700">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 5: MapReduce job to get highly rated businesses in Toronto</figcaption>
+    </div>
+</p>
 
 
-<!--<p>-->
-    <!--<b>Relationships:</b>-->
-<!--</p>-->
-
-
-<!--<p>-->
-<!--<ul>-->
-    <!--<li>Two nodes get connected by a connector representing the relationship between the nodes.</li>-->
-
-    <!--<li>This database has 3 relationships: PERFORMED_BY, PROJECT_TYPE, and PRESENT_IN.</li>-->
-
-    <!--<li>PREFORMED_BY: from a gesture to a participant.</li>-->
-
-    <!--<li>PRESENT_IN: from a gesture to a session.</li>-->
-
-    <!--<li>PROJECT_TYPE: is it with/no sound experiment type.</li>-->
-
-    <!--<li>Nodes & Relationships are constructed using CREATE command.</li>-->
-
-<!--</ul>-->
-<!--</p>-->
-
-<!--<p style="text-align: center;">-->
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/relation.png">-->
-        <!--<img src="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/relation.png"></a>-->
-    <!--<figcaption class="figure-caption text-center"><a href="Relationships from Neo4j GraphDB of EGGNOG" title="">Relationships from Neo4j GraphDB of EGGNOG</a></figcaption>-->
-<!--</p>-->
+<p>
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/toronto_restaurants.png">
+            <img src="https://raw.githubusercontent.com/GuruMulay/yelp-data-analysis-big-data-project/master/media/toronto_restaurants.png" alt="Google Fusion Table API heatmap with highly rated businesses in Toronto" align="middle" hspace="0" width="700">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 6: Google Fusion Table API heatmap with highly rated businesses in Toronto</figcaption>
+    </div>
+</p>
 
 
 
-<!--<p>-->
-    <!--<b>Cypher Query:</b>-->
-    <!--<br/>-->
-    <!--Here is an example of Cypher query:-->
-<!--</p>-->
 
-<!--<p style="text-align: center;">-->
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/cq.png">-->
-        <!--<img src="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/cq.png"></a>-->
-    <!--<figcaption class="figure-caption text-center"><a href="Example of Cypher Query" title="">Example of Cypher Query</a></figcaption>-->
-<!--</p>-->
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>References:</b>
+    </big>
+</p>
 
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Advantages of Neo4j over PostgreSQL:</b>-->
-    <!--</big>-->
-<!--</p>-->
-
-
-<!--<p>-->
-<!--<ul>-->
-
-    <!--<li>Avoids costly JOIN operations.</li>-->
-
-    <!--<li>Ability to represent intuitive relationships that naturally exist between the nodes.</li>-->
-
-    <!--<li>Ability to assign properties to node that otherwise are represented as column in RDBMS.</li>-->
-
-    <!--<li>Query execution time is independent of the number of nodes if the dataset is modeled in a appropriate structure.</li>-->
-
-<!--</ul>-->
-<!--</p>-->
-
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Analysis of EGGNOG Graph Database:</b>-->
-    <!--</big>-->
-<!--</p>-->
-
-<!--<p>-->
-    <!--<b>Neo4j compared with PostgreSQL:</b>-->
-<!--</p>-->
-
-<!--<p>-->
-<!--<ul>-->
-
-    <!--<li>With varying database size we observed that query execution time is independent of the size of-->
-        <!--the database represented by the number of nodes.</li>-->
-
-    <!--<li>For the Cypher query shown above, Neo4j scans the nodes connected only to Session 2 and 3 to get information-->
-        <!--about 'PARTICIPANT 4' and 'PARTICIPANT 5', unlike PostgreSQL where all the entries in the 'PARTICIPANT' field-->
-        <!--is scanned for results.</li>-->
-
-    <!--<li>The query time for PostgreSQL is linear as a function of number of records.</li>-->
-
-<!--</ul>-->
-<!--</p>-->
-
-<!--<p style="text-align: center;">-->
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/tb1.png">-->
-        <!--<img src="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/tb1.png"></a>-->
-    <!--<figcaption class="figure-caption text-center"><a href="GraphDB generation time w.r.t. number of nodes" title="">GraphDB generation time w.r.t. number of nodes</a></figcaption>-->
-<!--</p>-->
-
-
-<!--<p style="text-align: center;">-->
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/comp.png">-->
-        <!--<img src="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/comp.png"></a>-->
-    <!--<figcaption class="figure-caption text-center"><a href="PostgreSQL Vs. Neo4j (GraphDB)" title="">PostgreSQL Vs. Neo4j (GraphDB)</a></figcaption>-->
-<!--</p>-->
-
-
-<!--<p>-->
-    <!--<b>Caching and Slow Start in Neo4j:</b>-->
-<!--</p>-->
-
-<!--<p>-->
-<!--<ul>-->
-
-    <!--<li>For 25K nodes, the execution time for first query after start up was 700 to 900 ms.</li>-->
-
-    <!--<li>However, the time reduces exponentially for the same query on subsequent instances (50 ms).</li>-->
-
-<!--</ul>-->
-<!--</p>-->
-
-
-<!--<p style="text-align: center;">-->
-    <!--<a href="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/qtime.png">-->
-        <!--<img src="https://raw.githubusercontent.com/GuruMulay/gesture-dataset-modeled-in-graph-database-Neo4j/master/media/qtime.png"></a>-->
-    <!--<figcaption class="figure-caption text-center"><a href="Query iteration vs. execution time" title="">Query iteration vs. execution time</a></figcaption>-->
-<!--</p>-->
-
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>References:</b>-->
-    <!--</big>-->
-<!--</p>-->
-
-
-<!--<ol type="1">-->
-    <!--<li>https://en.wikipedia.org/wiki/N-gram</li>-->
+<ol type="1">
+    <li><a href="https://www.cloudera.com/documentation/other/tutorial/CDH5/topics/ht_example_4_sentiment_analysis.html">
+        https://www.cloudera.com/documentation/other/tutorial/CDH5/topics/ht_example_4_sentiment_analysis.html
+    </a>
+    </li>
     <!--<li>https://www.gutenberg.org</li>-->
-<!--</ol>-->
+</ol>
 
 
