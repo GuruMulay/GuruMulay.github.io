@@ -1,6 +1,6 @@
 ---
 title: "Attention Window and Object Detection with Tracking"
-excerpt: "<br/><img src='/images/vision/image-comp/img-comp.png'>"
+excerpt: "<br/><img src='/images/vision/image-computation/img-comp.png'>"
 collection: vision
 tags:
   - object-detection
@@ -9,13 +9,16 @@ tags:
   - SIFT-features
   - MOSSE-filter
   - saliency-maps
+  - OpenCV
 ---
 
-[TODO]
 
 <hr style="border-color: silver;">
-<a href="https://github.com/bangar1991/cs510" ><button type="button" class="btn btn--info"><i class="fa fa-github"></i> GitHub Source</button></a>
+<a href="https://github.com/bangar1991/cs510"><button type="button" class="btn btn--info"><i class="fa fa-github"></i> GitHub Source</button></a>
+Team Size: 3
 <hr style="border-color: silver;">
+
+
 
 
 <!--&lt;!&ndash;##############&ndash;&gt;-->
@@ -108,146 +111,150 @@ tags:
 
 
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--##############-->
 <!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>System Design: C++ wrapper and Python server:</b>-->
-    <!--</big>-->
-<!--</p>-->
+<p>
+    <big>
+    <b>Objectives:</b>
+    </big>
+</p>
+
+This project contains a series of assignments put together to build a final project with a goal of object detection and
+tracking. Here are the series of sub-tasks constituting towards the final goal:
+
+<ol>
+    <li><b>Affine and Perspective transforms on a video:</b>
+        <a href="https://github.com/GuruMulay/cs510-mirror/tree/master/a1">This code</a> performs either affine or perspective transformation on an input video using OpenCV's built-in functions.
+    </li>
 
 
-<!--<p>-->
-
-<!--&lt;!&ndash;• •&ndash;&gt;-->
-
-<!--<ul>-->
-
-    <!--<li>The C++ wrapper extracts pose skeletons from-->
-<!--frames captured by a web-cam and uses these-->
-<!--keypoints to crop the RGB images of hands and-->
-<!--the head of the primary person in the video.</li>-->
-
-    <!--<li>The Python server is responsible for-->
-<!--communicating with the wrapper process to-->
-<!--collect the skeleton keypoints, hands and head-->
-<!--images for primary (engaged) person in the frame.</li>-->
-
-    <!--<li>Server accepts four clients: skeleton, right hand,-->
-<!--left hand, and head client.</li>-->
-
-    <!--<li>For every frame processed by OpenPose, the-->
-<!--server sends corresponding data to four clients.</li>-->
-
-<!--</ul>-->
-
-<!--</p>-->
+    <li><b>Extract unique attention windows from each frame of a video:</b>
+        <a href="https://github.com/GuruMulay/cs510-mirror/tree/master/a2">This code</a> extracts attention windows from an input video.
+    </li>
 
 
-<!--<p>-->
-    <!--<br style="margin-bottom:10px;"/>-->
-    <!--<div style="text-align: center">-->
-        <!--<a href="https://raw.githubusercontent.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj/master/media/m2.png">-->
-            <!--<img src="https://raw.githubusercontent.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj/master/media/m2.png" alt="System Design" align="middle" hspace="30" height="300">-->
-        <!--</a>-->
-        <!--<br/>-->
-        <!--<br/>-->
-        <!--<figcaption>Fig. 3: System Design</figcaption>-->
-    <!--</div>-->
-    <!--<br/>-->
-
-<!--</p>-->
+    <li><b>Detect and Track moving objects:</b>
+        <a href="https://github.com/GuruMulay/cs510-mirror/tree/master/a3">This code</a> implements object detection and tracking on a video.
+    </li>
 
 
+    <li>For every frame processed by OpenPose, the
+server sends corresponding data to four clients.</li>
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>CwC demo with RGB-based front-end:</b>-->
-    <!--</big>-->
-<!--</p>-->
-
-
-<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/oIU662_VFAw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>-->
-    <!--<p>This browser does not support embedded YouTube videos. Please visit <a href="https://www.youtube.com/embed/oIU662_VFAw"> here for this YouTube video.</a>.</p>-->
-<!--</iframe>-->
-
-
-<!--<br style="margin-bottom:10px;"/>-->
-
-
-<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/bKtDZkpcrlg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>-->
-        <!--<p>This browser does not support embedded YouTube videos. Please visit <a href="https://www.youtube.com/embed/bKtDZkpcrlg"> here for this YouTube video.</a>.</p>-->
-<!--</iframe>-->
-
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>System Details</b>-->
-    <!--</big>-->
-<!--</p>-->
-
-<!--&lt;!&ndash;•••••&ndash;&gt;-->
-<!--<p>-->
-<!--<ul>-->
-
-    <!--<li>Primary person is the closest person in the center-->
-<!--of frame. With only 2D skeletons, it’s challenging.</li>-->
-
-    <!--<li>We calculate the average expanse (length) of the-->
-<!--limbs of candidate persons present in a central-->
-<!--window and choose the closest person based on a-->
-<!--fixed threshold of limb length (51 in our case).</li>-->
-
-    <!--<li>Outputs 18 keypoints (x, y pixel locations of body-->
-<!--parts + confidence) for people in the image frame.</li>-->
-
-    <!--<li>~15 FPS on 320x240x3 input on NVidia GTX980.</li>-->
-
-    <!--<li>Server sends keypoints to arm motion recognition.</li>-->
-
-    <!--<li>Wrapper crops a 64x64x3 image for left hand,-->
-<!--right hand, and head; Server sends them to hand-->
-<!--and head clients for pose recognition.</li>-->
-
-<!--</ul>-->
-<!--</p>-->
+</ol>
 
 
 
 
-<!--&lt;!&ndash;##############&ndash;&gt;-->
-<!--<hr>-->
-<!--<p>-->
-    <!--<big>-->
-    <!--<b>Conclusions:</b>-->
-    <!--</big>-->
-<!--</p>-->
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Extract unique attention windows:</b>
+    </big>
+</p>
 
-<!--<p>-->
-<!--<ul>-->
 
-    <!--<li>We successfully implemented & tested the system-->
-<!--by seamlessly switching from Kinect-based front-->
-<!--end. Hands-on testing with the AI agent proved-->
-<!--that it’s possible to get complex block structures-->
-<!--build from the agent even with a RGB sensor.</li>-->
+<p>
+    Objective is to write a program that reads a video and produces one attention window per frame.
+    The window represents the 'best' attention window for that frame and is written back to the disk.
+    We implemented multiple ways to find the best attention window per frame. Some of the approaches were:
 
-    <!--<li>The system ran with no significant lag, but it-->
-<!--needed specific conditions (e.g., bright light).</li>-->
+    <ul>
 
-    <!--<li>We demoed the system at DARPA in Dec 2017.</li>-->
+    <li>SIFT keypoints based approach that finds the best attention window using size-response sorting</li>
 
-    <!--<li>We hope that it can possibly replace the Kinect-->
-<!--sensor, making our project demo more portable.</li>-->
+    <li>SIFT keypoints clustering using hierarchical (HCA) and DBSCAN clustering algorithms</li>
 
-    <!--<li>In future, we aim to improve the performance in-->
-<!--terms of fps and input image resolution.</li>-->
+    <li>Saliency based attention models (Boolean Map based Saliency)</li>
 
-<!--</ul>-->
-<!--</p>-->
+    </ul>
+
+    Figure 1 and 2 show example frames from a video. Figure 1 shows keypoints clustered using hierarchical clustering
+    algorithm. Clusters form an attention window. Figure 2 shows saliency map for a frame from the video. High saliency
+    means the region should qualify for high attention.
+
+
+    <br/>
+    <br style="margin-bottom:20px;"/>
+    <a href="https://github.com/GuruMulay/cs510-mirror/blob/master/a2/assignment2-report.pdf"><button type="button" class="btn btn--info"><i class="fa fa-file-pdf-o"></i> PDF Report</button></a>
+    - Here is a short report detailing about each of the approaches mentioned above.
+
+
+    <br/>
+    <br style="margin-bottom:20px;"/>
+    <div style="text-align: center">
+        <a href="/images/vision/image-computation/clustering.png">
+            <img src="/images/vision/image-computation/clustering.png" alt="Attention widows based on hierarchical clustering" align="middle" hspace="0" height="300">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 1: Attention widows based on hierarchical clustering</figcaption>
+    </div>
+
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="/images/vision/image-computation/saliency.png">
+            <img src="/images/vision/image-computation/saliency.png" alt="Attention widows based on saliency maps" align="middle" hspace="0" height="300">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 2: Attention widows based on saliency maps</figcaption>
+    </div>
+
+</p>
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Detect and Track moving objects:</b>
+    </big>
+</p>
+
+
+    <br/>
+    <a href="https://github.com/GuruMulay/cs510-mirror/blob/master/a3/assignment3-report.pdf"><button type="button" class="btn btn--info"><i class="fa fa-file-pdf-o"></i> PDF Report</button></a>
+    - Here is a short report on object detection and tracking.
+    <br/>
+
+
+<br style="margin-bottom:10px;"/>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R-waR3JWDIY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+    <p>This browser does not support embedded YouTube videos. Please visit <a href="https://www.youtube.com/embed/R-waR3JWDIY"> here for this YouTube video.</a>.</p>
+</iframe>
+
+<br style="margin-bottom:10px;"/>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ajp-H0SiAGo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+    <p>This browser does not support embedded YouTube videos. Please visit <a href="https://www.youtube.com/embed/Ajp-H0SiAGo"> here for this YouTube video.</a>.</p>
+</iframe>
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>PA5:</b>
+    </big>
+</p>
+
+
+    <br/>
+    <a href="https://github.com/GuruMulay/cs510-mirror/blob/master/a5/assignment5-report.pdf"><button type="button" class="btn btn--info"><i class="fa fa-file-pdf-o"></i> PDF Report</button></a>
+    - Here is a short report on this assignment.
+    <br/>
+
+
+<br style="margin-bottom:10px;"/>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IqFAqBp9Tzc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+    <p>This browser does not support embedded YouTube videos. Please visit <a href="https://www.youtube.com/embed/IqFAqBp9Tzc"> here for this YouTube video.</a>.</p>
+</iframe>
 
 
 
