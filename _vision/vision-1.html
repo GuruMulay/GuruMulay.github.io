@@ -1,0 +1,345 @@
+---
+title: "Attention Window and Object Detection, Tracking, Labeling, and Video Captioning"
+excerpt: "<br/><img src='/images/vision/image-computation/img-comp.png'>"
+collection: vision
+tags:
+  - object-detection
+  - object-tracking
+  - object-labeling
+  - video-captioning
+  - attention-window-detection
+  - SIFT-features
+  - Mixture-of-Gaussians
+  - MOSSE-filter
+  - ViBe
+  - VGG
+  - saliency-maps
+  - OpenCV
+---
+
+
+<hr style="border-color: silver;">
+<a href="https://github.com/bangar1991/cs510"><button type="button" class="btn btn--info"><i class="fa fa-github"></i> GitHub Source</button></a>
+Team Size: 3
+<hr style="border-color: silver;">
+
+
+<!--##############-->
+<!--<hr>-->
+<p>
+    <big>
+    <b>Objectives:</b>
+    </big>
+</p>
+
+This project contains a series of assignments put together to build a final project with a goal of object detection,
+tracking, labeling, and video captioning. Here are the series of sub-tasks constituting towards the final goal:
+
+<ol>
+    <li><b>Affine and Perspective transforms on a video:</b>
+        <a href="https://github.com/GuruMulay/cs510-mirror/tree/master/a1">This code</a> performs either affine or perspective transformation on an input video using OpenCV's built-in functions.
+    </li>
+
+
+    <li><b>Extract unique attention windows from each frame of a video:</b>
+        <a href="https://github.com/GuruMulay/cs510-mirror/tree/master/a2">This code</a> extracts attention windows from an input video.
+    </li>
+
+
+    <li><b>Detect and Track moving objects:</b>
+        <a href="https://github.com/GuruMulay/cs510-mirror/tree/master/a3">This code</a> implements object detection and tracking on a video.
+    </li>
+
+
+    <li><b>Object labeling:</b>
+        <a href="https://github.com/GuruMulay/cs510-mirror/tree/master/a4">This code</a> implements VGG based object labeling.
+    </li>
+
+    <li><b>Video captioning:</b>
+        <a href="https://github.com/GuruMulay/cs510-mirror/tree/master/a5">This code</a> demonstrated video captioning.
+    </li>
+
+</ol>
+
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Extract unique attention windows:</b>
+    </big>
+</p>
+
+
+<p>
+    Objective is to write a program that reads a video and produces one attention window per frame.
+    The window represents the 'best' attention window for that frame and is written back to the disk.
+    We implemented multiple ways to find the best attention window per frame. Some of the approaches were:
+
+    <ul>
+
+    <li>SIFT (Scale-Invariant Feature Transform) keypoints based approach that finds the best attention window using size-response sorting</li>
+
+    <li>SIFT keypoints clustering using hierarchical (HCA) and DBSCAN clustering algorithms</li>
+
+    <li>Saliency based attention models (Boolean Map based Saliency)</li>
+
+    </ul>
+
+    Figure 1 and 2 show example frames from a video. Figure 1 shows keypoints clustered using hierarchical clustering
+    algorithm. Clusters form an attention window. Figure 2 shows saliency map for a frame from the video. High saliency
+    means the region should qualify for high attention.
+
+
+    <br/>
+    <br style="margin-bottom:20px;"/>
+    <a href="https://github.com/GuruMulay/cs510-mirror/blob/master/a2/assignment2-report.pdf"><button type="button" class="btn btn--info"><i class="fa fa-file-pdf-o"></i> PDF Report</button></a>
+    - Here is a short report detailing about each of the approaches mentioned above.
+
+
+    <br/>
+    <br style="margin-bottom:20px;"/>
+    <div style="text-align: center">
+        <a href="/images/vision/image-computation/clustering.png">
+            <img src="/images/vision/image-computation/clustering.png" alt="Attention widows based on hierarchical clustering" align="middle" hspace="0" height="300">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 1: Attention widows based on hierarchical clustering</figcaption>
+    </div>
+
+    <br style="margin-bottom:10px;"/>
+    <div style="text-align: center">
+        <a href="/images/vision/image-computation/saliency.png">
+            <img src="/images/vision/image-computation/saliency.png" alt="Attention widows based on saliency maps" align="middle" hspace="0" height="300">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 2: Attention widows based on saliency maps</figcaption>
+    </div>
+
+</p>
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Detect and Track moving objects:</b>
+    </big>
+</p>
+
+We use Mixture of Gaussians (MOG) [1] method to detect the foreground objects, along with
+Minimum Output Sum of Squared Error (MOSSE) filter [2] to track these objects across the entire video. For foreground
+and background detection we also tried the ViBe [3] algorithm but we ended up using MOG.
+
+<br/>
+<br/>
+
+First component of our system uses Mixture of Gaussians model which employs as the name implies, a mixture of 3-5
+Gaussians to model each background pixel. The second component of our system is tracking the objects across the image
+sequence. MOSSE is an attractive approach since it is fast, accurate, and more importantly, doesn't require training
+beforehand. For our system, we chose MOSSE for these reasons. While testing these methods we found that shadows pose
+a major problem in detection giving many false positives.
+
+
+<br style="margin-bottom:10px;"/>
+<br/>
+<a href="https://github.com/GuruMulay/cs510-mirror/blob/master/a3/assignment3-report.pdf"><button type="button" class="btn btn--info"><i class="fa fa-file-pdf-o"></i> PDF Report</button></a>
+- Here is a short report on object detection and tracking that talks about implementation details an evaluation of our system.
+<br/>
+
+
+<br style="margin-bottom:10px;"/>
+
+Here are some of the videos outputted by our system demonstrating object detection and tracking.
+
+
+<br style="margin-bottom:10px;"/>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/R-waR3JWDIY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+    <p>This browser does not support embedded YouTube videos. Please visit <a href="https://www.youtube.com/embed/R-waR3JWDIY"> here for this YouTube video.</a>.</p>
+</iframe>
+
+<br style="margin-bottom:10px;"/>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ajp-H0SiAGo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+    <p>This browser does not support embedded YouTube videos. Please visit <a href="https://www.youtube.com/embed/Ajp-H0SiAGo"> here for this YouTube video.</a>.</p>
+</iframe>
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Object labeling:</b>
+    </big>
+</p>
+
+Goal is to integrate the object detection and tracking systems by applying a pre-trained deep convolutional network
+(VGG [4], [5]) on the attention windows and tracked windows and classify the objects within those windows.
+
+<br/>
+Our system consist of three major parts. First is the attention window detection wherein the
+system captures the most interesting windows from a video frame. Although we applied it on a
+dynamic video, it is particularly useful in finding static attention windows such as house, lamp-
+posts, etc. Second is the tracking where the systems tracks a detected window in frame sequences
+though time. Both produce a list of rectangular attention windows written to a csv file. Finally,
+the trained VGG classier processes these attention windows to output the most probable label of
+that window captured either from the static background or the dynamic foreground.
+
+<br/>
+<br/>
+
+<b>VGG:</b> It is a 16 layer Deep Convolutional Neural Network with 1000 output classes having an
+architecture of layers as [C-C-P-C-C-P-C-C-C-P-C-C-C-P-C-C-C-P-F-F-F], where C is Convolutional layer,
+P is Pooling layer, F is Fully-Connected layer.
+
+
+<br style="margin-bottom:10px;"/>
+<br/>
+<a href="https://github.com/GuruMulay/cs510-mirror/blob/master/a4/assignment4-report.pdf"><button type="button" class="btn btn--info"><i class="fa fa-file-pdf-o"></i> PDF Report</button></a>
+- Here is a short report on VGG based labeling.
+<br/>
+
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>Video Captioning: Describing the video after object detection, tracking, and labeling.</b>
+    </big>
+</p>
+
+
+In this section we integrate the object detection, tracking, and labeling systems with a video captioning system. We use
+the classification labels from VGG with their location and direction of motion to generate meaningful sentences
+describing the scene in the video.
+
+<br/>
+<br/>
+
+Our final system consist of four major modules. First is the attention window detection from the
+background of the video frame. Here, the system captures the most interesting (attention grabbing)
+windows from the background of the video frame. It detects static attention windows such as house,
+lamp-posts, etc. Second is the foreground detection where a foreground detecting algorithm gives
+us a set of objects in the foreground. On the top of this we track the foreground objects using
+MOSSE tracking algorithm.
+
+<br/>
+<br/>
+
+For every frame, both the modules produce a set of rectangular windows that are the ’most
+attentive.’ Next, a trained VGG classier processes these attention windows and outputs the most
+probable label of that window which could be either from the static background or the dynamic
+foreground. This module writes a csv file with list of labels and their location, direction of motion
+and frame number where they were detected. Finally, we describe the video scene in sentences
+using the ’scene description’ module.
+
+<br/>
+<br/>
+
+<b>Video captioning:</b>
+The current approach to describe the video in sentences is a simple approach based on the type
+of the object from the csv file. We describe the video in terms of foreground and the background
+that are labels as ‘moving’ and ‘still’ in the csv file. For example, following is the scene description
+produced for the first test video (example1.mov) and the seconds test video (example2.mp4) respectively.
+
+
+<br/>
+
+    <br/>
+    <a href="https://github.com/GuruMulay/cs510-mirror/blob/master/a5/assignment5-report.pdf"><button type="button" class="btn btn--info"><i class="fa fa-file-pdf-o"></i> PDF Report</button></a>
+    - Here is a short report detailing about the individual components and their integration along with the evaluation of this system.
+    <br/>
+    <br/>
+
+
+<hr>
+
+Here is the video-caption generated by our system for video below:
+<br/>
+<br/>
+
+<div style="font-family:courier; font-size:110%;">
+<p style="margin-left: 0%; margin-right: 0%; margin-top: 0%; margin-bottom: 0%; background-color: #ddddee; padding: 20px 20px 20px 20px;">
+In the background, there is a barn in the middle left, a flagpole in the upper right, a
+boathouse in the middle left, a thresher in the middle left, a limousine in the middle left. In
+the foreground, a minivan (moving towards right slowly) AND a pickup (moving towards
+left slowly) are moving in opposite direction.
+</p>
+</div>
+
+    <br style="margin-bottom:10px;"/>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/Ajp-H0SiAGo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+    <p>This browser does not support embedded YouTube videos. Please visit <a href="https://www.youtube.com/embed/Ajp-H0SiAGo"> here for this YouTube video.</a>.</p>
+    </iframe>
+
+    <br style="margin-bottom:10px;"/>
+
+
+<hr>
+
+Here is another video-caption generated by our system for video below:
+<br/>
+<br/>
+
+<div style="font-family:courier; font-size:110%;">
+<p style="margin-left: 0%; margin-right: 0%; margin-top: 0%; margin-bottom: 0%; background-color: #ddddee; padding: 20px 20px 20px 20px;">
+In the background, there is a racer in the center, a mobile home in the middle left, a maze in
+the center, a paddlewheel in the upper left, a aircraft carrier in the middle left, a warplane in
+the middle left, a liner in the upper left. In the foreground, a moving van (moving towards
+left slowly) , a limousine (moving towards left slowly) are moving in same direction.
+</p>
+</div>
+
+
+
+    <br style="margin-bottom:10px;"/>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/IqFAqBp9Tzc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+    <p>This browser does not support embedded YouTube videos. Please visit <a href="https://www.youtube.com/embed/IqFAqBp9Tzc"> here for this YouTube video.</a>.</p>
+    </iframe>
+
+    <br style="margin-bottom:10px;"/>
+    <br style="margin-bottom:10px;"/>
+
+
+The current video captioning algorithm provides a ‘text template’ which
+is then filled in depending on the number of objects (moving or still) in the video. Therefore, the
+scene description is rigid in the sense that it does not show any ‘intelligence’ in describing a scene.
+
+<br/>
+<br/>
+
+Obviously, in both the examples the captions are not the best captions for respective videos. Also, the methodology
+used for captioning was not generalizable across various video domains. Given the time constrains, we resorted to
+our 'hard-coded' captioning methodology. However, in future we would like to explore the state-of-the-art, CNN-based
+video captioning methods published in recent years (after 2014). Ultimate goal would be to develop
+a generic algorithm that describes the scene in a non-rigid and intelligent manner without having
+a ‘text template’ to start with.
+
+
+<!--##############-->
+<hr>
+<p>
+    <big>
+    <b>References:</b>
+    </big>
+</p>
+
+<ol type="1">
+    <li>Stauffer C., Grimson W., Adaptive background mixture models for real-time tracking, The Artificial Intelligence Laboratory, Massachusetts Institute of Technology, Cambridge, MA 02139</li>
+    <li>David S., Bolme J., Ross Beveridge, Bruce A. Draper, Yui Man Lui, MOSSE: Visual Object Tracking using Adaptive Correlation Filters <a href="https://www.cs.colostate.edu/~vision/publications/bolme_cvpr10.pdf">https://www.cs.colostate.edu/~vision/publications/bolme_cvpr10.pdf</a> </li>
+    <li>O. Barnich and M. Van Droogenbroeck, ViBe: A Universal Background Subtraction Algorithm for Video Sequences <a href="https://ieeexplore.ieee.org/document/5672785">https://ieeexplore.ieee.org/document/5672785</a> </li>
+    <li>Simonyan K. and Zisserman A., Very Deep Convolutional Networks for Large-Scale Image Recognition <a href="https://arxiv.org/pdf/1409.1556/">https://arxiv.org/pdf/1409.1556/</a></li>
+    <li>Pre-trained VGG: <a href="http://www.cs.colostate.edu/~cs510/yr2017sp/more_assignments/vgg.zip">http://www.cs.colostate.edu/~cs510/yr2017sp/more_assignments/vgg.zip</a></li>
+</ol>
+
+
