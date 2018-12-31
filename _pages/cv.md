@@ -10,6 +10,6 @@ redirect_from:
 
 --------------------
 
-__[CV PDF](https://www.dropbox.com/s/s3tg31os1vtjg49/cv_guru_mulay_122118.pdf?dl=0)__ &nbsp; &nbsp; [<i class="fa fa-fw fa-download"></i> Download](https://www.dropbox.com/s/s3tg31os1vtjg49/cv_guru_mulay_122118.pdf?dl=1){: .btn .btn--success}
+__[CV PDF](https://www.dropbox.com/s/ep3rhr0tpfo15lh/cv_guru_mulay_123118.pdf?dl=0)__ &nbsp; &nbsp; [<i class="fa fa-fw fa-download"></i> Download](https://www.dropbox.com/s/ep3rhr0tpfo15lh/cv_guru_mulay_123118.pdf?dl=1){: .btn .btn--success}
 
 --------------------
