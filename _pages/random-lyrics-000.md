@@ -1,5 +1,5 @@
 ---
-permalink: /random-lyrics-0/
+permalink: /random-lyrics-000/
 title: "Shadow of the day"
 excerpt: ""
 author_profile: false
