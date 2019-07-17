@@ -1,0 +1,303 @@
+---
+title: "Object Detection using ORB Feature Descriptors and DBSCAN Clustering"
+excerpt: "<br/><img src='/images/vision/object-detection/train_vs_test_cnn1.png'>"
+collection: vision
+tags:
+  - computer-vision
+  - object-detection
+  - ORB-feature-descriptor
+  - DBSCAN-clustering
+---
+
+
+<hr style="border-color: silver;">
+<a href="https://github.com/GuruMulay/Object-Detection-ORB-Descriptor-DBSCAN"><button type="button" class="btn btn--info"><i class="fa fa-github"></i> GitHub Source</button></a>
+<hr style="border-color: silver;">
+
+
+<!--##############-->
+<!--<hr>-->
+<p>
+    <big>
+    <b>Abstract:</b>
+    </big>
+</p>
+
+This project aims to train a simple, traditional, non-cnn algorithm with ORB features of an object and DBSCAN clustering
+and test this algorithm on a set of test images.
+
+
+As opposed to above, here is a sample output of a CNN based approach:
+
+<p>
+
+    <div style="text-align: center">
+        <a href="/images/vision/object-detection/train_vs_test_cnn1.png">
+            <img src="/images/vision/object-detection/train_vs_test_cnn1.png" alt="CNN-based approach of object detection" align="middle" hspace="0" height="300">
+        </a>
+        <br/>
+        <br/>
+        <figcaption>Fig. 1: CNN-based approach of object detection</figcaption>
+    </div>
+
+</p>
+
+
+
+<br/>
+<br/>
+<br/>
+
+[TODO]
+
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>Introduction:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+<!--<strong> Brief intro to CwC:</strong>-->
+<!--<br style="margin-bottom:10px;"/>-->
+
+<!--<p>-->
+    <!--The long term goal of the <a href="https://www.cs.colostate.edu/~draper/home_research.php">CwC project</a>-->
+    <!--is to build an AI agent that will communicate seamlessly with humans via gestures, expressions, and vocal communication-->
+    <!--just like a real human being would with another human being. The agent achieves this communication by building a shared-->
+    <!--perception with the humans using all the knowledge it acquired through all the past and current interactions with the humans.-->
+    <!--The short term goal is-->
+    <!--to get a structure of virtual blocks build from a virtual AI agent (Diana) via multi-modal communication.-->
+    <!--CSU's computer vision lab (of which I am a part of) has built this system (please see the demo video below) as-->
+    <!--a part of an active (as of 2018) DARPA project called CwC.-->
+<!--</p>-->
+
+
+<!--<p>-->
+    <!--[[Video]]-->
+<!--</p>-->
+
+<!--<strong> RGB-based Skeleton Recognition for CwC:</strong>-->
+<!--<br style="margin-bottom:10px;"/>-->
+
+<!--<p>-->
+    <!--Recent work by CMU [1], [2] in human pose recognition from RGB images, produces state-of-the-art-->
+    <!--results on multiple datasets. Success of these methods-->
+    <!--can be primarily attributed to convolutional neural-->
+    <!--networks for joint detection and special techniques-->
+    <!--to associate detected joints with people in a frame.-->
+    <!--We incorporated this work to replace previous-->
+    <!--depth-based pose recognition. Task involved writing a C++ wrapper around the OpenPose library-->
+    <!--[1] and a Python server to interface this wrapper-->
+    <!--with the rest of the client’s system, along with some-->
+    <!--modifications to previous clients-->
+<!--</p>-->
+
+
+<!--<p>-->
+    <!--As a part of my <a href="https://www.cs.colostate.edu/~cs793/Fall17/">Research Seminar Course (CSU CS793)</a>, I-->
+    <!--worked on the front-end of the CwC project to replace the Kinect-based data collection module at the front-end-->
+    <!--of the Communicating with Computers project with an RGB camera-based module in a seamless manner with following-->
+    <!--objectives:-->
+
+<!--<ul>-->
+    <!--<li>Retrieve the pose skeleton keypoints of a human subject from RGB images.</li>-->
+    <!--<li>Transmit keypoints & RGB images of hands, head to clients for gesture recognition.</li>-->
+    <!--<li>Write a wrapper for <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose">OpenPose library </a>-->
+        <!--that does pose skeleton detection.</li>-->
+<!--</ul>-->
+
+<!--</p>-->
+
+
+<!--<p>-->
+    <!--&lt;!&ndash;Approximate pipeline of the CwC project:&ndash;&gt;-->
+    <!--<br style="margin-bottom:10px;"/>-->
+    <!--<div style="text-align: center">-->
+        <!--<a href="https://raw.githubusercontent.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj/master/media/cwc3.png">-->
+            <!--<img src="https://raw.githubusercontent.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj/master/media/cwc3.png" alt="CwC project block diagram" align="middle" hspace="30" height="300">-->
+        <!--</a>-->
+        <!--<br/>-->
+        <!--<figcaption>Fig. 1: CwC project pipeline</figcaption>-->
+    <!--</div>-->
+    <!--<br/>-->
+
+<!--</p>-->
+
+
+<!--<p>-->
+    <!--Here is the comparison between old and new front-end for our CwC pipeline.-->
+    <!--<br style="margin-bottom:10px;"/>-->
+    <!--<div style="text-align: center">-->
+        <!--<a href="https://raw.githubusercontent.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj/master/media/diff.png">-->
+            <!--<img src="https://raw.githubusercontent.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj/master/media/diff.png" alt="CwC project old vs new front-end" align="middle" hspace="30" height="300">-->
+        <!--</a>-->
+        <!--<br/>-->
+        <!--<figcaption>Fig. 2: CwC: old vs new front-end</figcaption>-->
+    <!--</div>-->
+    <!--<br/>-->
+
+<!--</p>-->
+
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>System Design: C++ wrapper and Python server:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+
+<!--<p>-->
+
+<!--&lt;!&ndash;• •&ndash;&gt;-->
+
+<!--<ul>-->
+
+    <!--<li>The C++ wrapper extracts pose skeletons from-->
+<!--frames captured by a web-cam and uses these-->
+<!--keypoints to crop the RGB images of hands and-->
+<!--the head of the primary person in the video.</li>-->
+
+    <!--<li>The Python server is responsible for-->
+<!--communicating with the wrapper process to-->
+<!--collect the skeleton keypoints, hands and head-->
+<!--images for primary (engaged) person in the frame.</li>-->
+
+    <!--<li>Server accepts four clients: skeleton, right hand,-->
+<!--left hand, and head client.</li>-->
+
+    <!--<li>For every frame processed by OpenPose, the-->
+<!--server sends corresponding data to four clients.</li>-->
+
+<!--</ul>-->
+
+<!--</p>-->
+
+
+<!--<p>-->
+    <!--<br style="margin-bottom:10px;"/>-->
+    <!--<div style="text-align: center">-->
+        <!--<a href="https://raw.githubusercontent.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj/master/media/m2.png">-->
+            <!--<img src="https://raw.githubusercontent.com/GuruMulay/rgb-based-skeleton-recognition-for-cwc-proj/master/media/m2.png" alt="System Design" align="middle" hspace="30" height="300">-->
+        <!--</a>-->
+        <!--<br/>-->
+        <!--<br/>-->
+        <!--<figcaption>Fig. 3: System Design</figcaption>-->
+    <!--</div>-->
+    <!--<br/>-->
+
+<!--</p>-->
+
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>CwC demo with RGB-based front-end:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+
+<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/oIU662_VFAw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>-->
+    <!--<p>This browser does not support embedded YouTube videos. Please visit <a href="https://www.youtube.com/embed/oIU662_VFAw"> here for this YouTube video.</a>.</p>-->
+<!--</iframe>-->
+
+
+<!--<br style="margin-bottom:10px;"/>-->
+
+
+<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/bKtDZkpcrlg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>-->
+        <!--<p>This browser does not support embedded YouTube videos. Please visit <a href="https://www.youtube.com/embed/bKtDZkpcrlg"> here for this YouTube video.</a>.</p>-->
+<!--</iframe>-->
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>System Details</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+<!--&lt;!&ndash;•••••&ndash;&gt;-->
+<!--<p>-->
+<!--<ul>-->
+
+    <!--<li>Primary person is the closest person in the center-->
+<!--of frame. With only 2D skeletons, it’s challenging.</li>-->
+
+    <!--<li>We calculate the average expanse (length) of the-->
+<!--limbs of candidate persons present in a central-->
+<!--window and choose the closest person based on a-->
+<!--fixed threshold of limb length (51 in our case).</li>-->
+
+    <!--<li>Outputs 18 keypoints (x, y pixel locations of body-->
+<!--parts + confidence) for people in the image frame.</li>-->
+
+    <!--<li>~15 FPS on 320x240x3 input on NVidia GTX980.</li>-->
+
+    <!--<li>Server sends keypoints to arm motion recognition.</li>-->
+
+    <!--<li>Wrapper crops a 64x64x3 image for left hand,-->
+<!--right hand, and head; Server sends them to hand-->
+<!--and head clients for pose recognition.</li>-->
+
+<!--</ul>-->
+<!--</p>-->
+
+
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>Conclusions:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+<!--<p>-->
+<!--<ul>-->
+
+    <!--<li>We successfully implemented & tested the system-->
+<!--by seamlessly switching from Kinect-based front-->
+<!--end. Hands-on testing with the AI agent proved-->
+<!--that it’s possible to get complex block structures-->
+<!--build from the agent even with a RGB sensor.</li>-->
+
+    <!--<li>The system ran with no significant lag, but it-->
+<!--needed specific conditions (e.g., bright light).</li>-->
+
+    <!--<li>We demoed the system at DARPA in Dec 2017.</li>-->
+
+    <!--<li>We hope that it can possibly replace the Kinect-->
+<!--sensor, making our project demo more portable.</li>-->
+
+    <!--<li>In future, we aim to improve the performance in-->
+<!--terms of fps and input image resolution.</li>-->
+
+<!--</ul>-->
+<!--</p>-->
+
+
+
+
+<!--&lt;!&ndash;##############&ndash;&gt;-->
+<!--<hr>-->
+<!--<p>-->
+    <!--<big>-->
+    <!--<b>References:</b>-->
+    <!--</big>-->
+<!--</p>-->
+
+<!--<ol type="1">-->
+    <!--<li>Openpose Library: github.com/CMU-Perceptual-Computing-Lab/openpose</li>-->
+    <!--<li>Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields, Z Cao, T Simon, S Wei, Y Sheikh,-->
+        <!--arXiv:1611.08050, 2016</li>-->
+<!--</ol>-->
+
+
