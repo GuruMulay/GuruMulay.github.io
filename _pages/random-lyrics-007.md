@@ -8,7 +8,7 @@ author_profile: false
 <br/>
 <br/>
 
-<p style="color:#aaaacc; font-size:125%; font-family:courier;">
+<p style="color:#901090; font-size:125%; font-family:courier;">
     " <br/>
 
 You say you're not gonna fight <br/>
